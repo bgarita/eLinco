@@ -1,0 +1,12 @@
+Continuar proyecto FE
+
+- Crear tabla y objetos de java para el detalle de la factura.
+- Generar reportes por emisor y rango de fechas     PENDIENTE
+
+
+1. Crear base de datos FE con las siguentes tablas:
+    - encabezado (todo documento debe guardar el número de ID del proveedor fa.getEmisor().getIdentificacion().getNumero())
+        Ese número deberá ser un índice y se usará para filtrar los reportes.
+    - detalle
+    - otro  (otros textos en la factura)
+    - referencia    (referencia a facturas en notas de crédito)

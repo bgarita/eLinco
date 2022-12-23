@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?><FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/facturaElectronica" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#">
+    <Clave>50616082200400004213800100001010010558863106241151</Clave>
+    <CodigoActividad>410001</CodigoActividad>
+    <NumeroConsecutivo>00100001010010558863</NumeroConsecutivo>
+    <FechaEmision>2022-08-16T23:59:03.692-06:00</FechaEmision>
+    <Emisor>
+        <Nombre>INSTITUTO COSTARRICENSE DE ACUEDUCTOS Y ALCANTARILLADOS</Nombre>
+        <Identificacion>
+            <Tipo>02</Tipo>
+            <Numero>4000042138</Numero>
+        </Identificacion>
+        <NombreComercial>INSTITUTO COSTARRICENSE DE ACUEDUCTOS Y ALCANTARILLADOS</NombreComercial>
+        <Ubicacion>
+            <Provincia>1</Provincia>
+            <Canton>01</Canton>
+            <Distrito>09</Distrito>
+            <Barrio>01</Barrio>
+            <OtrasSenas>Pavas</OtrasSenas>
+        </Ubicacion>
+        <Telefono>
+            <CodigoPais>506</CodigoPais>
+            <NumTelefono>22425464</NumTelefono>
+        </Telefono>
+        <Fax>
+            <CodigoPais>506</CodigoPais>
+            <NumTelefono>22425057</NumTelefono>
+        </Fax>
+        <CorreoElectronico>contactenos@aya.go.cr</CorreoElectronico>
+    </Emisor>
+    <Receptor>
+        <Nombre>GARITA  AZOFEIFA  BOSCO EVELIO</Nombre>
+        <Identificacion>
+            <Tipo>01</Tipo>
+            <Numero>302880569</Numero>
+        </Identificacion>
+    </Receptor>
+    <CondicionVenta>02</CondicionVenta>
+    <PlazoCredito>30</PlazoCredito>
+    <MedioPago>01</MedioPago>
+    <DetalleServicio>
+        <LineaDetalle>
+            <NumeroLinea>1</NumeroLinea>
+            <Codigo>6921000000100</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>CC951</Codigo>
+            </CodigoComercial>
+            <Cantidad>1.000</Cantidad>
+            <UnidadMedida>m³</UnidadMedida>
+            <Detalle>Cargo fijo agua</Detalle>
+            <PrecioUnitario>2000.00000</PrecioUnitario>
+            <MontoTotal>2000.00000</MontoTotal>
+            <SubTotal>2000.00000</SubTotal>
+            <ImpuestoNeto>0.00000</ImpuestoNeto>
+            <MontoTotalLinea>2000.00000</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>2</NumeroLinea>
+            <Codigo>9411000000000</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>CC953</Codigo>
+            </CodigoComercial>
+            <Cantidad>1.000</Cantidad>
+            <UnidadMedida>m³</UnidadMedida>
+            <Detalle>Cargo fijo alcan</Detalle>
+            <PrecioUnitario>1200.00000</PrecioUnitario>
+            <MontoTotal>1200.00000</MontoTotal>
+            <SubTotal>1200.00000</SubTotal>
+            <ImpuestoNeto>0.00000</ImpuestoNeto>
+            <MontoTotalLinea>1200.00000</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>3</NumeroLinea>
+            <Codigo>6921000000100</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>CC211</Codigo>
+            </CodigoComercial>
+            <Cantidad>1.000</Cantidad>
+            <UnidadMedida>m³</UnidadMedida>
+            <Detalle>Consumo de Agua</Detalle>
+            <PrecioUnitario>2422.00000</PrecioUnitario>
+            <MontoTotal>2422.00000</MontoTotal>
+            <SubTotal>2422.00000</SubTotal>
+            <ImpuestoNeto>0.00000</ImpuestoNeto>
+            <MontoTotalLinea>2422.00000</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>4</NumeroLinea>
+            <Codigo>9411000000000</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>CC213</Codigo>
+            </CodigoComercial>
+            <Cantidad>1.000</Cantidad>
+            <UnidadMedida>m³</UnidadMedida>
+            <Detalle>Csmo.alcantarillado</Detalle>
+            <PrecioUnitario>2314.00000</PrecioUnitario>
+            <MontoTotal>2314.00000</MontoTotal>
+            <SubTotal>2314.00000</SubTotal>
+            <ImpuestoNeto>0.00000</ImpuestoNeto>
+            <MontoTotalLinea>2314.00000</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>5</NumeroLinea>
+            <Codigo>6921000009900</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>CC301</Codigo>
+            </CodigoComercial>
+            <Cantidad>1.000</Cantidad>
+            <UnidadMedida>m³</UnidadMedida>
+            <Detalle>Hidrantes</Detalle>
+            <PrecioUnitario>154.00000</PrecioUnitario>
+            <MontoTotal>154.00000</MontoTotal>
+            <SubTotal>154.00000</SubTotal>
+            <ImpuestoNeto>0.00000</ImpuestoNeto>
+            <MontoTotalLinea>154.00000</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>6</NumeroLinea>
+            <Codigo>9090000000000</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>CC310</Codigo>
+            </CodigoComercial>
+            <Cantidad>1.000</Cantidad>
+            <UnidadMedida>m³</UnidadMedida>
+            <Detalle>Proteccion del Recurso Hidrico(M)</Detalle>
+            <PrecioUnitario>18.00000</PrecioUnitario>
+            <MontoTotal>18.00000</MontoTotal>
+            <SubTotal>18.00000</SubTotal>
+            <ImpuestoNeto>0.00000</ImpuestoNeto>
+            <MontoTotalLinea>18.00000</MontoTotalLinea>
+        </LineaDetalle>
+    </DetalleServicio>
+    <ResumenFactura>
+        <CodigoTipoMoneda>
+            <CodigoMoneda>CRC</CodigoMoneda>
+            <TipoCambio>1.00000</TipoCambio>
+        </CodigoTipoMoneda>
+        <TotalServGravados>0.00000</TotalServGravados>
+        <TotalServExentos>0.00000</TotalServExentos>
+        <TotalServExonerado>0.00000</TotalServExonerado>
+        <TotalMercanciasGravadas>0.00000</TotalMercanciasGravadas>
+        <TotalMercanciasExentas>8108.00000</TotalMercanciasExentas>
+        <TotalMercExonerada>0.00000</TotalMercExonerada>
+        <TotalGravado>0.00000</TotalGravado>
+        <TotalExento>8108.00000</TotalExento>
+        <TotalExonerado>0.00000</TotalExonerado>
+        <TotalVenta>8108.00000</TotalVenta>
+        <TotalDescuentos>0.00000</TotalDescuentos>
+        <TotalVentaNeta>8108.00000</TotalVentaNeta>
+        <TotalImpuesto>0.00000</TotalImpuesto>
+        <TotalIVADevuelto>0.00000</TotalIVADevuelto>
+        <TotalOtrosCargos>0.00000</TotalOtrosCargos>
+        <TotalComprobante>8108.00000</TotalComprobante>
+    </ResumenFactura>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="xmldsig-b717f736-6859-4997-83bd-d74a4995f8a3">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+<ds:Reference Id="xmldsig-b717f736-6859-4997-83bd-d74a4995f8a3-ref0" URI="">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>XwnCt1nlcadydCCFzuqweFo056KpncNOv8GLOG53WsM=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#xmldsig-b717f736-6859-4997-83bd-d74a4995f8a3-signedprops">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<ds:DigestValue>LRyEuM/TFKQlhuSMmJ83wZAR1eve4mYhyJM0rVw5Tmg=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue Id="xmldsig-b717f736-6859-4997-83bd-d74a4995f8a3-sigvalue">
+UZtskJZK+6OcWMJCHeccwqMgoHOzT5PKf/Q3mQG8guFgwMOQnTO3HWz/uoC/4HVHQ+2mb6S2/mq0&#13;
+4djKfkWqMparEV5bn8fwx94CMBT/oQoUSK+r/IVbHDsEw13ca8JkVt8L0OiLCAoMRnTiQPHns5rW&#13;
+RtZt53/4TVJBFgK9S5x5+yw1/84KaIDbRts4+z2VL1cHfqhy/IbJSgJmUduDoXAapMrRpmZp1EnC&#13;
+rY8cTy+RmOV0AEO83cFNftSXUulvIXDXJkVTJCP5+HHx4sSaoxIv8txHEJcLBhWEb7Giex9CFu9N&#13;
+l+z7AqNG5al39Cj7eaA99MmKLtpzDz8BlXueTQ==
+</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509Certificate>
+MIIFOTCCAyGgAwIBAgIGAXVB5+oIMA0GCSqGSIb3DQEBCwUAMFoxCzAJBgNVBAYTAkNSMR8wHQYD&#13;
+VQQKDBZNSU5JU1RFUklPIERFIEhBQ0lFTkRBMQwwCgYDVQQLDANER1QxHDAaBgNVBAMME0NBIFBF&#13;
+UlNPTkEgSlVSSURJQ0EwHhcNMjAxMDE5MTcyODM5WhcNMjIxMDE5MTcyODM5WjCBkzEZMBcGA1UE&#13;
+BRMQQ1BKLTQtMDAwLTA0MjEzODELMAkGA1UEBhMCQ1IxGTAXBgNVBAoMEFBFUlNPTkEgSlVSSURJ&#13;
+Q0ExDDAKBgNVBAsMA0NQSjFAMD4GA1UEAww3SU5TVElUVVRPIENPU1RBUlJJQ0VOU0UgREUgQUNV&#13;
+RURVQ1RPUyBZIEFMQ0FOVEFSSUxMQURPUzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB&#13;
+AJvfZ3P54Xh6Wul8haiR0HDiJfI2rwffa9fGVgbDiKPpg9y8yUBEosQgMaR8iyeFrk25WFzFKX6j&#13;
+30XaHNsp16Z2IMK2WR7T9gQYqxXqzJrOSIynn0votDsAZAaVoX2ICpyKCDuJ/bKgecJyZU70N6fS&#13;
+hZ1CTh7k6u7y6BNG68PwE58ZCxqeHAcEzApnXL7/8ntulgjiaxYWWZF6hoDlTNG3x9uaNki8PpNq&#13;
+u/f13ouy3dGSbY1+ZfgcqlU0+ieJt95w0bUph1XRw4emjwD2BtRA+v/SVd2Gm2wX7GUlZMO0duR0&#13;
+ClNKlKub/xQP89C8DVCOcFBGhwYoEljRo+2KzA0CAwEAAaOByjCBxzAfBgNVHSMEGDAWgBQ7bVf1&#13;
+1nzpnhACIEHjvRrMz7NOlTAdBgNVHQ4EFgQU4dXPF9BYwFS1znXiTR9c5tadQogwCwYDVR0PBAQD&#13;
+AgbAMBMGA1UdJQQMMAoGCCsGAQUFBwMEMGMGCCsGAQUFBwEBBFcwVTBTBggrBgEFBQcwAoZHaHR0&#13;
+cHM6Ly9wa2kuY29tcHJvYmFudGVzZWxlY3Ryb25pY29zLmdvLmNyL3Byb2QvaW50ZXJtZWRpYXRl&#13;
+LXBqLXBlbS5jcnQwDQYJKoZIhvcNAQELBQADggIBAG2RBjTcAsIvKI6UPV899LuMMxhxOa0d1SeH&#13;
+e5lBUh0MMoLFtjVPbTh8kyoMInOpMkxpTXQEH0jqeItjNF0UuvGTVxTLH0ytd79OWfh30CL/l7im&#13;
+l5DQp4zT71113oa3hIs8cff9upboCQ+T+kpydw/sWRUO4pOf1HcyToFRRewKxt1VqSue6Vj/+DrU&#13;
+H0A4tp+9+K3UAj+xfX3guHeJWhEp72r0Ync0fU3pNKhcay0P1Ximv8vdowVbS3pbpFOiErfPyuBY&#13;
+ZKWKsDD86aTMIKvm+Ea6SpL2fDVxiuB8feDN5JWgZIixS31RS5NZaiZ8HYPVg0cE53Vc3cP8+dKh&#13;
+HAQJCheH+8UW2BoRAUxWjrjeDvyQNKIXqpeRE5ZDW4u1TFArKrPikFeVs3DfZTTzRPKVNniKDrM1&#13;
+0/Uqfmx2+AIDHqPV4omcfgeFWdR38OvYd46sXahTjQNXaDgjKrlyUzAK/R19qbooQg7PrXnPVd7Z&#13;
+Kdc1Dx4uCJvmbBe/mXF+Cohg8E8ffiHsKhYzXrJMJNxrsUgG3hTMotvNLYfX67Sro44oYxkpN2fp&#13;
+FaYkviIo53G4I22uC+iGnl+iFUG301XEzLjKaC7ALUoaMWOPQxJOnbzspFCGXWIKBXet6wrh7hIl&#13;
+Es8o/URkm/K+WOhEJgVQGeSyNceHkvD4KjM89X4t
+</ds:X509Certificate>
+<ds:X509IssuerSerial>
+<ds:X509IssuerName>cn=CA PERSONA JURIDICA,ou=DGT,o=MINISTERIO DE HACIENDA,c=CR</ds:X509IssuerName>
+<ds:X509SerialNumber>1603128519176</ds:X509SerialNumber>
+</ds:X509IssuerSerial>
+<ds:X509SubjectName>cn=INSTITUTO COSTARRICENSE DE ACUEDUCTOS Y ALCANTARILLADOS,ou=CPJ,o=PERSONA JURIDICA,c=CR,serialNumber=CPJ-4-000-042138</ds:X509SubjectName>
+</ds:X509Data>
+</ds:KeyInfo>
+<ds:Object><xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#" Target="#xmldsig-b717f736-6859-4997-83bd-d74a4995f8a3"><xades:SignedProperties Id="xmldsig-b717f736-6859-4997-83bd-d74a4995f8a3-signedprops"><xades:SignedSignatureProperties><xades:SigningTime>2022-08-16T23:59:03.936-06:00</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ns2:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ns2:DigestValue>IvD9rr67PUCZU8EopKlVkPM1ELLgu/k5h/cxnVPSseM=</ns2:DigestValue></xades:CertDigest><xades:IssuerSerial><ns2:X509IssuerName>cn=CA PERSONA JURIDICA,ou=DGT,o=MINISTERIO DE HACIENDA,c=CR</ns2:X509IssuerName><ns2:X509SerialNumber>1603128519176</ns2:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate><xades:SignaturePolicyIdentifier><xades:SignaturePolicyId><xades:SigPolicyId><xades:Identifier>https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.1/Resolucion_Comprobantes_Electronicos_DGT-R-48-2016.pdf</xades:Identifier></xades:SigPolicyId><xades:SigPolicyHash><ns2:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ns2:DigestValue>QzhDo40uH97Xutu0t04cwM82OPdENTPbicmXZeH4/tc=</ns2:DigestValue></xades:SigPolicyHash></xades:SignaturePolicyId></xades:SignaturePolicyIdentifier></xades:SignedSignatureProperties><xades:SignedDataObjectProperties><xades:DataObjectFormat ObjectReference="#xmldsig-b717f736-6859-4997-83bd-d74a4995f8a3-ref0"><xades:MimeType>application/octet-stream</xades:MimeType></xades:DataObjectFormat></xades:SignedDataObjectProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object>
+</ds:Signature></FacturaElectronica>

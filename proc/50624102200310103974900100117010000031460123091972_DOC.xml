@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?><FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/facturaElectronica">
+    <Clave>50624102200310103974900100117010000031460123091972</Clave>
+    <CodigoActividad>151105</CodigoActividad>
+    <NumeroConsecutivo>00100117010000031460</NumeroConsecutivo>
+    <FechaEmision>2022-10-24T16:00:49-06:00</FechaEmision>
+    <Emisor>
+        <Nombre>SIGMA ALIMENTOS COSTA RICA, S.A.</Nombre>
+        <Identificacion>
+            <Tipo>02</Tipo>
+            <Numero>3101039749</Numero>
+        </Identificacion>
+        <NombreComercial>Sigma Alimentos Costa Rica, SA</NombreComercial>
+        <Ubicacion>
+            <Provincia>2</Provincia>
+            <Canton>01</Canton>
+            <Distrito>04</Distrito>
+            <Barrio>11</Barrio>
+            <OtrasSenas>EL ROBLE DE ALAJUELA 4 KM OESTE</OtrasSenas>
+        </Ubicacion>
+        <Telefono>
+            <CodigoPais>506</CodigoPais>
+            <NumTelefono>24309390</NumTelefono>
+        </Telefono>
+        <Fax>
+            <CodigoPais>506</CodigoPais>
+            <NumTelefono>24422627</NumTelefono>
+        </Fax>
+        <CorreoElectronico>ventascostarica@sigma-alimentos.co.cr</CorreoElectronico>
+    </Emisor>
+    <Receptor>
+        <Nombre>MINOR EDUARDO ARRIETA RODRIGUEZ MUSMNANNI SANTA BARBARA</Nombre>
+        <Identificacion>
+            <Tipo>01</Tipo>
+            <Numero>204200482</Numero>
+        </Identificacion>
+        <NombreComercial>MUSMNANNI SANTA BARBARA</NombreComercial>
+        <Ubicacion>
+            <Provincia>4</Provincia>
+            <Canton>01</Canton>
+            <Distrito>01</Distrito>
+            <Barrio>01</Barrio>
+            <OtrasSenas>50 METROS NORTE DE LA IGLESIA CATOLICA</OtrasSenas>
+        </Ubicacion>
+        <Telefono>
+            <CodigoPais>506</CodigoPais>
+            <NumTelefono>22693325</NumTelefono>
+        </Telefono>
+        <CorreoElectronico>ticopanas@gmail.com</CorreoElectronico>
+    </Receptor>
+    <CondicionVenta>01</CondicionVenta>
+    <MedioPago>01</MedioPago>
+    <DetalleServicio>
+        <LineaDetalle>
+            <NumeroLinea>1</NumeroLinea>
+            <Codigo>2118403010100</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>11850</Codigo>
+            </CodigoComercial>
+            <CodigoComercial>
+                <Tipo>03</Tipo>
+                <Codigo>7441008930341</Codigo>
+            </CodigoComercial>
+            <Cantidad>16</Cantidad>
+            <UnidadMedida>Unid</UnidadMedida>
+            <Detalle>MORTADELA ESPECIAL 250G ZURQUI</Detalle>
+            <PrecioUnitario>960</PrecioUnitario>
+            <MontoTotal>15360</MontoTotal>
+            <Descuento>
+                <MontoDescuento>4300.8</MontoDescuento>
+                <NaturalezaDescuento>Des X Prod</NaturalezaDescuento>
+            </Descuento>
+            <Descuento>
+                <MontoDescuento>552.96</MontoDescuento>
+                <NaturalezaDescuento>Des X Inc M Total N.</NaturalezaDescuento>
+            </Descuento>
+            <SubTotal>10506.24</SubTotal>
+            <Impuesto>
+                <Codigo>01</Codigo>
+                <CodigoTarifa>02</CodigoTarifa>
+                <Tarifa>1</Tarifa>
+                <Monto>105.062</Monto>
+            </Impuesto>
+            <ImpuestoNeto>0</ImpuestoNeto>
+            <MontoTotalLinea>10611.302</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>2</NumeroLinea>
+            <Codigo>2118402010700</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>13147</Codigo>
+            </CodigoComercial>
+            <CodigoComercial>
+                <Tipo>03</Tipo>
+                <Codigo>7441008930099</Codigo>
+            </CodigoComercial>
+            <Cantidad>3</Cantidad>
+            <UnidadMedida>Unid</UnidadMedida>
+            <Detalle>JAMON PRENSADO 125G ZUR</Detalle>
+            <PrecioUnitario>816</PrecioUnitario>
+            <MontoTotal>2448</MontoTotal>
+            <Descuento>
+                <MontoDescuento>122.4</MontoDescuento>
+                <NaturalezaDescuento>Des X Inc M Total N.</NaturalezaDescuento>
+            </Descuento>
+            <SubTotal>2325.6</SubTotal>
+            <Impuesto>
+                <Codigo>01</Codigo>
+                <CodigoTarifa>08</CodigoTarifa>
+                <Tarifa>13</Tarifa>
+                <Monto>302.328</Monto>
+            </Impuesto>
+            <ImpuestoNeto>0</ImpuestoNeto>
+            <MontoTotalLinea>2627.928</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>3</NumeroLinea>
+            <Codigo>2118403010400</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>13170</Codigo>
+            </CodigoComercial>
+            <CodigoComercial>
+                <Tipo>03</Tipo>
+                <Codigo>7441008940302</Codigo>
+            </CodigoComercial>
+            <Cantidad>3</Cantidad>
+            <UnidadMedida>Unid</UnidadMedida>
+            <Detalle>JAMON PAVO 250G FUD</Detalle>
+            <PrecioUnitario>2567</PrecioUnitario>
+            <MontoTotal>7701</MontoTotal>
+            <Descuento>
+                <MontoDescuento>385.05</MontoDescuento>
+                <NaturalezaDescuento>Des X Inc M Total N.</NaturalezaDescuento>
+            </Descuento>
+            <SubTotal>7315.95</SubTotal>
+            <Impuesto>
+                <Codigo>01</Codigo>
+                <CodigoTarifa>08</CodigoTarifa>
+                <Tarifa>13</Tarifa>
+                <Monto>951.074</Monto>
+            </Impuesto>
+            <ImpuestoNeto>0</ImpuestoNeto>
+            <MontoTotalLinea>8267.024</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>4</NumeroLinea>
+            <Codigo>2118403010100</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>13217</Codigo>
+            </CodigoComercial>
+            <CodigoComercial>
+                <Tipo>03</Tipo>
+                <Codigo>7441008931904</Codigo>
+            </CodigoComercial>
+            <Cantidad>4</Cantidad>
+            <UnidadMedida>Unid</UnidadMedida>
+            <Detalle>MORTADELA JAMONADA 125G ZUR</Detalle>
+            <PrecioUnitario>842</PrecioUnitario>
+            <MontoTotal>3368</MontoTotal>
+            <Descuento>
+                <MontoDescuento>168.4</MontoDescuento>
+                <NaturalezaDescuento>Des X Inc M Total N.</NaturalezaDescuento>
+            </Descuento>
+            <SubTotal>3199.6</SubTotal>
+            <Impuesto>
+                <Codigo>01</Codigo>
+                <CodigoTarifa>02</CodigoTarifa>
+                <Tarifa>1</Tarifa>
+                <Monto>31.996</Monto>
+            </Impuesto>
+            <ImpuestoNeto>0</ImpuestoNeto>
+            <MontoTotalLinea>3231.596</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>5</NumeroLinea>
+            <Codigo>2118403010100</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>13218</Codigo>
+            </CodigoComercial>
+            <CodigoComercial>
+                <Tipo>03</Tipo>
+                <Codigo>7441008960829</Codigo>
+            </CodigoComercial>
+            <Cantidad>4</Cantidad>
+            <UnidadMedida>Unid</UnidadMedida>
+            <Detalle>MORTADELA CON CHILE 125G ZUR</Detalle>
+            <PrecioUnitario>614</PrecioUnitario>
+            <MontoTotal>2456</MontoTotal>
+            <Descuento>
+                <MontoDescuento>122.8</MontoDescuento>
+                <NaturalezaDescuento>Des X Inc M Total N.</NaturalezaDescuento>
+            </Descuento>
+            <SubTotal>2333.2</SubTotal>
+            <Impuesto>
+                <Codigo>01</Codigo>
+                <CodigoTarifa>02</CodigoTarifa>
+                <Tarifa>1</Tarifa>
+                <Monto>23.332</Monto>
+            </Impuesto>
+            <ImpuestoNeto>0</ImpuestoNeto>
+            <MontoTotalLinea>2356.532</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>6</NumeroLinea>
+            <Codigo>2223099030200</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>13909</Codigo>
+            </CodigoComercial>
+            <CodigoComercial>
+                <Tipo>03</Tipo>
+                <Codigo>7441014703441</Codigo>
+            </CodigoComercial>
+            <Cantidad>4</Cantidad>
+            <UnidadMedida>Unid</UnidadMedida>
+            <Detalle>NATILLA CON SAL 300 G DPR</Detalle>
+            <PrecioUnitario>752</PrecioUnitario>
+            <MontoTotal>3008</MontoTotal>
+            <Descuento>
+                <MontoDescuento>150.4</MontoDescuento>
+                <NaturalezaDescuento>Des X Inc M Total N.</NaturalezaDescuento>
+            </Descuento>
+            <SubTotal>2857.6</SubTotal>
+            <Impuesto>
+                <Codigo>01</Codigo>
+                <CodigoTarifa>02</CodigoTarifa>
+                <Tarifa>1</Tarifa>
+                <Monto>28.576</Monto>
+            </Impuesto>
+            <ImpuestoNeto>0</ImpuestoNeto>
+            <MontoTotalLinea>2886.176</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>7</NumeroLinea>
+            <Codigo>2118403010100</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>14402</Codigo>
+            </CodigoComercial>
+            <CodigoComercial>
+                <Tipo>03</Tipo>
+                <Codigo>7441008932093</Codigo>
+            </CodigoComercial>
+            <Cantidad>2</Cantidad>
+            <UnidadMedida>Unid</UnidadMedida>
+            <Detalle>MORTADELA ESPECIAL 500G ZUR</Detalle>
+            <PrecioUnitario>2253</PrecioUnitario>
+            <MontoTotal>4506</MontoTotal>
+            <Descuento>
+                <MontoDescuento>225.3</MontoDescuento>
+                <NaturalezaDescuento>Des X Inc M Total N.</NaturalezaDescuento>
+            </Descuento>
+            <SubTotal>4280.7</SubTotal>
+            <Impuesto>
+                <Codigo>01</Codigo>
+                <CodigoTarifa>02</CodigoTarifa>
+                <Tarifa>1</Tarifa>
+                <Monto>42.807</Monto>
+            </Impuesto>
+            <ImpuestoNeto>0</ImpuestoNeto>
+            <MontoTotalLinea>4323.507</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>8</NumeroLinea>
+            <Codigo>2225199000100</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>406207</Codigo>
+            </CodigoComercial>
+            <CodigoComercial>
+                <Tipo>03</Tipo>
+                <Codigo>7441014710104</Codigo>
+            </CodigoComercial>
+            <Cantidad>2</Cantidad>
+            <UnidadMedida>Unid</UnidadMedida>
+            <Detalle>QUESO AN LOGO LA VILLITA 8 REB 136G</Detalle>
+            <PrecioUnitario>595</PrecioUnitario>
+            <MontoTotal>1190</MontoTotal>
+            <Descuento>
+                <MontoDescuento>59.5</MontoDescuento>
+                <NaturalezaDescuento>Des X Inc M Total N.</NaturalezaDescuento>
+            </Descuento>
+            <SubTotal>1130.5</SubTotal>
+            <Impuesto>
+                <Codigo>01</Codigo>
+                <CodigoTarifa>08</CodigoTarifa>
+                <Tarifa>13</Tarifa>
+                <Monto>146.965</Monto>
+            </Impuesto>
+            <ImpuestoNeto>0</ImpuestoNeto>
+            <MontoTotalLinea>1277.465</MontoTotalLinea>
+        </LineaDetalle>
+    </DetalleServicio>
+    <ResumenFactura>
+        <CodigoTipoMoneda>
+            <CodigoMoneda>CRC</CodigoMoneda>
+            <TipoCambio>1</TipoCambio>
+        </CodigoTipoMoneda>
+        <TotalServGravados>0</TotalServGravados>
+        <TotalServExentos>0</TotalServExentos>
+        <TotalMercanciasGravadas>40037</TotalMercanciasGravadas>
+        <TotalMercanciasExentas>0</TotalMercanciasExentas>
+        <TotalGravado>40037</TotalGravado>
+        <TotalExento>0</TotalExento>
+        <TotalVenta>40037</TotalVenta>
+        <TotalDescuentos>6087.61</TotalDescuentos>
+        <TotalVentaNeta>33949.39</TotalVentaNeta>
+        <TotalImpuesto>1632.14</TotalImpuesto>
+        <TotalComprobante>35581.53</TotalComprobante>
+    </ResumenFactura>
+    <Otros>
+        <OtroTexto codigo="RUTA">418</OtroTexto>
+        <OtroTexto codigo="OC">N/A</OtroTexto>
+        <OtroTexto codigo="DOCUMENTO SAP">4387492984</OtroTexto>
+        <OtroTexto codigo="PEDIDO">N/A</OtroTexto>
+        <OtroTexto codigo="REFERENCIA">N/A</OtroTexto>
+        <OtroTexto codigo="ENTREGA">N/A</OtroTexto>
+        <OtroTexto codigo="HORA ENTREGA">000000</OtroTexto>
+        <OtroTexto codigo="CODIGO ENTREGA">5400434</OtroTexto>
+        <OtroTexto codigo="DIRECCION ENTREGA1">MINOR EDUARDO ARRIETA RODRIGUEZ</OtroTexto>
+        <OtroTexto codigo="DIRECCION ENTREGA2"> NGELES</OtroTexto>
+        <OtroTexto codigo="DIRECCION ENTREGA3">HEREDIA,HER</OtroTexto>
+        <OtroTexto codigo="NUMEROVENDEDOR">N/A</OtroTexto>
+        <OtroTexto codigo="NUMEROORDEN">N/A</OtroTexto>
+        <OtroTexto codigo="NUMEROTIENDA">N/A</OtroTexto>
+        <OtroTexto codigo="NUMEROGLN">0000000000000</OtroTexto>
+        <OtroTexto codigo="FECHAORDEN">0000-00-00</OtroTexto>
+        <OtroTexto codigo="NUMERORECEPCION">N/A</OtroTexto>
+        <OtroTexto codigo="FECHADOCUMENTORECEPCION">2022-10-24</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOGRAVADO">6087.610</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOEXENTO">0.000</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOLINEA1">4853.760</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOLINEA2">122.400</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOLINEA3">385.050</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOLINEA4">168.400</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOLINEA5">122.800</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOLINEA6">150.400</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOLINEA7">225.300</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOLINEA8">59.500</OtroTexto>
+        <OtroTexto codigo="IVA 1%">231.773</OtroTexto>
+        <OtroTexto codigo="IVA 13%">1400.367</OtroTexto>
+        <OtroTexto codigo="DUA">N/A</OtroTexto>
+        <OtroTexto codigo="TIPONOTA">N/A</OtroTexto>
+    </Otros>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Signature"><ds:SignedInfo Id="Signature-SignedInfo"><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"><ds:XPath>not(ancestor-or-self::ds:Signature)</ds:XPath></ds:Transform><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>bRzV/ecK3Z04Yj5Nh71o5q7wMFz5t2AKqK2pflOYcXA=</ds:DigestValue></ds:Reference><ds:Reference Id="SignedPropertiesID" Type="http://uri.etsi.org/01903#SignedProperties" URI="#Signature-SignedProperties"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>0Zr/XEqhY1I0VjZfceZ74hrBd6lm3iDS4vzSBfr9fGw=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue Id="SignatureValue">RSBue2DL1pKHGBd9FQue1iQMO71YNijC1vcMjUbt9W5khNQ2Pz/UP28wMACRDgzN1jg1g952tPyf
+9cp1RkD+uuqNDtvVjbqcNOYBg+PL0q84N9fqQybLZX0qQwmMSBpq/Eh1lYmFYG9pEH4GNg+V+8gZ
+q03Yf+QFCmXiughN4DrJj6LMcunq/WZgumLs5i2SxhAFLaG+unsW77Us+vZdSmBscVEtcURtLZxd
+vGD20ZwCGAruqKkHJdMIqPmvEjSIgjQpjRpvGxp3J7fihpzPH9a171E+GS6Zjms/yIw4KGPGNXy+
+H1KorsV3c5JD3OXdQWveccYsxks+jJ2pYnvqoQ==</ds:SignatureValue><ds:KeyInfo Id="Certificate1"><ds:X509Data><ds:X509Certificate>MIIFLTCCAxWgAwIBAgIGAYPyg43MMA0GCSqGSIb3DQEBCwUAMFoxCzAJBgNVBAYTAkNSMR8wHQYD
+VQQKDBZNSU5JU1RFUklPIERFIEhBQ0lFTkRBMQwwCgYDVQQLDANER1QxHDAaBgNVBAMME0NBIFBF
+UlNPTkEgSlVSSURJQ0EwHhcNMjIxMDE5MjMxMDUxWhcNMjYxMDE4MjMxMDUxWjCBhzEZMBcGA1UE
+BRMQQ1BKLTMtMTAxLTAzOTc0OTELMAkGA1UEBhMCQ1IxGTAXBgNVBAoMEFBFUlNPTkEgSlVSSURJ
+Q0ExDDAKBgNVBAsMA0NQSjE0MDIGA1UEAwwrU0lHTUEgQUxJTUVOVE9TIENPU1RBIFJJQ0EgU09D
+SUVEQUQgQU5PTklNQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIIMeFTsbvWkqUW3
+VCoP/wxBTtcyeFL1QhktTHpnAiNJ+XiJNf81H6vA/ix66dz4xm7PgZwlrXqUGIzZAMcCmto4aVPL
+ZBRPo9H0xvww1m0ygRov/QRRqZrLPLKbEICQU4l6vvYXsDPYYYV8HLCQNWqlVE7v1zdpHdO1xTmm
+Z+KWf550wrZ2aj3zhyVjYTN0E4Lv6QNhkFVoaikhC/72NGiRafSUbaLoOyZexUPxg2EoAz/eiaaA
+/eCKqrzZQCeTFOkNWhSI5aQYhAxGBUYf+67sC7BtK6PB+hc/r9UU5YcVHyyK6bUQYgMof4m6NX8G
+B/4jbU1LSFgEZO0RTWiJWYECAwEAAaOByjCBxzAfBgNVHSMEGDAWgBQ7bVf11nzpnhACIEHjvRrM
+z7NOlTAdBgNVHQ4EFgQUV2jl8LDlMzMZ/DPqqIB3mo9/iFYwCwYDVR0PBAQDAgbAMBMGA1UdJQQM
+MAoGCCsGAQUFBwMEMGMGCCsGAQUFBwEBBFcwVTBTBggrBgEFBQcwAoZHaHR0cHM6Ly9wa2kuY29t
+cHJvYmFudGVzZWxlY3Ryb25pY29zLmdvLmNyL3Byb2QvaW50ZXJtZWRpYXRlLXBqLXBlbS5jcnQw
+DQYJKoZIhvcNAQELBQADggIBADa8vwpdespK1oOuXjSNa9u5CW6015B6gzvlx8DMpphHbxoWBDYj
+1Fw9mKHmfmCj+oVhE0UtC4j/K3CKdjzus5ZkKPGvnc6TuUjPQllh0YFzoS70QZ1oc4W0ozEKKVot
+7FBCLfbHu8t2CG1S0WnxkymqRff73T/xKAjNBuSV/jf162psUGGNi7Mcylqk/oCJlibEq8AvAyj0
+f5VSxX/dAXBJpW7KOhzCv64kH6LgJ47XLIpPN6mQSER5YLdA95dopMF4tYCTSbCFfmDRgChZKrOt
+HnH9iRLc116cCotRg4rd2FKpgi6nwucxtIEfugI1UBzk5fe5MlGfbqQpZK47ElLk3Bv4K9Nukj+L
+zfBLyu3tJ+d0DDXbNYgj8iCJXniTEZzeCHf9ngx5mj6DoSaDyXp/3C3JIjvcDatacwNP3cLadQhf
+za5PAbY5whMNZRUo6niK9hzfj6O+CjXWWc8pHutkS7IaoYbSvtaBhk/0vIxGzlLeBs8bnypLqAuM
+hi22qdoNgQ139btkgrx2mwlztzBlDOK3znMv2yYSnuEFZF+SRUe1hxRIVwgyyurHOA4PU6tTaJMr
+W1ezWGPOVbj3RQLk1cH7HuxvGGsoIGfrBZ7b0/DZs0rGQ1MSY3BLyQzs5FNCnBov8pWIN5byBBa+
+xIEgLUHWVIeDi3Dr3iMAHxo+</ds:X509Certificate></ds:X509Data></ds:KeyInfo><ds:Object Id="Signature-Object"><xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Target="#Signature"><xades:SignedProperties Id="Signature-SignedProperties"><xades:SignedSignatureProperties><xades:SigningTime>2022-10-24T16:09:17-06:00</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>yMR5/UE5tXNJ4da5nt7MiPzdrEc=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=CA PERSONA JURIDICA, OU=DGT, O=MINISTERIO DE HACIENDA, C=CR</ds:X509IssuerName><ds:X509SerialNumber>1666221051340</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate><xades:SignaturePolicyIdentifier><xades:SignaturePolicyId><xades:SigPolicyId><xades:Identifier>https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.1/Resolucion%20Comprobantes%20Electronicos%20%20DGT-R-48-2016.pdf</xades:Identifier></xades:SigPolicyId><xades:SigPolicyHash><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>NmI5Njk1ZThkNzI0MmIzMGJmZDAyNDc4YjUwNzkzODM2NTBiOWUxNTBkMmI2YjgzYzZjM2I5NTZlNDQ4OWQzMQ==</ds:DigestValue></xades:SigPolicyHash></xades:SignaturePolicyId></xades:SignaturePolicyIdentifier></xades:SignedSignatureProperties><xades:SignedDataObjectProperties><xades:DataObjectFormat><xades:MimeType>application/octet-stream</xades:MimeType></xades:DataObjectFormat></xades:SignedDataObjectProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object></ds:Signature></FacturaElectronica>

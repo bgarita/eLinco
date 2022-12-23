@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NotaCreditoElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/notaCreditoElectronica" xmlns:xds="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Clave>50616122200310117850600100001030000000617176792631</Clave>
+	<CodigoActividad>155403</CodigoActividad>
+	<NumeroConsecutivo>00100001030000000617</NumeroConsecutivo>
+	<FechaEmision>2022-12-16T14:39:45</FechaEmision>
+	<Emisor>
+		<Nombre>Distribuidora La Flor, S.A.</Nombre>
+		<Identificacion>
+			<Tipo>02</Tipo>
+			<Numero>3101178506</Numero>
+		</Identificacion>
+		<Ubicacion>
+			<Provincia>4</Provincia>
+			<Canton>01</Canton>
+			<Distrito>01</Distrito>
+			<Barrio>01</Barrio>
+			<OtrasSenas>Calle 4, Avenidas 10 y 12
+Heredia</OtrasSenas>
+		</Ubicacion>
+		<Telefono>
+			<CodigoPais>506</CodigoPais>
+			<NumTelefono>22370024</NumTelefono>
+		</Telefono>
+		<CorreoElectronico>warnerj854@gmail.com</CorreoElectronico>
+	</Emisor>
+	<Receptor>
+		<Nombre>CORP.SUPERMERCADOS UNIDOS S.R.L.</Nombre>
+		<Identificacion>
+			<Tipo>02</Tipo>
+			<Numero>3102007223</Numero>
+		</Identificacion>
+		<CorreoElectronico>dtecr.prod@einvoicing.signature-cloud.com</CorreoElectronico>
+	</Receptor>
+	<CondicionVenta>01</CondicionVenta>
+	<PlazoCredito>0</PlazoCredito>
+	<MedioPago>01</MedioPago>
+	<DetalleServicio>
+		<LineaDetalle>
+			<NumeroLinea>1</NumeroLinea>
+			<Codigo>2399999001900</Codigo>
+			<CodigoComercial>
+				<Tipo>04</Tipo>
+				<Codigo>_NOINV</Codigo>
+			</CodigoComercial>
+			<Cantidad>1.0</Cantidad>
+			<UnidadMedida>Unid</UnidadMedida>
+			<Detalle>Facturacion de servicios y otros</Detalle>
+			<PrecioUnitario>3794.84</PrecioUnitario>
+			<MontoTotal>3794.84</MontoTotal>
+			<Descuento>
+				<MontoDescuento>0.0</MontoDescuento>
+				<NaturalezaDescuento>N/A</NaturalezaDescuento>
+			</Descuento>
+			<SubTotal>3794.84</SubTotal>
+			<BaseImponible>3794.84</BaseImponible>
+			<Impuesto>
+				<Codigo>01</Codigo>
+				<CodigoTarifa>02</CodigoTarifa>
+				<Tarifa>1.0</Tarifa>
+				<FactorIVA>0.0</FactorIVA>
+				<Monto>37.9484</Monto>
+			</Impuesto>
+			<MontoTotalLinea>3832.7884</MontoTotalLinea>
+		</LineaDetalle>
+	</DetalleServicio>
+	<ResumenFactura>
+		<CodigoTipoMoneda>
+			<CodigoMoneda>CRC</CodigoMoneda>
+			<TipoCambio>1.0</TipoCambio>
+		</CodigoTipoMoneda>
+		<TotalServGravados>0.0</TotalServGravados>
+		<TotalServExentos>0.0</TotalServExentos>
+		<TotalServExonerado>0.0</TotalServExonerado>
+		<TotalMercanciasGravadas>3794.84</TotalMercanciasGravadas>
+		<TotalMercanciasExentas>0.0</TotalMercanciasExentas>
+		<TotalMercExonerada>0.0</TotalMercExonerada>
+		<TotalGravado>3794.84</TotalGravado>
+		<TotalExento>0.0</TotalExento>
+		<TotalExonerado>0.0</TotalExonerado>
+		<TotalVenta>3794.84</TotalVenta>
+		<TotalDescuentos>0.0</TotalDescuentos>
+		<TotalVentaNeta>3794.84</TotalVentaNeta>
+		<TotalImpuesto>37.9484</TotalImpuesto>
+		<TotalIVADevuelto>0.0</TotalIVADevuelto>
+		<TotalOtrosCargos>0.0</TotalOtrosCargos>
+		<TotalComprobante>3832.7884</TotalComprobante>
+	</ResumenFactura>
+	<InformacionReferencia>
+		<TipoDoc>01</TipoDoc>
+		<Numero>50612122200310117850600100001010000027788144345269</Numero>
+		<FechaEmision>2022-12-12T00:00:00-06:00</FechaEmision>
+		<Codigo>04</Codigo>
+		<Razon>Nota de cr??dito - varios</Razon>
+	</InformacionReferencia>
+	<Otros>
+		<OtroTexto codigo="WMNumeroVendedor">019653952</OtroTexto>
+		<OtroTexto codigo="WMNumeroOrden">7701004500</OtroTexto>
+		<OtroTexto codigo="WMEnviarGLN">7407001010251</OtroTexto>
+		<OtroTexto codigo="WMNumeroReclamo"/>
+		<OtroTexto codigo="WMFechaReclamo">161222</OtroTexto>
+	</Otros>
+	<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Signature-510811bf-de00-4ea1-b919-3d20c13764b6">
+		<ds:SignedInfo>
+			<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+			<ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+			<ds:Reference Id="Reference-cf4e9d34-fc5c-4050-a27b-2bc5eabf99b1" URI="">
+				<ds:Transforms>
+					<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+				</ds:Transforms>
+				<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+				<ds:DigestValue>dVSzXgDAVFnM36ClSxg8npCAgWEstkDbewBpiCHKgIo=</ds:DigestValue>
+			</ds:Reference>
+			<ds:Reference Id="ReferenceKeyInfo" URI="#KeyInfoId-Signature-510811bf-de00-4ea1-b919-3d20c13764b6">
+				<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+				<ds:DigestValue>GSDRZiepuxiszAsSreB/H6uG+zhte0lVDqxUoSE0yys=</ds:DigestValue>
+			</ds:Reference>
+			<ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#SignedProperties-Signature-510811bf-de00-4ea1-b919-3d20c13764b6">
+				<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+				<ds:DigestValue>lSOwhW+tvnHkN1lboV8689fAnK0gkxr4ZOzsfQ+lfgM=</ds:DigestValue>
+			</ds:Reference>
+		</ds:SignedInfo>
+		<ds:SignatureValue Id="SignatureValue-510811bf-de00-4ea1-b919-3d20c13764b6">kakiu3Afk6zdJhKKMv0B+dp5n67EBfRexUCzA0QjMX+CpzgHhL1q9beooGWiaWiswW8CGpwQKIX9VTP//Z8SSFqbX7PGF77o3KjFv4vY8rDblPxouEleGfqTAk/5VVE8PyDDyN6ps/tljilN/0vWWDBTkVtQWBmLvBJkyifDQWAXX98e3Xve0jxdJ7iZarDjTC7m1WBUDjqoDlUXbR7K6i5WH8OEtyucNa2h7bseOISrDXvkFKWmPIctWZ/JgJUemE9VEPXYZ2oaz3/F6JOYbeX/YdSJ8DKdVbIBRConJ5L8sAyUhu3O6n/64PG0DyYl9X+aHNfAFAqmmCCvz3qAdg==</ds:SignatureValue>
+		<ds:KeyInfo Id="KeyInfoId-Signature-510811bf-de00-4ea1-b919-3d20c13764b6">
+			<ds:X509Data>
+				<ds:X509Certificate>MIIFRzCCAy+gAwIBAgIGAXgelQLNMA0GCSqGSIb3DQEBCwUAMFoxCzAJBgNVBAYTAkNSMR8wHQYDVQQKDBZNSU5JU1RFUklPIERFIEhBQ0lFTkRBMQwwCgYDVQQLDANER1QxHDAaBgNVBAMME0NBIFBFUlNPTkEgSlVSSURJQ0EwHhcNMjEwMzEwMjM1OTQ1WhcNMjMwMzEwMjM1OTQ1WjCBoTEZMBcGA1UEBRMQQ1BKLTMtMTAxLTE3ODUwNjELMAkGA1UEBhMCQ1IxGTAXBgNVBAoMEFBFUlNPTkEgSlVSSURJQ0ExDDAKBgNVBAsMA0NQSjFOMEwGA1UEAwxFRkFCUklDQSBERSBSRUZSRVNDT1MgWSBTSVJPUEVTIERJU1RSSUJVSURPUkEgTEEgRkxPUiBTT0NJRURBRCBBTk9OSU1BMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8EJRudTOzkBv9IJd6fQxR4M8pth92rZ1a7s4A4rWkF4UQfRNSNydQ5vDrqEd3DhKgMrW/gbhbkb1K+3HYT/OXMKLHYAa5ImKjNI4IEHO7TQelHNibw6aehWSNYNU687juQ6tugIe8tbRAabHSBop1s6kSMlU/vhXZvVaCGtZPNBp9TAGFZ+GMez49yWQAPNNDWSafb8aaaYnGCm1u+heKEf+ZVEH0nXU6r/ziTW9g3qKHoYvZQmXvgXLP0MkCuik/En9ohl1x5AHZkG5Rf9Zb2aAqeLRnLQoCxvVH82Aj0zBitVvhuC3TeRGnd5avOIiVCVAxhOZ8sBAJsIuUhw3EQIDAQABo4HKMIHHMB8GA1UdIwQYMBaAFDttV/XWfOmeEAIgQeO9GszPs06VMB0GA1UdDgQWBBTqsahL4jmwQQCWse+Gdpn+GVnHUjALBgNVHQ8EBAMCBsAwEwYDVR0lBAwwCgYIKwYBBQUHAwQwYwYIKwYBBQUHAQEEVzBVMFMGCCsGAQUFBzAChkdodHRwczovL3BraS5jb21wcm9iYW50ZXNlbGVjdHJvbmljb3MuZ28uY3IvcHJvZC9pbnRlcm1lZGlhdGUtcGotcGVtLmNydDANBgkqhkiG9w0BAQsFAAOCAgEADWs6OARSKWjy/UdzBM7xmldMRLT0UnmKDaIT+Kwhp6guyG+oWYcYkobyJqiKjLk+t2wOeuJnQlyfSIr49irPQMJSo1rn54z0sIdByXrhmxcnvIXKCBr5WdACE8T/PcUZmJaBeU7Afmj556+Jqs4MpPe+YjERozCOzYLa0+K9oGEqjv/zLJCeq6Sqa7OW1H3bE8pDUoI4h5GMELDMsdKY5pJc/nwf8gblkEJJsNqCqcEh488TKDqsjepCcbVoqVZfS33EAPEjESx2h6OLACWXfApuPf7/eBZMoBzKUexOEZiXdD5qpyYiCY2wk++wrF4WRmqPYUx4i1nEcfF9oGvPcmAcFfmcl+K8KJB5+WRZiulhFgwdVLEVk0AYema8kbg6QvCkmh/CNV4kzo+Uh21995Ha1fUGjney2VsYhjuOLKjNcwNajCvyrN4Uf6dWdTeuJ9BQcK/IPs3r+wpnBCbQffaCOTrtINBsGGHXkYpKGvk5cmPgCVUJGkhSPUohFInsyZswl8vE7XdTRDg9hkWSVzF7GfEguuVDXLdgaFOUB9pnSymvTAtO6YwoEFQvQtkF+ci0mxvLR8S1sctvY3pLPBqnhUyoP2zGPPBm82HIIp3C2osHKjcPV0G4kBVFC3/UyOuB/pHvVuqiAyTDtgcNLxmraDum+UKwj1F3Y1ncvaE=</ds:X509Certificate>
+			</ds:X509Data>
+			<ds:KeyValue>
+				<ds:RSAKeyValue>
+					<ds:Modulus>8EJRudTOzkBv9IJd6fQxR4M8pth92rZ1a7s4A4rWkF4UQfRNSNydQ5vDrqEd3DhKgMrW/gbhbkb1K+3HYT/OXMKLHYAa5ImKjNI4IEHO7TQelHNibw6aehWSNYNU687juQ6tugIe8tbRAabHSBop1s6kSMlU/vhXZvVaCGtZPNBp9TAGFZ+GMez49yWQAPNNDWSafb8aaaYnGCm1u+heKEf+ZVEH0nXU6r/ziTW9g3qKHoYvZQmXvgXLP0MkCuik/En9ohl1x5AHZkG5Rf9Zb2aAqeLRnLQoCxvVH82Aj0zBitVvhuC3TeRGnd5avOIiVCVAxhOZ8sBAJsIuUhw3EQ==</ds:Modulus>
+					<ds:Exponent>AQAB</ds:Exponent>
+				</ds:RSAKeyValue>
+			</ds:KeyValue>
+		</ds:KeyInfo>
+		<ds:Object Id="XadesObjectId-1fecc15f-9800-426b-a6cb-7051b09dcda2">
+			<xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Id="QualifyingProperties-6301b26b-e22e-42d4-9baa-ce626a94c669" Target="#Signature-510811bf-de00-4ea1-b919-3d20c13764b6">
+				<xades:SignedProperties Id="SignedProperties-Signature-510811bf-de00-4ea1-b919-3d20c13764b6">
+					<xades:SignedSignatureProperties>
+						<xades:SigningTime>2022-12-16T14:41:48-06:00</xades:SigningTime>
+						<xades:SigningCertificate>
+							<xades:Cert>
+								<xades:CertDigest>
+									<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+									<ds:DigestValue>LcSufA2Jisy95m25k1a6o0x4bEN1F1VVgoHbqUusbvo=</ds:DigestValue>
+								</xades:CertDigest>
+								<xades:IssuerSerial>
+									<ds:X509IssuerName>CN=CA PERSONA JURIDICA, OU=DGT, O=MINISTERIO DE HACIENDA, C=CR</ds:X509IssuerName>
+									<ds:X509SerialNumber>1615420785357</ds:X509SerialNumber>
+								</xades:IssuerSerial>
+							</xades:Cert>
+						</xades:SigningCertificate>
+						<xades:SignaturePolicyIdentifier>
+							<xades:SignaturePolicyId>
+								<xades:SigPolicyId>
+									<xades:Identifier>https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.1/Resolucion_Comprobantes_Electronicos_DGT-R-48-2016.pdf</xades:Identifier>
+									<xades:Description/>
+								</xades:SigPolicyId>
+								<xades:SigPolicyHash>
+									<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+									<ds:DigestValue>Ohixl6upD6av8N7pEvDABhEL6hM=</ds:DigestValue>
+								</xades:SigPolicyHash>
+							</xades:SignaturePolicyId>
+						</xades:SignaturePolicyIdentifier>
+					</xades:SignedSignatureProperties>
+					<xades:SignedDataObjectProperties>
+						<xades:DataObjectFormat ObjectReference="#Reference-cf4e9d34-fc5c-4050-a27b-2bc5eabf99b1">
+							<xades:MimeType>text/xml</xades:MimeType>
+							<xades:Encoding>UTF-8</xades:Encoding>
+						</xades:DataObjectFormat>
+					</xades:SignedDataObjectProperties>
+				</xades:SignedProperties>
+			</xades:QualifyingProperties>
+		</ds:Object>
+	</ds:Signature>
+</NotaCreditoElectronica>

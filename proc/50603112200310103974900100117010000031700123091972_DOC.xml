@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?><FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/facturaElectronica">
+    <Clave>50603112200310103974900100117010000031700123091972</Clave>
+    <CodigoActividad>151105</CodigoActividad>
+    <NumeroConsecutivo>00100117010000031700</NumeroConsecutivo>
+    <FechaEmision>2022-11-03T13:43:42-06:00</FechaEmision>
+    <Emisor>
+        <Nombre>SIGMA ALIMENTOS COSTA RICA, S.A.</Nombre>
+        <Identificacion>
+            <Tipo>02</Tipo>
+            <Numero>3101039749</Numero>
+        </Identificacion>
+        <NombreComercial>Sigma Alimentos Costa Rica, SA</NombreComercial>
+        <Ubicacion>
+            <Provincia>2</Provincia>
+            <Canton>01</Canton>
+            <Distrito>04</Distrito>
+            <Barrio>11</Barrio>
+            <OtrasSenas>EL ROBLE DE ALAJUELA 4 KM OESTE</OtrasSenas>
+        </Ubicacion>
+        <Telefono>
+            <CodigoPais>506</CodigoPais>
+            <NumTelefono>24309390</NumTelefono>
+        </Telefono>
+        <Fax>
+            <CodigoPais>506</CodigoPais>
+            <NumTelefono>24422627</NumTelefono>
+        </Fax>
+        <CorreoElectronico>ventascostarica@sigma-alimentos.co.cr</CorreoElectronico>
+    </Emisor>
+    <Receptor>
+        <Nombre>MINOR EDUARDO ARRIETA RODRIGUEZ MUSMANNI DESAMPARADOS</Nombre>
+        <Identificacion>
+            <Tipo>01</Tipo>
+            <Numero>204200482</Numero>
+        </Identificacion>
+        <NombreComercial>MUSMANNI DESAMPARADOS</NombreComercial>
+        <Ubicacion>
+            <Provincia>2</Provincia>
+            <Canton>01</Canton>
+            <Distrito>10</Distrito>
+            <OtrasSenas>FRENTE A LA DELEGACION DE DESAMPARADOS</OtrasSenas>
+        </Ubicacion>
+        <Telefono>
+            <CodigoPais>506</CodigoPais>
+            <NumTelefono>89912121</NumTelefono>
+        </Telefono>
+        <CorreoElectronico>TICOPANAS@GMAIL.COM</CorreoElectronico>
+    </Receptor>
+    <CondicionVenta>01</CondicionVenta>
+    <MedioPago>01</MedioPago>
+    <DetalleServicio>
+        <LineaDetalle>
+            <NumeroLinea>1</NumeroLinea>
+            <Codigo>2118403010100</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>11850</Codigo>
+            </CodigoComercial>
+            <CodigoComercial>
+                <Tipo>03</Tipo>
+                <Codigo>7441008930341</Codigo>
+            </CodigoComercial>
+            <Cantidad>100</Cantidad>
+            <UnidadMedida>Unid</UnidadMedida>
+            <Detalle>MORTADELA ESPECIAL 250G ZURQUI</Detalle>
+            <PrecioUnitario>960</PrecioUnitario>
+            <MontoTotal>96000</MontoTotal>
+            <Descuento>
+                <MontoDescuento>26880</MontoDescuento>
+                <NaturalezaDescuento>Des X Prod</NaturalezaDescuento>
+            </Descuento>
+            <Descuento>
+                <MontoDescuento>3456</MontoDescuento>
+                <NaturalezaDescuento>Des X Inc M Total N.</NaturalezaDescuento>
+            </Descuento>
+            <SubTotal>65664</SubTotal>
+            <Impuesto>
+                <Codigo>01</Codigo>
+                <CodigoTarifa>02</CodigoTarifa>
+                <Tarifa>1</Tarifa>
+                <Monto>656.64</Monto>
+            </Impuesto>
+            <ImpuestoNeto>0</ImpuestoNeto>
+            <MontoTotalLinea>66320.64</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>2</NumeroLinea>
+            <Codigo>2223099030200</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>13852</Codigo>
+            </CodigoComercial>
+            <CodigoComercial>
+                <Tipo>03</Tipo>
+                <Codigo>7441014706299</Codigo>
+            </CodigoComercial>
+            <Cantidad>3</Cantidad>
+            <UnidadMedida>Unid</UnidadMedida>
+            <Detalle>NATILLA CON SAL 400 GRAMOS DP</Detalle>
+            <PrecioUnitario>1160</PrecioUnitario>
+            <MontoTotal>3480</MontoTotal>
+            <Descuento>
+                <MontoDescuento>174</MontoDescuento>
+                <NaturalezaDescuento>Des X Inc M Total N.</NaturalezaDescuento>
+            </Descuento>
+            <SubTotal>3306</SubTotal>
+            <Impuesto>
+                <Codigo>01</Codigo>
+                <CodigoTarifa>02</CodigoTarifa>
+                <Tarifa>1</Tarifa>
+                <Monto>33.06</Monto>
+            </Impuesto>
+            <ImpuestoNeto>0</ImpuestoNeto>
+            <MontoTotalLinea>3339.06</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>3</NumeroLinea>
+            <Codigo>2223099030200</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>13909</Codigo>
+            </CodigoComercial>
+            <CodigoComercial>
+                <Tipo>03</Tipo>
+                <Codigo>7441014703441</Codigo>
+            </CodigoComercial>
+            <Cantidad>6</Cantidad>
+            <UnidadMedida>Unid</UnidadMedida>
+            <Detalle>NATILLA CON SAL 300 G DPR</Detalle>
+            <PrecioUnitario>752</PrecioUnitario>
+            <MontoTotal>4512</MontoTotal>
+            <Descuento>
+                <MontoDescuento>225.6</MontoDescuento>
+                <NaturalezaDescuento>Des X Inc M Total N.</NaturalezaDescuento>
+            </Descuento>
+            <SubTotal>4286.4</SubTotal>
+            <Impuesto>
+                <Codigo>01</Codigo>
+                <CodigoTarifa>02</CodigoTarifa>
+                <Tarifa>1</Tarifa>
+                <Monto>42.864</Monto>
+            </Impuesto>
+            <ImpuestoNeto>0</ImpuestoNeto>
+            <MontoTotalLinea>4329.264</MontoTotalLinea>
+        </LineaDetalle>
+        <LineaDetalle>
+            <NumeroLinea>4</NumeroLinea>
+            <Codigo>2449005009900</Codigo>
+            <CodigoComercial>
+                <Tipo>01</Tipo>
+                <Codigo>14952</Codigo>
+            </CodigoComercial>
+            <CodigoComercial>
+                <Tipo>03</Tipo>
+                <Codigo>7503001453187</Codigo>
+            </CodigoComercial>
+            <Cantidad>2</Cantidad>
+            <UnidadMedida>Unid</UnidadMedida>
+            <Detalle>VAINILLA CAPPUCCINO BAJO EN GRASA 281 ML</Detalle>
+            <PrecioUnitario>1197</PrecioUnitario>
+            <MontoTotal>2394</MontoTotal>
+            <Descuento>
+                <MontoDescuento>119.7</MontoDescuento>
+                <NaturalezaDescuento>Des X Inc M Total N.</NaturalezaDescuento>
+            </Descuento>
+            <SubTotal>2274.3</SubTotal>
+            <Impuesto>
+                <Codigo>01</Codigo>
+                <CodigoTarifa>08</CodigoTarifa>
+                <Tarifa>13</Tarifa>
+                <Monto>295.659</Monto>
+            </Impuesto>
+            <ImpuestoNeto>0</ImpuestoNeto>
+            <MontoTotalLinea>2569.959</MontoTotalLinea>
+        </LineaDetalle>
+    </DetalleServicio>
+    <ResumenFactura>
+        <CodigoTipoMoneda>
+            <CodigoMoneda>CRC</CodigoMoneda>
+            <TipoCambio>1</TipoCambio>
+        </CodigoTipoMoneda>
+        <TotalServGravados>0</TotalServGravados>
+        <TotalServExentos>0</TotalServExentos>
+        <TotalMercanciasGravadas>106386</TotalMercanciasGravadas>
+        <TotalMercanciasExentas>0</TotalMercanciasExentas>
+        <TotalGravado>106386</TotalGravado>
+        <TotalExento>0</TotalExento>
+        <TotalVenta>106386</TotalVenta>
+        <TotalDescuentos>30855.3</TotalDescuentos>
+        <TotalVentaNeta>75530.7</TotalVentaNeta>
+        <TotalImpuesto>1028.223</TotalImpuesto>
+        <TotalComprobante>76558.923</TotalComprobante>
+    </ResumenFactura>
+    <Otros>
+        <OtroTexto codigo="RUTA">418</OtroTexto>
+        <OtroTexto codigo="OC">N/A</OtroTexto>
+        <OtroTexto codigo="DOCUMENTO SAP">4387494763</OtroTexto>
+        <OtroTexto codigo="PEDIDO">N/A</OtroTexto>
+        <OtroTexto codigo="REFERENCIA">N/A</OtroTexto>
+        <OtroTexto codigo="ENTREGA">N/A</OtroTexto>
+        <OtroTexto codigo="HORA ENTREGA">000000</OtroTexto>
+        <OtroTexto codigo="CODIGO ENTREGA">10136716</OtroTexto>
+        <OtroTexto codigo="DIRECCION ENTREGA1">MINOR EDUARDO ARRIETA RODRIGUEZ</OtroTexto>
+        <OtroTexto codigo="DIRECCION ENTREGA2">DESAMPARADOS</OtroTexto>
+        <OtroTexto codigo="DIRECCION ENTREGA3">ALAJUELA,ALA</OtroTexto>
+        <OtroTexto codigo="NUMEROVENDEDOR">N/A</OtroTexto>
+        <OtroTexto codigo="NUMEROORDEN">N/A</OtroTexto>
+        <OtroTexto codigo="NUMEROTIENDA">N/A</OtroTexto>
+        <OtroTexto codigo="NUMEROGLN">0000000000000</OtroTexto>
+        <OtroTexto codigo="FECHAORDEN">0000-00-00</OtroTexto>
+        <OtroTexto codigo="NUMERORECEPCION">N/A</OtroTexto>
+        <OtroTexto codigo="FECHADOCUMENTORECEPCION">2022-11-03</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOGRAVADO">30855.300</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOEXENTO">0.000</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOLINEA1">30336.000</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOLINEA2">174.000</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOLINEA3">225.600</OtroTexto>
+        <OtroTexto codigo="TOTALDESCUENTOLINEA4">119.700</OtroTexto>
+        <OtroTexto codigo="IVA 1%">732.564</OtroTexto>
+        <OtroTexto codigo="IVA 13%">295.659</OtroTexto>
+        <OtroTexto codigo="DUA">N/A</OtroTexto>
+        <OtroTexto codigo="TIPONOTA">N/A</OtroTexto>
+    </Otros>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Signature"><ds:SignedInfo Id="Signature-SignedInfo"><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116"><ds:XPath>not(ancestor-or-self::ds:Signature)</ds:XPath></ds:Transform><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>tRy6blb1b5nGfcPGOJEbpKm8Z/fvR6v9j8q6QdNTYHQ=</ds:DigestValue></ds:Reference><ds:Reference Id="SignedPropertiesID" Type="http://uri.etsi.org/01903#SignedProperties" URI="#Signature-SignedProperties"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>UPkzmZjjfBUGPnQ9ebdhzvbDEwe/l2lEuERdfwpJ+xY=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue Id="SignatureValue">YTyyBYHobJxkFVcYC1dXZiNdlWUQdl64xPAOyBEg+y2ON1f4hg2lsSoseG1zrT+sR5KS0cCMmwE0
+z85jW7OfAsA2nmxUKDKsys0JmDWEHSBSrBfPQteZiTeg8JHc3VpNMNmPb+AqA8XaXwZ2jIaRK/JJ
+1x3ev6HkHUUaDnR/ZFXIRoHQQv0SuwjJnuQ4MJsEJcsyfhEx8+/oHhK/r63YJTQKzquIu9KUgrbf
+/ChBpCEtlG2z23zjJl/nVq0XvC4tYOZsPzC9pgDQxTnXgASfNkUt37O8wkuXk0E7c4bmBLjInKzf
+cr3DyBCdzZQPp2GE9md9ySufCpeof0mvoo4LKg==</ds:SignatureValue><ds:KeyInfo Id="Certificate1"><ds:X509Data><ds:X509Certificate>MIIFLTCCAxWgAwIBAgIGAYPyg43MMA0GCSqGSIb3DQEBCwUAMFoxCzAJBgNVBAYTAkNSMR8wHQYD
+VQQKDBZNSU5JU1RFUklPIERFIEhBQ0lFTkRBMQwwCgYDVQQLDANER1QxHDAaBgNVBAMME0NBIFBF
+UlNPTkEgSlVSSURJQ0EwHhcNMjIxMDE5MjMxMDUxWhcNMjYxMDE4MjMxMDUxWjCBhzEZMBcGA1UE
+BRMQQ1BKLTMtMTAxLTAzOTc0OTELMAkGA1UEBhMCQ1IxGTAXBgNVBAoMEFBFUlNPTkEgSlVSSURJ
+Q0ExDDAKBgNVBAsMA0NQSjE0MDIGA1UEAwwrU0lHTUEgQUxJTUVOVE9TIENPU1RBIFJJQ0EgU09D
+SUVEQUQgQU5PTklNQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIIMeFTsbvWkqUW3
+VCoP/wxBTtcyeFL1QhktTHpnAiNJ+XiJNf81H6vA/ix66dz4xm7PgZwlrXqUGIzZAMcCmto4aVPL
+ZBRPo9H0xvww1m0ygRov/QRRqZrLPLKbEICQU4l6vvYXsDPYYYV8HLCQNWqlVE7v1zdpHdO1xTmm
+Z+KWf550wrZ2aj3zhyVjYTN0E4Lv6QNhkFVoaikhC/72NGiRafSUbaLoOyZexUPxg2EoAz/eiaaA
+/eCKqrzZQCeTFOkNWhSI5aQYhAxGBUYf+67sC7BtK6PB+hc/r9UU5YcVHyyK6bUQYgMof4m6NX8G
+B/4jbU1LSFgEZO0RTWiJWYECAwEAAaOByjCBxzAfBgNVHSMEGDAWgBQ7bVf11nzpnhACIEHjvRrM
+z7NOlTAdBgNVHQ4EFgQUV2jl8LDlMzMZ/DPqqIB3mo9/iFYwCwYDVR0PBAQDAgbAMBMGA1UdJQQM
+MAoGCCsGAQUFBwMEMGMGCCsGAQUFBwEBBFcwVTBTBggrBgEFBQcwAoZHaHR0cHM6Ly9wa2kuY29t
+cHJvYmFudGVzZWxlY3Ryb25pY29zLmdvLmNyL3Byb2QvaW50ZXJtZWRpYXRlLXBqLXBlbS5jcnQw
+DQYJKoZIhvcNAQELBQADggIBADa8vwpdespK1oOuXjSNa9u5CW6015B6gzvlx8DMpphHbxoWBDYj
+1Fw9mKHmfmCj+oVhE0UtC4j/K3CKdjzus5ZkKPGvnc6TuUjPQllh0YFzoS70QZ1oc4W0ozEKKVot
+7FBCLfbHu8t2CG1S0WnxkymqRff73T/xKAjNBuSV/jf162psUGGNi7Mcylqk/oCJlibEq8AvAyj0
+f5VSxX/dAXBJpW7KOhzCv64kH6LgJ47XLIpPN6mQSER5YLdA95dopMF4tYCTSbCFfmDRgChZKrOt
+HnH9iRLc116cCotRg4rd2FKpgi6nwucxtIEfugI1UBzk5fe5MlGfbqQpZK47ElLk3Bv4K9Nukj+L
+zfBLyu3tJ+d0DDXbNYgj8iCJXniTEZzeCHf9ngx5mj6DoSaDyXp/3C3JIjvcDatacwNP3cLadQhf
+za5PAbY5whMNZRUo6niK9hzfj6O+CjXWWc8pHutkS7IaoYbSvtaBhk/0vIxGzlLeBs8bnypLqAuM
+hi22qdoNgQ139btkgrx2mwlztzBlDOK3znMv2yYSnuEFZF+SRUe1hxRIVwgyyurHOA4PU6tTaJMr
+W1ezWGPOVbj3RQLk1cH7HuxvGGsoIGfrBZ7b0/DZs0rGQ1MSY3BLyQzs5FNCnBov8pWIN5byBBa+
+xIEgLUHWVIeDi3Dr3iMAHxo+</ds:X509Certificate></ds:X509Data></ds:KeyInfo><ds:Object Id="Signature-Object"><xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Target="#Signature"><xades:SignedProperties Id="Signature-SignedProperties"><xades:SignedSignatureProperties><xades:SigningTime>2022-11-03T13:54:56-06:00</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>yMR5/UE5tXNJ4da5nt7MiPzdrEc=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=CA PERSONA JURIDICA, OU=DGT, O=MINISTERIO DE HACIENDA, C=CR</ds:X509IssuerName><ds:X509SerialNumber>1666221051340</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate><xades:SignaturePolicyIdentifier><xades:SignaturePolicyId><xades:SigPolicyId><xades:Identifier>https://tribunet.hacienda.go.cr/docs/esquemas/2016/v4.1/Resolucion%20Comprobantes%20Electronicos%20%20DGT-R-48-2016.pdf</xades:Identifier></xades:SigPolicyId><xades:SigPolicyHash><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>NmI5Njk1ZThkNzI0MmIzMGJmZDAyNDc4YjUwNzkzODM2NTBiOWUxNTBkMmI2YjgzYzZjM2I5NTZlNDQ4OWQzMQ==</ds:DigestValue></xades:SigPolicyHash></xades:SignaturePolicyId></xades:SignaturePolicyIdentifier></xades:SignedSignatureProperties><xades:SignedDataObjectProperties><xades:DataObjectFormat><xades:MimeType>application/octet-stream</xades:MimeType></xades:DataObjectFormat></xades:SignedDataObjectProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object></ds:Signature></FacturaElectronica>
