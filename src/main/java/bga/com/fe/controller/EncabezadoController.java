@@ -14,16 +14,25 @@ import bga.com.fe.service.CompanyService;
 import bga.com.fe.service.DetalleService;
 import bga.com.fe.service.EncabezadoService;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import reports.Reportes;
 
 /**
  *
@@ -46,6 +55,8 @@ public class EncabezadoController {
     private DetalleService detalleService;
     @Autowired
     private CompanyService companyService;
+    @Autowired
+    DataSource datasource;
 
     /**
      * Convierete facturas electrónicas (xml) a objetos java y los guarda en la
@@ -139,6 +150,51 @@ public class EncabezadoController {
         return "resultadoCarga";
     }
 
+    @RequestMapping("/formReporte01")
+    public String formReporte01(Model model) throws FeException {
+        
+        List<Company> companies = companyService.findAll();
+        model.addAttribute("companies", companies);
+        return "formReporte01";
+    }
+    
+    // Falta crear el formulario HTML que invoque este end point 25/12/2022
+    // Debe enviar el pdf a una ventana nueva. Para eso se debe agregar
+    // target="_blank" al href
+    @RequestMapping("/reporte01")
+    public String createDocument(
+            @RequestParam("year") Integer year,
+            @RequestParam("month") Integer month) throws FeException {
+        String fileName;
+        try {
+            Reportes rep = new Reportes(getConnection());
+
+            fileName = rep.createDocument("Xmls.jasper", Reportes.PDF, year, month);
+
+        } catch (NumberFormatException | SQLException ex) {
+            throw new FeException(this.getClass().getName(), "createDocument()", ex.getMessage());
+        }
+        return "redirect:/factura/pdf?q=" + fileName;
+    }
+
+    // Por ahora solo se envía un pdf, pero luego habrá que hacer lo mismo pero pada xlsx
+    // Falta investigar. 25/12/2022
+    @GetMapping(value = "/pdf")
+    public void showPDF(@RequestParam("q") String doc, HttpServletResponse response) throws FeException {
+        try {
+            response.setContentType("application/pdf");
+            try ( InputStream inputStream = new FileInputStream(new File(doc))) {
+                int nRead;
+                while ((nRead = inputStream.read()) != -1) {
+                    response.getWriter().write(nRead);
+                }
+            }
+        } catch (IOException ex) {
+            throw new FeException(this.getClass().getName(), "showPDF()", ex.getMessage());
+        }
+    } // end showPDF
+    
+    
     private void checkDir() {
         File dir = new File(repo);
         if (!dir.exists()) {
@@ -286,5 +342,9 @@ public class EncabezadoController {
 
             detalleService.save(detalle);
         }
+    }
+    
+    public Connection getConnection() throws SQLException {
+        return datasource.getConnection();
     }
 }
