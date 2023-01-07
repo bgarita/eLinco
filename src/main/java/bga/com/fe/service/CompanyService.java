@@ -1,12 +1,11 @@
 package bga.com.fe.service;
 
 import bga.com.fe.model.Company;
-import bga.com.fe.model.Detalle;
 import bga.com.fe.repository.CompanyRepository;
-import bga.com.fe.repository.DetalleRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 /**
@@ -31,6 +30,6 @@ public class CompanyService {
     }
     
     public List<Company> findAll() {
-        return companyRepository.findAll();
+        return companyRepository.findAll(Sort.by(Sort.Direction.ASC, "nombreReceptor"));
     }
 }

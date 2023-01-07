@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<!-- Copyright 2023 Infot SA -->
+<html lang="en"> 
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -56,12 +57,26 @@
                            id="year" 
                            value="2022">
                 </div>
+
+                <div class="col">
+                    <label for="receptor" class="form-label">Receptor</label>
+
+                    <select class="form-control form-select mb-4" 
+                            id="receptor" 
+                            aria-label="Default select example" 
+                            >
+                        <option th:each="c : ${companies}" 
+                                th:value="${c.numeroReceptor}" 
+                                th:text="${c.nombreReceptor}"
+                                ></option>
+                    </select>
+                </div>
             </div>  
-            <a href="/factura/reporte01/?year=2022&month=11" 
+            <a href="/factura/reporte01/?year=2022&month=11&receptor=todos" 
                class="btn btn-primary"
                id="link"
                target="_blank">Generar reporte</a><br>
-              
+
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 

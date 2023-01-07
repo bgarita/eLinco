@@ -26,8 +26,9 @@ const setAnchor = () => {
     const a = document.getElementById('link');
     const year = document.getElementById('year');
     const month = document.getElementById('month');
+    const receptor = document.getElementById('receptor');
 
-    a.href = `/factura/reporte01/?year=${year.value}&month=${month.value}`;
+    a.href = `/factura/reporte01/?year=${year.value}&month=${month.value}&receptor=${receptor.value}`;
 };
 
 $(document).ready(function () {
@@ -37,6 +38,9 @@ $(document).ready(function () {
         setAnchor();
     });
     $('#year').on('change', function(){
+        setAnchor();
+    });
+    $('#receptor').on('change', function(){
         setAnchor();
     });
 });

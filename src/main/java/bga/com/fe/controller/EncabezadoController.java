@@ -154,22 +154,22 @@ public class EncabezadoController {
     public String formReporte01(Model model) throws FeException {
         
         List<Company> companies = companyService.findAll();
+        companies.add(new Company("todos", "todos"));
         model.addAttribute("companies", companies);
         return "formReporte01";
     }
     
-    // Falta crear el formulario HTML que invoque este end point 25/12/2022
-    // Debe enviar el pdf a una ventana nueva. Para eso se debe agregar
-    // target="_blank" al href
     @RequestMapping("/reporte01")
     public String createDocument(
             @RequestParam("year") Integer year,
-            @RequestParam("month") Integer month) throws FeException {
+            @RequestParam("month") Integer month, 
+            @RequestParam("receptor") String receptor) 
+            throws FeException {
         String fileName;
         try {
             Reportes rep = new Reportes(getConnection());
 
-            fileName = rep.createDocument("Xmls.jasper", Reportes.PDF, year, month);
+            fileName = rep.createDocument("Xmls.jasper", Reportes.PDF, year, month, receptor);
 
         } catch (NumberFormatException | SQLException ex) {
             throw new FeException(this.getClass().getName(), "createDocument()", ex.getMessage());

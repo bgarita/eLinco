@@ -1,5 +1,6 @@
 package bga.com.fe.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,7 +10,7 @@ import javax.persistence.Id;
  * @author bgarita, 15/12/2022
  */
 @Entity
-public class Company {
+public class Company implements Serializable {
     @Id
     @Column(name="numero_receptor")
     private String numeroReceptor; // Por lo general es la cédula física o jurídica
