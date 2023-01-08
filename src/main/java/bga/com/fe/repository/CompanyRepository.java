@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
  *
  * @author bgarita, 15/12/2022
  */
-public interface CompanyRepository extends JpaRepository<Company, Integer> {
+public interface CompanyRepository extends JpaRepository<Company, String> {
     
     @Query("from Company c where c.nombreReceptor like %?1%") 
     public List<Company> findByNombre(String nombre);

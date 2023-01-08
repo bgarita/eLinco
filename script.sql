@@ -25,4 +25,7 @@ SELECT
 	WHERE clave = encabezado.clave AND codigo_tarifa = '08'),0) AS 'IVA 13%'
 FROM encabezado
 INNER JOIN company ON encabezado.numero_receptor = company.numero_receptor
+WHERE  year(encabezado.fecha_emision) =  2022 
+AND month(encabezado.fecha_emision) =  11 
+AND If('302880569' = 'todos', encabezado.numero_receptor = encabezado.numero_receptor, encabezado.numero_receptor = '302880569')
 ORDER BY nombre_receptor, fecha_emision;

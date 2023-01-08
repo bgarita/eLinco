@@ -28,7 +28,7 @@
 
         <div id="mainDiv" class="container mt-4">
 
-            <h1>Elija mes y año</h1>
+            <h1>Parámetros del reporte</h1>
 
             <div class="row">
                 <div class="col">
@@ -63,7 +63,7 @@
 
                     <select class="form-control form-select mb-4" 
                             id="receptor" 
-                            aria-label="Default select example" 
+                            aria-label="Select a company" 
                             >
                         <option th:each="c : ${companies}" 
                                 th:value="${c.numeroReceptor}" 
@@ -71,8 +71,34 @@
                                 ></option>
                     </select>
                 </div>
+                <div class="col">
+                    <label for="emisor" class="form-label">Emisor</label>
+
+                    <select class="form-control form-select mb-4" 
+                            id="emisor" 
+                            aria-label="Select an emitter" 
+                            >
+                        <option th:each="e : ${emisores}" 
+                                th:value="${e.numeroEmisor}" 
+                                th:text="${e.nombreEmisor}"
+                                ></option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="tipoDoc" class="form-label">Tipo documento</label>
+
+                    <select class="form-control form-select mb-4" 
+                            id="tipoDoc" 
+                            aria-label="Select a document type" 
+                            >
+                        <option selected value="todos">Todos</option>
+                        <option value="FAC">Factura</option>
+                        <option value="NCR">Nota de crédito</option>
+                        <option value="NDB">Nota de débito</option>
+                    </select>
+                </div>
             </div>  
-            <a href="/factura/reporte01/?year=2022&month=11&receptor=todos" 
+            <a href="/factura/reporte01/?year=2022&month=11&receptor=todos&tipoDoc=FAC" 
                class="btn btn-primary"
                id="link"
                target="_blank">Generar reporte</a><br>

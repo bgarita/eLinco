@@ -1,0 +1,4 @@
+- Modificar el reporte para que se pueda filtrar por tipo de documento.
+- Las clases de spring ya están creadas para los emisores.  Hay que implementar la parte
+    agregar automáticamente los emisores nuevos (similar a los receptores).
+- Modificar el reporte para que se pueda filtrar por tipo emisor.

@@ -5,6 +5,7 @@ import bga.com.fe.exceptions.FeException;
 import bga.com.fe.factura.FacturaElectronica;
 import bga.com.fe.model.Encabezado;
 import bga.com.fe.notacredito.NotaCreditoElectronica;
+import bga.com.fe.notadebito.NotaDebitoElectronica;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -26,6 +27,7 @@ public class Convert {
     private Encabezado encabezado;
     private DetalleFactura detalleFactura;
     private DetalleNotaCredito detalleNotaCredito;
+    private DetalleNotaDebito detalleNotaDebito;
 
     /**
      * Loads an xml file into java object and then into database.
@@ -37,8 +39,9 @@ public class Convert {
         this.encabezado = new Encabezado();
         this.detalleFactura = new DetalleFactura();
         this.detalleNotaCredito = new DetalleNotaCredito();
+        this.detalleNotaDebito = new DetalleNotaDebito();
 
-        // Determinar el tipo de documento (FAC, NCR)
+        // Determinar el tipo de documento (FAC, NCR, NDB)
         String tipoDocumento = getTipo(Paths.get(xml));
         if (tipoDocumento.equals("N/A")) {
             throw new FeException(
@@ -50,12 +53,25 @@ public class Convert {
         String wrkFile = createWorkFile(xml); // Se usa una copia
         validXML(wrkFile, xml, schema);
 
-        if (tipoDocumento.equals("FAC")) {
-            removeInvoiceAttributes(wrkFile);
-            generarFactura(wrkFile, xml, tipoDocumento);
-        } else {
-            removeNoteAttributes(wrkFile);
-            generarNotaCR(wrkFile, xml, tipoDocumento);
+        switch (tipoDocumento) {
+            case "FAC" -> {
+                removeInvoiceAttributes(wrkFile);
+                generarFactura(wrkFile, xml, tipoDocumento);
+            }
+            case "NCR" -> {
+                removeNotaCrAttributes(wrkFile);
+                generarNotaCR(wrkFile, xml, tipoDocumento);
+            }
+            case "NDB" -> {
+                removeNotaDbAttributes(wrkFile);
+                generarNotaDB(wrkFile, xml, tipoDocumento);
+            }
+            default -> {
+                throw new FeException(
+                        this.getClass().getName(),
+                        "class root",
+                        "Este tipo de documento no es válido -> " + tipoDocumento);
+            }
         }
 
     }
@@ -100,7 +116,7 @@ public class Convert {
 
     }
 
-    private void removeNoteAttributes(String xml) throws FeException {
+    private void removeNotaCrAttributes(String xml) throws FeException {
         Path path = Paths.get(xml);
         String xmlString = Util.fileToString(path);
         String textToFind = "<NotaCreditoElectronica";
@@ -132,7 +148,45 @@ public class Convert {
         } catch (IOException ex) {
             throw new FeException(
                     this.getClass().getName(),
-                    "removeNoteAttributes()",
+                    "removeNotaCrAttributes()",
+                    ex.getMessage(), ex);
+        }
+
+    }
+    
+    private void removeNotaDbAttributes(String xml) throws FeException {
+        Path path = Paths.get(xml);
+        String xmlString = Util.fileToString(path);
+        String textToFind = "<NotaDebitoElectronica";
+        int pos1 = xmlString.indexOf(textToFind);
+        int pos2;
+        if (pos1 > 0) {
+            textToFind = "<C"; // donde inicia <Clave>
+            pos2 = xmlString.indexOf(textToFind);
+            textToFind = "";
+            if (pos2 > pos1) {
+                textToFind = xmlString.substring(pos1, pos2 + 1); // texto que será eliminado
+            }
+            if (!textToFind.isEmpty()) {
+                xmlString = xmlString.replace(textToFind, "<NotaDebitoElectronica><");
+            }
+        }
+
+        // Remove signature
+        textToFind = "<ds:Signature";
+        pos1 = xmlString.indexOf(textToFind);
+        textToFind = "</NotaDebitoElectronica>";
+        pos2 = xmlString.indexOf(textToFind);
+        textToFind = xmlString.substring(pos1, pos2 + 1);
+        xmlString = xmlString.replace(textToFind, "<");
+
+        try {
+            // Save xml file
+            Util.stringToFile(xmlString, xml, false);
+        } catch (IOException ex) {
+            throw new FeException(
+                    this.getClass().getName(),
+                    "removeNotaDbAttributes()",
                     ex.getMessage(), ex);
         }
 
@@ -150,16 +204,30 @@ public class Convert {
             msg = "El archivo " + nombreOriginal + " no está firmado.";
         }
 
-        if (pos > 0) {
-            textToFind = tipoDocumento.equals(ResultadoCarga.FACTURA) ? "<FacturaElectronica" : "<NotaCreditoElectronica";
+        if (msg.length() == 0) {
+            switch (tipoDocumento) {
+                case ResultadoCarga.FACTURA -> {
+                    textToFind = "<FacturaElectronica";
+                }
+                case ResultadoCarga.NOTA_CREDITO -> {
+                    textToFind = "<NotaCreditoElectronica";
+                }
+                case ResultadoCarga.NOTA_DEBITO -> {
+                    textToFind = "<NotaDebitoElectronica";
+                }
+                default -> {
+                    textToFind = "N/A";
+                }
+            }
+
             pos = xmlString.indexOf(textToFind);
-            if (pos <= 0) {
-                msg = "El archivo " + nombreOriginal + " no es un xml válido.";
+            if (pos <= 0 || textToFind.equals("N/A")) {
+                msg = "El archivo " + nombreOriginal + " no contiene un tipo de documento soportado.";
             }
         }
 
         // Validar la versión del esquema de Hacienda
-        if (pos > 0) {
+        if (msg.length() == 0) {
             textToFind = "xml-schemas/";
             pos = xmlString.indexOf(textToFind);
             xmlString = xmlString.substring(pos);
@@ -173,7 +241,6 @@ public class Convert {
                     "validXML()",
                     msg);
         }
-
     }
 
     private String createWorkFile(String xml) {
@@ -210,6 +277,10 @@ public class Convert {
     public DetalleNotaCredito getDetalleNotaCredito() {
         return detalleNotaCredito;
     }
+    
+    public DetalleNotaDebito getDetalleNotaDebito() {
+        return detalleNotaDebito;
+    }
 
     private String getTipo(String xml) {
         String tipo = ResultadoCarga.NO_DEFINIDO;
@@ -217,6 +288,8 @@ public class Convert {
             tipo = ResultadoCarga.FACTURA;
         } else if (xml.contains("<NotaCreditoElectronica")) {
             tipo = ResultadoCarga.NOTA_CREDITO;
+        } else if (xml.contains("<NotaDebitoElectronica")) {
+            tipo = ResultadoCarga.NOTA_DEBITO;
         }
 
         return tipo;
@@ -266,7 +339,7 @@ public class Convert {
         } catch (ParseException ex) {
             throw new FeException(
                     this.getClass().getName(),
-                    "",
+                    "generarFactura()",
                     ex.getMessage());
         }
 
@@ -284,7 +357,7 @@ public class Convert {
         encabezado.setCondicionVenta(fa.getCondicionVenta());
         encabezado.setPlazoCredito(fa.getPlazoCredito());
         encabezado.setCodigoMoneda(fa.getResumen().getCodigoTipoMoneda().getCodigoTipoMoneda());
-        
+
         // Algunas facturas traen este campo en cero
         encabezado.setTipoCambio(
                 fa.getResumen().getCodigoTipoMoneda().getTipoCambio() == 0.0 ? 1.0
@@ -325,7 +398,7 @@ public class Convert {
         } catch (JAXBException ex) {
             throw new FeException(
                     this.getClass().getName(),
-                    "",
+                    "generarNotaCR()",
                     ex.getMessage());
         }
 
@@ -394,5 +467,89 @@ public class Convert {
 
         detalleNotaCredito = nc.getDetalle();
 
+    }
+
+    private void generarNotaDB(String wrkFile, String xml, String tipoDocumento) {
+        JAXBContext context;
+        Unmarshaller unmarshaller;
+        NotaDebitoElectronica nd;
+
+        try {
+            context = JAXBContext.newInstance(NotaDebitoElectronica.class);
+            unmarshaller = context.createUnmarshaller();
+            nd = (NotaDebitoElectronica) unmarshaller.unmarshal(new File(wrkFile));
+        } catch (JAXBException ex) {
+            throw new FeException(
+                    this.getClass().getName(),
+                    "generarNotaDB()",
+                    ex.getMessage());
+        }
+
+        // Revisar que el documento contenga receptor
+        String idReceptor = nd.getReceptor().getIdentificacion().getNumero();
+        if (idReceptor == null) {
+            throw new FeException(
+                    this.getClass().getName(),
+                    "",
+                    "Este xml [" + xml + "] carece de receptor.");
+        }
+
+        encabezado.setClave(nd.getClave());
+        encabezado.setTipoDocumento(tipoDocumento);
+        encabezado.setCodigoActividad(nd.getCodigoActividad());
+        encabezado.setComprobante(nd.getNumeroConsecutivo());
+
+        encabezado.setNumeroReceptor(idReceptor);
+        encabezado.setNumeroEmisor(nd.getEmisor().getIdentificacion().getNumero());
+
+        Date fecha;
+        try {
+            fecha = formatDateString(nd.getFechaEmision());
+        } catch (ParseException ex) {
+            throw new FeException(
+                    this.getClass().getName(),
+                    "",
+                    ex.getMessage());
+        }
+
+        encabezado.setFechaEmision(fecha);
+
+        encabezado.setNombreEmisor(nd.getEmisor().getNombre());
+        encabezado.setCorreoElectronicoEmisor(nd.getEmisor().getCorreoElectronico());
+        encabezado.setNumeroEmisor(nd.getEmisor().getIdentificacion().getNumero());
+        encabezado.setTipoIdEmisor(nd.getEmisor().getIdentificacion().getTipo());
+
+        encabezado.setNombreReceptor(nd.getReceptor().getNombre());
+        encabezado.setTipoIdReceptor(nd.getReceptor().getIdentificacion().getTipo());
+
+        encabezado.setMedioPago(nd.getMedioPago());
+        encabezado.setCondicionVenta(nd.getCondicionVenta());
+        encabezado.setPlazoCredito(nd.getPlazoCredito());
+        encabezado.setCodigoMoneda(nd.getResumen().getCodigoTipoMoneda().getCodigoTipoMoneda());
+
+        // Algunas facturas traen este campo en cero
+        encabezado.setTipoCambio(
+                nd.getResumen().getCodigoTipoMoneda().getTipoCambio() == 0.0 ? 1.0
+                : nd.getResumen().getCodigoTipoMoneda().getTipoCambio()
+        );
+
+        encabezado.setTotalComprobante(nd.getResumen().getTotalComprobante());
+        encabezado.setTotalDescuentos(nd.getResumen().getTotalDescuentos());
+        encabezado.setTotalExento(nd.getResumen().getTotalExento());
+        encabezado.setTotalExonerado(nd.getResumen().getTotalExonerado());
+        encabezado.setTotalGravado(nd.getResumen().getTotalGravado());
+        encabezado.setTotalIVADevuelto(nd.getResumen().getTotalIVADevuelto());
+        encabezado.setTotalImpuesto(nd.getResumen().getTotalImpuesto());
+        encabezado.setTotalMercExonerada(nd.getResumen().getTotalMercExonerada());
+        encabezado.setTotalMercanciasExentas(nd.getResumen().getTotalMercanciasExentas());
+        encabezado.setTotalMercanciasGravadas(nd.getResumen().getTotalMercanciasGravadas());
+        encabezado.setTotalOtrosCargos(nd.getResumen().getTotalOtrosCargos());
+        encabezado.setTotalServExentos(nd.getResumen().getTotalServExentos());
+        encabezado.setTotalServExonerado(nd.getResumen().getTotalServExonerado());
+        encabezado.setTotalServGravados(nd.getResumen().getTotalServGravados());
+        encabezado.setTotalVenta(nd.getResumen().getTotalVenta());
+        encabezado.setTotalVentaNeta(nd.getResumen().getTotalVentaNeta());
+
+        detalleFactura = nd.getDetalle();
     }
 }

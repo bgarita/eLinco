@@ -70,7 +70,11 @@ public class Reportes {
     }
 
     public String createDocument(
-            String jasperForm, String format, int year, int month, String receptor) throws FeException{
+            String jasperForm, 
+            String format, 
+            int year, 
+            int month, 
+            String receptor, String emisor, String tipoDoc) throws FeException{
         File f = new File(REPORTS_BASE_DIR + "/" + jasperForm);
         File pdf = new File(PDF_FILES);
         String archivo = pdf + "/Doc";
@@ -89,7 +93,9 @@ public class Reportes {
             parameters.put("p_year", year);
             parameters.put("p_month", month);
             parameters.put("p_receptor", receptor);
-
+            parameters.put("p_emisor", emisor);
+            parameters.put("p_tipoDoc", tipoDoc);
+            
             JasperPrint jasperPrint
                     = JasperFillManager.fillReport(f.getAbsolutePath(), parameters, this.conn);
 

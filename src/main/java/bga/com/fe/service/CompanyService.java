@@ -25,8 +25,8 @@ public class CompanyService {
         return companyRepository.findByNombre(nombre);
     }
     
-    public Optional<Company> findById(Integer id) {
-        return companyRepository.findById(id);
+    public Optional<Company> findById(String numeroReceptor) {
+        return companyRepository.findById(numeroReceptor);
     }
     
     public List<Company> findAll() {
