@@ -1,9 +1,6 @@
 package bga.com.fe;
 
-import bga.com.fe.Codigo;
-import bga.com.fe.Descuento;
-import bga.com.fe.Impuesto;
-import bga.com.fe.OtrosCargos;
+import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 
 import javax.xml.bind.annotation.XmlType;
@@ -13,8 +10,9 @@ import javax.xml.bind.annotation.XmlType;
  * @author bosco, 17/12/2022
  */
 @XmlType(propOrder = {
-    "numeroLinea", "codigo", "codigoComercial", "cantidad", "unidadMedida", "detalle", "precioUnitario",
-    "montoTotal", "descuento", "subTotal", "baseImponible", "impuesto", "otrosC", "montoTotalLinea"})
+    "numeroLinea", "codigo", "codigoComercial", "cantidad", "unidadMedida", 
+    "detalle", "precioUnitario", "montoTotal", "descuento", "subTotal", 
+    "baseImponible", "impuestos", "otrosC", "montoTotalLinea", "impuestoNeto"})
 public class LineaDetalle {
 
     private int numeroLinea;
@@ -28,9 +26,10 @@ public class LineaDetalle {
     private Descuento descuento;
     private double subTotal;
     private double baseImponible;
-    private Impuesto impuesto;
+    private List<Impuesto> impuestos;
     private OtrosCargos otrosC;
     private double montoTotalLinea;
+    private double impuestoNeto;
 
     public LineaDetalle() {
 
@@ -135,13 +134,13 @@ public class LineaDetalle {
         this.baseImponible = baseImponible;
     }
 
-    public Impuesto getImpuesto() {
-        return impuesto;
+    public List<Impuesto> getImpuestos() {
+        return impuestos;
     }
 
     @XmlElement(name = "Impuesto")
-    public void setImpuesto(Impuesto impuesto) {
-        this.impuesto = impuesto;
+    public void setImpuestos(List<Impuesto> impuestos) {
+        this.impuestos = impuestos;
     }
 
     public OtrosCargos getOtrosC() {
@@ -160,6 +159,15 @@ public class LineaDetalle {
     @XmlElement(name = "MontoTotalLinea")
     public void setMontoTotalLinea(double montoTotalLinea) {
         this.montoTotalLinea = montoTotalLinea;
+    }
+
+    public double getImpuestoNeto() {
+        return impuestoNeto;
+    }
+
+    @XmlElement(name = "ImpuestoNeto")
+    public void setImpuestoNeto(double impuestoNeto) {
+        this.impuestoNeto = impuestoNeto;
     }
 
 } // end class

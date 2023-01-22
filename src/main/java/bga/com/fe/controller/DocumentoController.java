@@ -6,6 +6,7 @@ import bga.com.fe.Util;
 import bga.com.fe.exceptions.FeException;
 import bga.com.fe.DetalleFactura;
 import bga.com.fe.DetalleNotaCredito;
+import bga.com.fe.Impuesto;
 import bga.com.fe.LineaDetalle;
 import bga.com.fe.model.Company;
 import bga.com.fe.model.Detalle;
@@ -13,6 +14,7 @@ import bga.com.fe.model.Emisor;
 import bga.com.fe.model.Encabezado;
 import bga.com.fe.service.CompanyService;
 import bga.com.fe.service.DetalleService;
+import bga.com.fe.service.ImpuestoService;
 import bga.com.fe.service.EmisorService;
 import bga.com.fe.service.EncabezadoService;
 import java.io.File;
@@ -55,6 +57,8 @@ public class DocumentoController {
     private EncabezadoService encabezadoService;
     @Autowired
     private DetalleService detalleService;
+    @Autowired
+    private ImpuestoService impuestoService;
     @Autowired
     private CompanyService companyService;
     @Autowired
@@ -150,7 +154,7 @@ public class DocumentoController {
 
             } catch (FeException | IOException ex) {
                 resultado.setEstado(ResultadoCarga.ERROR);
-                resultado.setMensaje(ex.getMessage());
+                resultado.setMensaje(ex.toString());
             }
             resultados.add(resultado);
         }
@@ -320,24 +324,31 @@ public class DocumentoController {
 
             detalle.setSubTotal(linea.getSubTotal());
             detalle.setBaseImponible(linea.getBaseImponible());
-
+            detalle.setImpuestoNeto(linea.getImpuestoNeto());
+            /*
             detalle.setCodigoImpuesto("");
             detalle.setCodigoTarifa("");
             detalle.setFactorIVA(0f);
             detalle.setTarifa(0f);
             detalle.setMontoIVA(0.0);
 
-            if (linea.getImpuesto() != null) {
-                detalle.setCodigoImpuesto(linea.getImpuesto().getCodigo());
-                detalle.setCodigoTarifa(linea.getImpuesto().getCodigoTarifa());
-                detalle.setFactorIVA(linea.getImpuesto().getFactorIVA());
-                detalle.setTarifa(linea.getImpuesto().getTarifa());
-                detalle.setMontoIVA(linea.getImpuesto().getMonto());
+            
+            if (linea.getImpuestos() != null) {
+                detalle.setCodigoImpuesto(linea.getImpuestos().getCodigo());
+                detalle.setCodigoTarifa(linea.getImpuestos().getCodigoTarifa());
+                detalle.setFactorIVA(linea.getImpuestos().getFactorIVA());
+                detalle.setTarifa(linea.getImpuestos().getTarifa());
+                detalle.setMontoIVA(linea.getImpuestos().getMonto());
             }
-
+            */
             detalle.setMontoTotalLinea(linea.getMontoTotalLinea());
 
-            detalleService.save(detalle);
+            Detalle det = detalleService.save(detalle);
+            
+            // Guardar los impuestos
+            if (linea.getImpuestos() != null) {
+                saveImpuestos(linea.getImpuestos(), det.getId());
+            }
         }
     }
     
@@ -375,28 +386,57 @@ public class DocumentoController {
 
             detalle.setSubTotal(linea.getSubTotal());
             detalle.setBaseImponible(linea.getBaseImponible());
-
+            
+            if (linea.getImpuestos() != null && linea.getImpuestoNeto() == 0) {
+                Double in = 0.0;
+                for (Impuesto iv : linea.getImpuestos()) {
+                    in += iv.getMonto();
+                }
+                linea.setImpuestoNeto(in);
+            }
+            
+            detalle.setImpuestoNeto(linea.getImpuestoNeto());
+            /*
             detalle.setCodigoImpuesto("");
             detalle.setCodigoTarifa("");
             detalle.setFactorIVA(0f);
             detalle.setTarifa(0f);
             detalle.setMontoIVA(0.0);
 
-            if (linea.getImpuesto() != null) {
-                detalle.setCodigoImpuesto(linea.getImpuesto().getCodigo());
-                detalle.setCodigoTarifa(linea.getImpuesto().getCodigoTarifa());
-                detalle.setFactorIVA(linea.getImpuesto().getFactorIVA());
-                detalle.setTarifa(linea.getImpuesto().getTarifa());
-                detalle.setMontoIVA(linea.getImpuesto().getMonto());
+            
+            if (linea.getImpuestos() != null) {
+                detalle.setCodigoImpuesto(linea.getImpuestos().getCodigo());
+                detalle.setCodigoTarifa(linea.getImpuestos().getCodigoTarifa());
+                detalle.setFactorIVA(linea.getImpuestos().getFactorIVA());
+                detalle.setTarifa(linea.getImpuestos().getTarifa());
+                detalle.setMontoIVA(linea.getImpuestos().getMonto());
             }
-
+            */
             detalle.setMontoTotalLinea(linea.getMontoTotalLinea());
 
-            detalleService.save(detalle);
+            Detalle det = detalleService.save(detalle);
+            
+            // Guardar los impuestos
+            if (linea.getImpuestos() != null) {
+                saveImpuestos(linea.getImpuestos(), det.getId());
+            }
         }
     }
     
     public Connection getConnection() throws SQLException {
         return datasource.getConnection();
+    }
+
+    private void saveImpuestos(List<Impuesto> impuestos, Integer detalleId) {
+        impuestos.forEach(impuesto -> {
+            bga.com.fe.model.Impuesto imp = new bga.com.fe.model.Impuesto();
+            imp.setId(null);
+            imp.setCodigoImpuesto(impuesto.getCodigo());
+            imp.setCodigoTarifa(impuesto.getCodigoTarifa());
+            imp.setDetalleId(detalleId);
+            imp.setMonto(impuesto.getMonto());
+            imp.setTarifa(impuesto.getTarifa());
+            impuestoService.save(imp);
+        });
     }
 }

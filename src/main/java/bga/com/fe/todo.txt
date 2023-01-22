@@ -1,4 +1,3 @@
-- Modificar el reporte para que se pueda filtrar por tipo de documento.
-- Las clases de spring ya están creadas para los emisores.  Hay que implementar la parte
-    agregar automáticamente los emisores nuevos (similar a los receptores).
-- Modificar el reporte para que se pueda filtrar por tipo emisor.
+- Revisar cuál es la razón por la que después de generar varias veces el reporte, se cierra la conexión a
+  base de datos y ya no se puede abrir de nuevo.
+  Tal vez sea que se agota el número de conexiones.  Validar eso en HeidySQL

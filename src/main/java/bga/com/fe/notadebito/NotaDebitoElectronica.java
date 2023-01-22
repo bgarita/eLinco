@@ -1,6 +1,5 @@
 package bga.com.fe.notadebito;
 
-import bga.com.fe.factura.*;
 import bga.com.fe.DetalleFactura;
 import bga.com.fe.Resumen;
 import bga.com.fe.Emisor;

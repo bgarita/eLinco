@@ -1,1 +1,173 @@
-<?xml version="1.0" encoding="utf-8"?><FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/facturaElectronica" xsi:schemaLocation="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/facturaElectronica https://www.hacienda.go.cr/ATV/ComprobanteElectronico/docs/esquemas/2016/v4.3/FacturaElectronica_V4.3.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"><Clave>50618102200310101200900900001010001554834177703856</Clave><CodigoActividad>651904</CodigoActividad><NumeroConsecutivo>00900001010001554834</NumeroConsecutivo><FechaEmision>2022-10-18T15:46:35-06:00</FechaEmision><Emisor><Nombre>Banco BAC San Jose. S. A.</Nombre><Identificacion><Tipo>02</Tipo><Numero>3101012009</Numero></Identificacion><NombreComercial>Banco - Afiliación</NombreComercial><Ubicacion><Provincia>1</Provincia><Canton>02</Canton><Distrito>03</Distrito><Barrio>09</Barrio><OtrasSenas>Centro Corporativo Plaza Robles. Edificio Terrazas B</OtrasSenas></Ubicacion><Telefono><CodigoPais>506</CodigoPais><NumTelefono>22959000</NumTelefono></Telefono><CorreoElectronico>facturaelectronicacom@baccredomatic.cr</CorreoElectronico></Emisor><Receptor><Nombre>BOSCO E/GARITA AZOFEIFA       </Nombre><Identificacion><Tipo>01</Tipo><Numero>302880569</Numero></Identificacion><CorreoElectronico>bgarita@hotmail.com</CorreoElectronico></Receptor><CondicionVenta>01</CondicionVenta><MedioPago>99</MedioPago><DetalleServicio><LineaDetalle><NumeroLinea>1</NumeroLinea><Codigo>6799000000000</Codigo><Cantidad>1.000</Cantidad><UnidadMedida>Os</UnidadMedida><Detalle>Cobro administración Compass SET 2022</Detalle><PrecioUnitario>2561.58000</PrecioUnitario><MontoTotal>2561.58000</MontoTotal><SubTotal>2561.58000</SubTotal><Impuesto><Codigo>01</Codigo><CodigoTarifa>08</CodigoTarifa><Tarifa>13.00</Tarifa><Monto>333.00540</Monto></Impuesto><ImpuestoNeto>333.00540</ImpuestoNeto><MontoTotalLinea>2894.58540</MontoTotalLinea></LineaDetalle><LineaDetalle><NumeroLinea>2</NumeroLinea><Codigo>6799000000000</Codigo><Cantidad>1.000</Cantidad><UnidadMedida>Os</UnidadMedida><Detalle>Cobro administración Compass SET 2022</Detalle><PrecioUnitario>2561.58000</PrecioUnitario><MontoTotal>2561.58000</MontoTotal><SubTotal>2561.58000</SubTotal><Impuesto><Codigo>01</Codigo><CodigoTarifa>08</CodigoTarifa><Tarifa>13.00</Tarifa><Monto>333.00540</Monto></Impuesto><ImpuestoNeto>333.00540</ImpuestoNeto><MontoTotalLinea>2894.58540</MontoTotalLinea></LineaDetalle></DetalleServicio><ResumenFactura><CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1.00000</TipoCambio></CodigoTipoMoneda><TotalServGravados>5123.16000</TotalServGravados><TotalServExentos>0.00000</TotalServExentos><TotalServExonerado>0.00000</TotalServExonerado><TotalMercanciasGravadas>0.00000</TotalMercanciasGravadas><TotalMercanciasExentas>0.00000</TotalMercanciasExentas><TotalMercExonerada>0.00000</TotalMercExonerada><TotalGravado>5123.16000</TotalGravado><TotalExento>0.00000</TotalExento><TotalExonerado>0.00000</TotalExonerado><TotalVenta>5123.16000</TotalVenta><TotalVentaNeta>5123.16000</TotalVentaNeta><TotalImpuesto>666.01080</TotalImpuesto><TotalIVADevuelto>0.00000</TotalIVADevuelto><TotalOtrosCargos>0.00000</TotalOtrosCargos><TotalComprobante>5789.17080</TotalComprobante></ResumenFactura><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Signature-dea0f8c5-3507-4622-b60f-dabc3f195abc"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><ds:Reference Id="Reference-e82999a8-8c4d-4caf-9f88-c30d5b065848" URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>m4atmUE4+uWTr39951VFZr2NnB7/Yr3oliXJMtf/3hA=</ds:DigestValue></ds:Reference><ds:Reference Id="ReferenceKeyInfo" URI="#KeyInfoId-Signature-dea0f8c5-3507-4622-b60f-dabc3f195abc"><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>vrQz/hN2qWpC+MS9umOJandCmLzqfw93n29P7NCGS7E=</ds:DigestValue></ds:Reference><ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#SignedProperties-Signature-dea0f8c5-3507-4622-b60f-dabc3f195abc"><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>LzvgIAzAp50Eym8uF5LFBRUQBAFFCL6IwIwK5znvV/s=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue Id="SignatureValue-dea0f8c5-3507-4622-b60f-dabc3f195abc">Nv9jUOEQtUD4Pr7rs0YJeZCQjU/TcQ+wtAqLPLzXwNqTIziZbSxcq6FJyxPcnfjP/SciexuiiUlWmtLFsVj9QQPcYdj8PjyCRAohayZSu1UiavSFRIFlgda3znY9Oxzn7Z+QiKxvybysJS99Bz6QkuMh6jE6guHsPH01Jal6d11CcjSXkTQt0bpE5u+ZSSUU/igcb1ItgUc3E1J7slz3oGk7mgRjTv7UTPO/2ucul18c8yheHHoNWsjUsV1dOSis4xIEGOXYWbckWGOukFEO1E9HkxGcfVUdu2CRuPDSPxTqd8xuzzHlOmw84fYeko/ba/XYISznHHXkH0H57lhY8A==</ds:SignatureValue><ds:KeyInfo Id="KeyInfoId-Signature-dea0f8c5-3507-4622-b60f-dabc3f195abc"><ds:X509Data><ds:X509Certificate>MIIFJDCCAwygAwIBAgIGAXch3oHCMA0GCSqGSIb3DQEBCwUAMFoxCzAJBgNVBAYTAkNSMR8wHQYDVQQKDBZNSU5JU1RFUklPIERFIEhBQ0lFTkRBMQwwCgYDVQQLDANER1QxHDAaBgNVBAMME0NBIFBFUlNPTkEgSlVSSURJQ0EwHhcNMjEwMTIwMjIxNjA2WhcNMjMwMTIwMjIxNjA2WjB/MRkwFwYDVQQFExBDUEotMy0xMDEtMDEyMDA5MQswCQYDVQQGEwJDUjEZMBcGA1UECgwQUEVSU09OQSBKVVJJRElDQTEMMAoGA1UECwwDQ1BKMSwwKgYDVQQDDCNCQU5DTyBCQUMgU0FOIEpPU0UgU09DSUVEQUQgQU5PTklNQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIs1misMZQp76BBX/w0a8HjDy9UYYmY5XsTB25H9/nAJk+AK18pQ3BtfJfBx+joMGUBA3NXxQIZbUpI4rOYxZX68ej84DDL7IVVX+rFCPn13wgfh7mVGg9+uAlFZuMiz7xA+0XK240AWszOup0c7MTPHy+yzeOdnoMPyUeVgmRT0l5VZQpsyR97gsLzB36UygquVk10kb0zUM3knwddZC4GOLc/3QePAjsH1TQvTwKD6NKE1KrWiVT6vPmfr7U37kUJbNTJ9Z9ccz5RuQU77NPSEdo9qwS7F0s65BSNW7gOcSxQe/fQEyacm+UsbqmtGSi6JtVP9YP22WWV3PiBaVvkCAwEAAaOByjCBxzAfBgNVHSMEGDAWgBQ7bVf11nzpnhACIEHjvRrMz7NOlTAdBgNVHQ4EFgQUGFt60EUt7nRI8JjtfgJ8Sto2AdwwCwYDVR0PBAQDAgbAMBMGA1UdJQQMMAoGCCsGAQUFBwMEMGMGCCsGAQUFBwEBBFcwVTBTBggrBgEFBQcwAoZHaHR0cHM6Ly9wa2kuY29tcHJvYmFudGVzZWxlY3Ryb25pY29zLmdvLmNyL3Byb2QvaW50ZXJtZWRpYXRlLXBqLXBlbS5jcnQwDQYJKoZIhvcNAQELBQADggIBAIusR66zTOA2+M3rDblSEr1SjZ907Miul+tRwMAcLEWWWuWCT3f1HiRXNKZvYmzOnKL4QdTR2fCrIC4RodQtlteKdOkA2xCBgbk1fDG2CYMefcxAC/rwVyz2oGOay04aGG9wpK75/SgvyB5ofU4XS9gFILYOC2ziZ2hegUuUwhVIDbWFGRwHgp33zwGUt+2z/1Tr83+hS3NTtXi1XlAgLIfbt+QosNuaV+uvbfWBVlwgA4NeJnhDbWpWNryFJ1ZkgJDKDIXVIiUDrWZe7qLs0h7ZHKyaSidOvXw0+9Gzz09Jwr5Q0Gk2ljXFCs7aJ3arw/cYc87nCOvIRMWLWYOfJWEwLjuc+pOw9Wya4JkxI8rTS79h58FM7KUStzc1KWjczntN2Zo9dis+9Y1JQkpCZLq90ELnzIOTov1TGq7oi3W7TOMP7YhiT7d/9PE1+QBjs82dsQHLv8u6jSMaqS1Iy/fZax1AmqmCZal6/q4mSGb8zgH42ojl8TkaKbpLfbrUPUZ2/aijsCOhljN6VlpFeOkVPzzuN9uekI/3p3GiC49BV5HNMRfRJsNSUbuMvZH1yOjhE/pjy38KZkOlcqvnPmYHi/pv6rHQNO/GK1RLiGI3musr1OgIzQJcmWLRGMKDqARm3MrRInZdX5GPTYUsqgNF5AVUmU7+bIz/Ikc08T1o</ds:X509Certificate></ds:X509Data><ds:KeyValue><ds:RSAKeyValue><ds:Modulus>izWaKwxlCnvoEFf/DRrweMPL1RhiZjlexMHbkf3+cAmT4ArXylDcG18l8HH6OgwZQEDc1fFAhltSkjis5jFlfrx6PzgMMvshVVf6sUI+fXfCB+HuZUaD364CUVm4yLPvED7RcrbjQBazM66nRzsxM8fL7LN452egw/JR5WCZFPSXlVlCmzJH3uCwvMHfpTKCq5WTXSRvTNQzeSfB11kLgY4tz/dB48COwfVNC9PAoPo0oTUqtaJVPq8+Z+vtTfuRQls1Mn1n1xzPlG5BTvs09IR2j2rBLsXSzrkFI1buA5xLFB799ATJpyb5Sxuqa0ZKLom1U/1g/bZZZXc+IFpW+Q==</ds:Modulus><ds:Exponent>AQAB</ds:Exponent></ds:RSAKeyValue></ds:KeyValue></ds:KeyInfo><ds:Object Id="XadesObjectId-68c343bc-d0c7-43e4-bc23-2e6aabc4c748"><xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Id="QualifyingProperties-c0c0a0ad-0cae-4c14-87f6-3c8e46cb97a6" Target="#Signature-dea0f8c5-3507-4622-b60f-dabc3f195abc"><xades:SignedProperties Id="SignedProperties-Signature-dea0f8c5-3507-4622-b60f-dabc3f195abc"><xades:SignedSignatureProperties><xades:SigningTime>2022-10-18T15:46:35-06:00</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>cesguiG5ei1XxTs/RMMgYrP7b4t2QR2UYjlw0LdWCWQ=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=CA PERSONA JURIDICA, OU=DGT, O=MINISTERIO DE HACIENDA, C=CR</ds:X509IssuerName><ds:X509SerialNumber>1611180966338</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate><xades:SignaturePolicyIdentifier><xades:SignaturePolicyId><xades:SigPolicyId><xades:Identifier>https://www.hacienda.go.cr/ATV/ComprobanteElectronico/docs/esquemas/2016/v4.3/ResolucionComprobantesElectronicosDGT-R-48-2016_4.3.pdf</xades:Identifier><xades:Description /></xades:SigPolicyId><xades:SigPolicyHash><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>UjWS5faB3LbdbBNkauxSuEaxqvX0zXzxPLGZPTwZH7k=</ds:DigestValue></xades:SigPolicyHash></xades:SignaturePolicyId></xades:SignaturePolicyIdentifier><xades:SignerRole><xades:ClaimedRoles><xades:ClaimedRole>emisor</xades:ClaimedRole></xades:ClaimedRoles></xades:SignerRole></xades:SignedSignatureProperties><xades:SignedDataObjectProperties><xades:DataObjectFormat ObjectReference="#Reference-e82999a8-8c4d-4caf-9f88-c30d5b065848"><xades:MimeType>text/xml</xades:MimeType><xades:Encoding>UTF-8</xades:Encoding></xades:DataObjectFormat></xades:SignedDataObjectProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object></ds:Signature></FacturaElectronica>
+<?xml version="1.0" encoding="utf-8"?>
+<FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/facturaElectronica" xsi:schemaLocation="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.3/facturaElectronica https://www.hacienda.go.cr/ATV/ComprobanteElectronico/docs/esquemas/2016/v4.3/FacturaElectronica_V4.3.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+	<Clave>50618102200310101200900900001010001554834177703856</Clave>
+	<CodigoActividad>651904</CodigoActividad>
+	<NumeroConsecutivo>00900001010001554834</NumeroConsecutivo>
+	<FechaEmision>2022-10-18T15:46:35-06:00</FechaEmision>
+	<Emisor>
+		<Nombre>Banco BAC San Jose. S. A.</Nombre>
+		<Identificacion>
+			<Tipo>02</Tipo>
+			<Numero>3101012009</Numero>
+		</Identificacion>
+		<NombreComercial>Banco - Afiliación</NombreComercial>
+		<Ubicacion>
+			<Provincia>1</Provincia>
+			<Canton>02</Canton>
+			<Distrito>03</Distrito>
+			<Barrio>09</Barrio>
+			<OtrasSenas>Centro Corporativo Plaza Robles. Edificio Terrazas B</OtrasSenas>
+		</Ubicacion>
+		<Telefono>
+			<CodigoPais>506</CodigoPais>
+			<NumTelefono>22959000</NumTelefono>
+		</Telefono>
+		<CorreoElectronico>facturaelectronicacom@baccredomatic.cr</CorreoElectronico>
+	</Emisor>
+	<Receptor>
+		<Nombre>BOSCO E/GARITA AZOFEIFA       </Nombre>
+		<Identificacion>
+			<Tipo>01</Tipo>
+			<Numero>302880569</Numero>
+		</Identificacion>
+		<CorreoElectronico>bgarita@hotmail.com</CorreoElectronico>
+	</Receptor>
+	<CondicionVenta>01</CondicionVenta>
+	<MedioPago>99</MedioPago>
+	<DetalleServicio>
+		<LineaDetalle>
+			<NumeroLinea>1</NumeroLinea>
+			<Codigo>6799000000000</Codigo>
+			<Cantidad>1.000</Cantidad>
+			<UnidadMedida>Os</UnidadMedida>
+			<Detalle>Cobro administración Compass SET 2022</Detalle>
+			<PrecioUnitario>2561.58000</PrecioUnitario>
+			<MontoTotal>2561.58000</MontoTotal>
+			<SubTotal>2561.58000</SubTotal>
+			<Impuesto>
+				<Codigo>01</Codigo>
+				<CodigoTarifa>08</CodigoTarifa>
+				<Tarifa>13.00</Tarifa>
+				<Monto>333.00540</Monto>
+			</Impuesto>
+			<ImpuestoNeto>333.00540</ImpuestoNeto>
+			<MontoTotalLinea>2894.58540</MontoTotalLinea>
+		</LineaDetalle>
+		<LineaDetalle>
+			<NumeroLinea>2</NumeroLinea>
+			<Codigo>6799000000000</Codigo>
+			<Cantidad>1.000</Cantidad>
+			<UnidadMedida>Os</UnidadMedida>
+			<Detalle>Cobro administración Compass SET 2022</Detalle>
+			<PrecioUnitario>2561.58000</PrecioUnitario>
+			<MontoTotal>2561.58000</MontoTotal>
+			<SubTotal>2561.58000</SubTotal>
+			<Impuesto>
+				<Codigo>01</Codigo>
+				<CodigoTarifa>08</CodigoTarifa>
+				<Tarifa>13.00</Tarifa>
+				<Monto>333.00540</Monto>
+			</Impuesto>
+			<ImpuestoNeto>333.00540</ImpuestoNeto>
+			<MontoTotalLinea>2894.58540</MontoTotalLinea>
+		</LineaDetalle>
+	</DetalleServicio>
+	<ResumenFactura>
+		<CodigoTipoMoneda>
+			<CodigoMoneda>CRC</CodigoMoneda>
+			<TipoCambio>1.00000</TipoCambio>
+		</CodigoTipoMoneda>
+		<TotalServGravados>5123.16000</TotalServGravados>
+		<TotalServExentos>0.00000</TotalServExentos>
+		<TotalServExonerado>0.00000</TotalServExonerado>
+		<TotalMercanciasGravadas>0.00000</TotalMercanciasGravadas>
+		<TotalMercanciasExentas>0.00000</TotalMercanciasExentas>
+		<TotalMercExonerada>0.00000</TotalMercExonerada>
+		<TotalGravado>5123.16000</TotalGravado>
+		<TotalExento>0.00000</TotalExento>
+		<TotalExonerado>0.00000</TotalExonerado>
+		<TotalVenta>5123.16000</TotalVenta>
+		<TotalVentaNeta>5123.16000</TotalVentaNeta>
+		<TotalImpuesto>666.01080</TotalImpuesto>
+		<TotalIVADevuelto>0.00000</TotalIVADevuelto>
+		<TotalOtrosCargos>0.00000</TotalOtrosCargos>
+		<TotalComprobante>5789.17080</TotalComprobante>
+	</ResumenFactura>
+	<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Signature-dea0f8c5-3507-4622-b60f-dabc3f195abc">
+		<ds:SignedInfo>
+			<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+			<ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+			<ds:Reference Id="Reference-e82999a8-8c4d-4caf-9f88-c30d5b065848" URI="">
+				<ds:Transforms>
+					<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+				</ds:Transforms>
+				<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+				<ds:DigestValue>m4atmUE4+uWTr39951VFZr2NnB7/Yr3oliXJMtf/3hA=</ds:DigestValue>
+			</ds:Reference>
+			<ds:Reference Id="ReferenceKeyInfo" URI="#KeyInfoId-Signature-dea0f8c5-3507-4622-b60f-dabc3f195abc">
+				<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+				<ds:DigestValue>vrQz/hN2qWpC+MS9umOJandCmLzqfw93n29P7NCGS7E=</ds:DigestValue>
+			</ds:Reference>
+			<ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#SignedProperties-Signature-dea0f8c5-3507-4622-b60f-dabc3f195abc">
+				<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+				<ds:DigestValue>LzvgIAzAp50Eym8uF5LFBRUQBAFFCL6IwIwK5znvV/s=</ds:DigestValue>
+			</ds:Reference>
+		</ds:SignedInfo>
+		<ds:SignatureValue Id="SignatureValue-dea0f8c5-3507-4622-b60f-dabc3f195abc">Nv9jUOEQtUD4Pr7rs0YJeZCQjU/TcQ+wtAqLPLzXwNqTIziZbSxcq6FJyxPcnfjP/SciexuiiUlWmtLFsVj9QQPcYdj8PjyCRAohayZSu1UiavSFRIFlgda3znY9Oxzn7Z+QiKxvybysJS99Bz6QkuMh6jE6guHsPH01Jal6d11CcjSXkTQt0bpE5u+ZSSUU/igcb1ItgUc3E1J7slz3oGk7mgRjTv7UTPO/2ucul18c8yheHHoNWsjUsV1dOSis4xIEGOXYWbckWGOukFEO1E9HkxGcfVUdu2CRuPDSPxTqd8xuzzHlOmw84fYeko/ba/XYISznHHXkH0H57lhY8A==</ds:SignatureValue>
+		<ds:KeyInfo Id="KeyInfoId-Signature-dea0f8c5-3507-4622-b60f-dabc3f195abc">
+			<ds:X509Data>
+				<ds:X509Certificate>MIIFJDCCAwygAwIBAgIGAXch3oHCMA0GCSqGSIb3DQEBCwUAMFoxCzAJBgNVBAYTAkNSMR8wHQYDVQQKDBZNSU5JU1RFUklPIERFIEhBQ0lFTkRBMQwwCgYDVQQLDANER1QxHDAaBgNVBAMME0NBIFBFUlNPTkEgSlVSSURJQ0EwHhcNMjEwMTIwMjIxNjA2WhcNMjMwMTIwMjIxNjA2WjB/MRkwFwYDVQQFExBDUEotMy0xMDEtMDEyMDA5MQswCQYDVQQGEwJDUjEZMBcGA1UECgwQUEVSU09OQSBKVVJJRElDQTEMMAoGA1UECwwDQ1BKMSwwKgYDVQQDDCNCQU5DTyBCQUMgU0FOIEpPU0UgU09DSUVEQUQgQU5PTklNQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIs1misMZQp76BBX/w0a8HjDy9UYYmY5XsTB25H9/nAJk+AK18pQ3BtfJfBx+joMGUBA3NXxQIZbUpI4rOYxZX68ej84DDL7IVVX+rFCPn13wgfh7mVGg9+uAlFZuMiz7xA+0XK240AWszOup0c7MTPHy+yzeOdnoMPyUeVgmRT0l5VZQpsyR97gsLzB36UygquVk10kb0zUM3knwddZC4GOLc/3QePAjsH1TQvTwKD6NKE1KrWiVT6vPmfr7U37kUJbNTJ9Z9ccz5RuQU77NPSEdo9qwS7F0s65BSNW7gOcSxQe/fQEyacm+UsbqmtGSi6JtVP9YP22WWV3PiBaVvkCAwEAAaOByjCBxzAfBgNVHSMEGDAWgBQ7bVf11nzpnhACIEHjvRrMz7NOlTAdBgNVHQ4EFgQUGFt60EUt7nRI8JjtfgJ8Sto2AdwwCwYDVR0PBAQDAgbAMBMGA1UdJQQMMAoGCCsGAQUFBwMEMGMGCCsGAQUFBwEBBFcwVTBTBggrBgEFBQcwAoZHaHR0cHM6Ly9wa2kuY29tcHJvYmFudGVzZWxlY3Ryb25pY29zLmdvLmNyL3Byb2QvaW50ZXJtZWRpYXRlLXBqLXBlbS5jcnQwDQYJKoZIhvcNAQELBQADggIBAIusR66zTOA2+M3rDblSEr1SjZ907Miul+tRwMAcLEWWWuWCT3f1HiRXNKZvYmzOnKL4QdTR2fCrIC4RodQtlteKdOkA2xCBgbk1fDG2CYMefcxAC/rwVyz2oGOay04aGG9wpK75/SgvyB5ofU4XS9gFILYOC2ziZ2hegUuUwhVIDbWFGRwHgp33zwGUt+2z/1Tr83+hS3NTtXi1XlAgLIfbt+QosNuaV+uvbfWBVlwgA4NeJnhDbWpWNryFJ1ZkgJDKDIXVIiUDrWZe7qLs0h7ZHKyaSidOvXw0+9Gzz09Jwr5Q0Gk2ljXFCs7aJ3arw/cYc87nCOvIRMWLWYOfJWEwLjuc+pOw9Wya4JkxI8rTS79h58FM7KUStzc1KWjczntN2Zo9dis+9Y1JQkpCZLq90ELnzIOTov1TGq7oi3W7TOMP7YhiT7d/9PE1+QBjs82dsQHLv8u6jSMaqS1Iy/fZax1AmqmCZal6/q4mSGb8zgH42ojl8TkaKbpLfbrUPUZ2/aijsCOhljN6VlpFeOkVPzzuN9uekI/3p3GiC49BV5HNMRfRJsNSUbuMvZH1yOjhE/pjy38KZkOlcqvnPmYHi/pv6rHQNO/GK1RLiGI3musr1OgIzQJcmWLRGMKDqARm3MrRInZdX5GPTYUsqgNF5AVUmU7+bIz/Ikc08T1o</ds:X509Certificate>
+			</ds:X509Data>
+			<ds:KeyValue>
+				<ds:RSAKeyValue>
+					<ds:Modulus>izWaKwxlCnvoEFf/DRrweMPL1RhiZjlexMHbkf3+cAmT4ArXylDcG18l8HH6OgwZQEDc1fFAhltSkjis5jFlfrx6PzgMMvshVVf6sUI+fXfCB+HuZUaD364CUVm4yLPvED7RcrbjQBazM66nRzsxM8fL7LN452egw/JR5WCZFPSXlVlCmzJH3uCwvMHfpTKCq5WTXSRvTNQzeSfB11kLgY4tz/dB48COwfVNC9PAoPo0oTUqtaJVPq8+Z+vtTfuRQls1Mn1n1xzPlG5BTvs09IR2j2rBLsXSzrkFI1buA5xLFB799ATJpyb5Sxuqa0ZKLom1U/1g/bZZZXc+IFpW+Q==</ds:Modulus>
+					<ds:Exponent>AQAB</ds:Exponent>
+				</ds:RSAKeyValue>
+			</ds:KeyValue>
+		</ds:KeyInfo>
+		<ds:Object Id="XadesObjectId-68c343bc-d0c7-43e4-bc23-2e6aabc4c748">
+			<xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Id="QualifyingProperties-c0c0a0ad-0cae-4c14-87f6-3c8e46cb97a6" Target="#Signature-dea0f8c5-3507-4622-b60f-dabc3f195abc">
+				<xades:SignedProperties Id="SignedProperties-Signature-dea0f8c5-3507-4622-b60f-dabc3f195abc">
+					<xades:SignedSignatureProperties>
+						<xades:SigningTime>2022-10-18T15:46:35-06:00</xades:SigningTime>
+						<xades:SigningCertificate>
+							<xades:Cert>
+								<xades:CertDigest>
+									<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+									<ds:DigestValue>cesguiG5ei1XxTs/RMMgYrP7b4t2QR2UYjlw0LdWCWQ=</ds:DigestValue>
+								</xades:CertDigest>
+								<xades:IssuerSerial>
+									<ds:X509IssuerName>CN=CA PERSONA JURIDICA, OU=DGT, O=MINISTERIO DE HACIENDA, C=CR</ds:X509IssuerName>
+									<ds:X509SerialNumber>1611180966338</ds:X509SerialNumber>
+								</xades:IssuerSerial>
+							</xades:Cert>
+						</xades:SigningCertificate>
+						<xades:SignaturePolicyIdentifier>
+							<xades:SignaturePolicyId>
+								<xades:SigPolicyId>
+									<xades:Identifier>https://www.hacienda.go.cr/ATV/ComprobanteElectronico/docs/esquemas/2016/v4.3/ResolucionComprobantesElectronicosDGT-R-48-2016_4.3.pdf</xades:Identifier>
+									<xades:Description/>
+								</xades:SigPolicyId>
+								<xades:SigPolicyHash>
+									<ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+									<ds:DigestValue>UjWS5faB3LbdbBNkauxSuEaxqvX0zXzxPLGZPTwZH7k=</ds:DigestValue>
+								</xades:SigPolicyHash>
+							</xades:SignaturePolicyId>
+						</xades:SignaturePolicyIdentifier>
+						<xades:SignerRole>
+							<xades:ClaimedRoles>
+								<xades:ClaimedRole>emisor</xades:ClaimedRole>
+							</xades:ClaimedRoles>
+						</xades:SignerRole>
+					</xades:SignedSignatureProperties>
+					<xades:SignedDataObjectProperties>
+						<xades:DataObjectFormat ObjectReference="#Reference-e82999a8-8c4d-4caf-9f88-c30d5b065848">
+							<xades:MimeType>text/xml</xades:MimeType>
+							<xades:Encoding>UTF-8</xades:Encoding>
+						</xades:DataObjectFormat>
+					</xades:SignedDataObjectProperties>
+				</xades:SignedProperties>
+			</xades:QualifyingProperties>
+		</ds:Object>
+	</ds:Signature>
+</FacturaElectronica>
