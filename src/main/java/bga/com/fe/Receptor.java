@@ -1,22 +1,22 @@
 package bga.com.fe;
 
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  *
  * @author bosco
  */
-@XmlType(propOrder = {"nombre", "identificacion", "correoElectronico"})
 public class Receptor {
 
     private String nombre;
     private Identificacion identificacion;
+    private String nombreComercial;
     private String correoElectronico;
 
     public Receptor() {
         this.nombre = "";
         this.identificacion = new Identificacion();
+        this.nombreComercial = "";
         this.correoElectronico = "";
     } // end empty constructor
 
@@ -29,15 +29,6 @@ public class Receptor {
         this.nombre = nombre;
     }
 
-    public String getCorreoElectronico() {
-        return correoElectronico;
-    }
-
-    @XmlElement(name = "CorreoElectronico")
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
-    }
-
     public Identificacion getIdentificacion() {
         return identificacion;
     }
@@ -46,5 +37,22 @@ public class Receptor {
     public void setIdentificacion(Identificacion identificacion) {
         this.identificacion = identificacion;
     }
+    
+    public String getNombreComercial() {
+        return nombreComercial;
+    }
 
+    @XmlElement(name = "NombreComercial")
+    public void setNombreComercial(String nombreComercial) {
+        this.nombreComercial = nombreComercial;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    @XmlElement(name = "CorreoElectronico")
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
 } // end class

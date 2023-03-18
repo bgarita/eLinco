@@ -26,8 +26,12 @@ const setAnchor = () => {
     const a = document.getElementById('link');
     const year = document.getElementById('year');
     const month = document.getElementById('month');
+    const receptor = document.getElementById('receptor');
+    const emisor = document.getElementById('emisor');
+    const tipoDoc = document.getElementById('tipoDoc');
+    const nombreCom = document.getElementById('nombreCom');
 
-    a.href = `/factura/reporte01/?year=${year.value}&month=${month.value}`;
+    a.href = `/factura/reporte01/?year=${year.value}&month=${month.value}&receptor=${receptor.value}&emisor=${emisor.value}&tipoDoc=${tipoDoc.value}&nombreCom=${nombreCom.value}`;
 };
 
 $(document).ready(function () {
@@ -37,6 +41,18 @@ $(document).ready(function () {
         setAnchor();
     });
     $('#year').on('change', function(){
+        setAnchor();
+    });
+    $('#receptor').on('change', function(){
+        setAnchor();
+    });
+    $('#emisor').on('change', function(){
+        setAnchor();
+    });
+    $('#tipoDoc').on('change', function(){
+        setAnchor();
+    });
+    $('#nombreCom').on('change', function(){
         setAnchor();
     });
 });

@@ -41,6 +41,9 @@ public class Detalle implements Serializable {
     private Double subTotal;
     @Column(name="base_imponible")
     private Double baseImponible;
+    @Column(name="impuesto_neto")
+    private Double impuestoNeto;
+    /*
     @Column(name="codigo_impuesto")
     private String codigoImpuesto;
     @Column(name="codigo_tarifa")
@@ -48,6 +51,7 @@ public class Detalle implements Serializable {
     private Float tarifa;
     private Float factorIVA;
     private Double montoIVA;
+*/
     @Column(name="monto_total_linea")
     private Double montoTotalLinea; 
     
@@ -176,45 +180,55 @@ public class Detalle implements Serializable {
         this.naturalezaDescuento = naturalezaDescuento;
     }
 
-    public String getCodigoImpuesto() {
-        return codigoImpuesto;
+    public Double getImpuestoNeto() {
+        return impuestoNeto;
     }
 
-    public void setCodigoImpuesto(String codigoImpuesto) {
-        this.codigoImpuesto = codigoImpuesto;
+    public void setImpuestoNeto(Double impuestoNeto) {
+        this.impuestoNeto = impuestoNeto;
     }
+    
+    
 
-    public String getCodigoTarifa() {
-        return codigoTarifa;
-    }
-
-    public void setCodigoTarifa(String codigoTarifa) {
-        this.codigoTarifa = codigoTarifa;
-    }
-
-    public Float getTarifa() {
-        return tarifa;
-    }
-
-    public void setTarifa(Float tarifa) {
-        this.tarifa = tarifa;
-    }
-
-    public Float getFactorIVA() {
-        return factorIVA;
-    }
-
-    public void setFactorIVA(Float factorIVA) {
-        this.factorIVA = factorIVA;
-    }
-
-    public Double getMontoIVA() {
-        return montoIVA;
-    }
-
-    public void setMontoIVA(Double montoIVA) {
-        this.montoIVA = montoIVA;
-    }
+//    public String getCodigoImpuesto() {
+//        return codigoImpuesto;
+//    }
+//
+//    public void setCodigoImpuesto(String codigoImpuesto) {
+//        this.codigoImpuesto = codigoImpuesto;
+//    }
+//
+//    public String getCodigoTarifa() {
+//        return codigoTarifa;
+//    }
+//
+//    public void setCodigoTarifa(String codigoTarifa) {
+//        this.codigoTarifa = codigoTarifa;
+//    }
+//
+//    public Float getTarifa() {
+//        return tarifa;
+//    }
+//
+//    public void setTarifa(Float tarifa) {
+//        this.tarifa = tarifa;
+//    }
+//
+//    public Float getFactorIVA() {
+//        return factorIVA;
+//    }
+//
+//    public void setFactorIVA(Float factorIVA) {
+//        this.factorIVA = factorIVA;
+//    }
+//
+//    public Double getMontoIVA() {
+//        return montoIVA;
+//    }
+//
+//    public void setMontoIVA(Double montoIVA) {
+//        this.montoIVA = montoIVA;
+//    }
 
     public String getClave() {
         return clave;

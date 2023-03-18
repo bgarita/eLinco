@@ -34,3 +34,5 @@ build/
 
 ### Otros ###
 application.properties
+*.xml
+*.pdf

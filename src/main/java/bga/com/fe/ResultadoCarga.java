@@ -10,6 +10,7 @@ public class ResultadoCarga {
     public static final String ERROR = "ERROR";
     public static final String FACTURA = "FAC";
     public static final String NOTA_CREDITO = "NCR";
+    public static final String NOTA_DEBITO = "NDB";
     public static final String NO_DEFINIDO = "NDF";
     
     private String archivo;
