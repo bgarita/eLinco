@@ -32,4 +32,8 @@ public class CompanyService {
     public List<Company> findAll() {
         return companyRepository.findAll(Sort.by(Sort.Direction.ASC, "nombreReceptor"));
     }
+    
+    public List<Company> findAllNC() {
+        return companyRepository.findAll(Sort.by(Sort.Direction.ASC, "nombreComercial"));
+    }
 }

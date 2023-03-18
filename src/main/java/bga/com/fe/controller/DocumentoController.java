@@ -11,11 +11,13 @@ import bga.com.fe.LineaDetalle;
 import bga.com.fe.model.Company;
 import bga.com.fe.model.Detalle;
 import bga.com.fe.model.Emisor;
+import bga.com.fe.model.Empresa;
 import bga.com.fe.model.Encabezado;
 import bga.com.fe.service.CompanyService;
 import bga.com.fe.service.DetalleService;
 import bga.com.fe.service.ImpuestoService;
 import bga.com.fe.service.EmisorService;
+import bga.com.fe.service.EmpresaService;
 import bga.com.fe.service.EncabezadoService;
 import java.io.File;
 import java.io.FileInputStream;
@@ -64,6 +66,9 @@ public class DocumentoController {
     @Autowired
     private EmisorService emisorService;
     @Autowired
+    private EmpresaService empresaService; // Vista de receptores
+
+    @Autowired
     DataSource datasource;
 
     /**
@@ -93,7 +98,7 @@ public class DocumentoController {
             if (file.isDirectory() || !name.endsWith(".xml")) {
                 continue;
             }
-            
+
             ResultadoCarga resultado = new ResultadoCarga();
             resultado.setArchivo(file.getName());
             Convert convert = new Convert();
@@ -108,9 +113,15 @@ public class DocumentoController {
                 detalleFactura = convert.getDetalleFactura();
                 detalleNotaCredito = convert.getDetalleNotaCredito();
 
+                if (encabezado.getNombreComercialReceptor() == null) {
+                    encabezado.setNombreComercialReceptor(encabezado.getNombreReceptor());
+                }
+
                 // Si el receptor no existe lo agrego a la lista y a la base de datos.
-                saveReceptor(companies, encabezado.getNumeroReceptor(), encabezado.getNombreReceptor());
-                
+                saveReceptor(
+                        companies, encabezado.getNumeroReceptor(),
+                        encabezado.getNombreReceptor(), encabezado.getNombreComercialReceptor());
+
                 // Si el emisor no existe lo agrego a la lista y a la base de datos.
                 saveEmisor(emisores, encabezado.getNumeroEmisor(), encabezado.getNombreEmisor());
 
@@ -160,43 +171,48 @@ public class DocumentoController {
         }
 
         model.addAttribute("resultados", resultados);
-        
+
         return "resultadoCarga";
     }
 
     @RequestMapping("/formReporte01")
     public String formReporte01(Model model) throws FeException {
-        
+
         List<Company> companies = new ArrayList<>();
         List<Emisor> emisores = new ArrayList<>();
-        
-        companies.add(new Company("todos", "Todos"));
+        List<Empresa> empresas = empresaService.findAllDistinct();
+
+        companies.add(new Company("todos", "Todos", "Todos"));
         emisores.add(new Emisor("todos", "Todos"));
-        
+
         List<Company> temp = companyService.findAll();
         temp.forEach(item -> companies.add(item));
-        
+
         List<Emisor> temp2 = emisorService.findAll();
         temp2.forEach(item -> emisores.add(item));
-        
+
         model.addAttribute("companies", companies);
         model.addAttribute("emisores", emisores);
+        model.addAttribute("empresas", empresas);
         return "formReporte01";
     }
-    
+
     @RequestMapping("/reporte01")
     public String createDocument(
             @RequestParam("year") Integer year,
-            @RequestParam("month") Integer month, 
+            @RequestParam("month") Integer month,
             @RequestParam("receptor") String receptor,
             @RequestParam("emisor") String emisor,
-            @RequestParam("tipoDoc") String tipoDoc) 
+            @RequestParam("tipoDoc") String tipoDoc,
+            @RequestParam("nombreCom") String nombreComercial)
             throws FeException {
         String fileName;
         try {
             Reportes rep = new Reportes(getConnection());
 
-            fileName = rep.createDocument("Xmls.jasper", Reportes.PDF, year, month, receptor, emisor, tipoDoc);
+            fileName = rep.createDocument(
+                    "Xmls.jasper", Reportes.PDF, year, month, receptor, emisor,
+                    tipoDoc, nombreComercial);
 
         } catch (NumberFormatException | SQLException ex) {
             throw new FeException(this.getClass().getName(), "createDocument()", ex.getMessage());
@@ -220,8 +236,7 @@ public class DocumentoController {
             throw new FeException(this.getClass().getName(), "showPDF()", ex.getMessage());
         }
     } // end showPDF
-    
-    
+
     private void checkDir() {
         File dir = new File(repo);
         if (!dir.exists()) {
@@ -242,8 +257,13 @@ public class DocumentoController {
      * @param companies Lista de receptores
      * @param numeroReceptor String número de receptor a verificar.
      * @param nombreReceptor
+     * @param nombreComercial
      */
-    private void saveReceptor(List<Company> companies, String numeroReceptor, String nombreReceptor) {
+    private void saveReceptor(
+            List<Company> companies,
+            String numeroReceptor,
+            String nombreReceptor,
+            String nombreComercial) {
         boolean existe = false;
         for (Company comp : companies) {
             if (numeroReceptor.equals(comp.getNumeroReceptor())) {
@@ -256,16 +276,16 @@ public class DocumentoController {
             return;
         }
 
-        Company company = new Company(numeroReceptor, nombreReceptor);
+        Company company
+                = new Company(numeroReceptor, nombreReceptor, nombreComercial);
         companies.add(company);
 
         companyService.save(company);
     }
 
-    
     /**
-     * Verifica si el emisor existe, caso contrario se agrega a la
-     * base de datos y a la lista.
+     * Verifica si el emisor existe, caso contrario se agrega a la base de datos
+     * y a la lista.
      *
      * @param emisores Lista de emisores
      * @param numeroEmisor String número de emisor a verificar.
@@ -289,8 +309,7 @@ public class DocumentoController {
 
         emisorService.save(emisor);
     }
-    
-    
+
     private void saveInvoiceDetail(DetalleFactura detalleFactura, Encabezado saved) {
         List<LineaDetalle> lineas = detalleFactura.getLinea();
         for (LineaDetalle linea : lineas) {
@@ -325,34 +344,17 @@ public class DocumentoController {
             detalle.setSubTotal(linea.getSubTotal());
             detalle.setBaseImponible(linea.getBaseImponible());
             detalle.setImpuestoNeto(linea.getImpuestoNeto());
-            /*
-            detalle.setCodigoImpuesto("");
-            detalle.setCodigoTarifa("");
-            detalle.setFactorIVA(0f);
-            detalle.setTarifa(0f);
-            detalle.setMontoIVA(0.0);
-
-            
-            if (linea.getImpuestos() != null) {
-                detalle.setCodigoImpuesto(linea.getImpuestos().getCodigo());
-                detalle.setCodigoTarifa(linea.getImpuestos().getCodigoTarifa());
-                detalle.setFactorIVA(linea.getImpuestos().getFactorIVA());
-                detalle.setTarifa(linea.getImpuestos().getTarifa());
-                detalle.setMontoIVA(linea.getImpuestos().getMonto());
-            }
-            */
             detalle.setMontoTotalLinea(linea.getMontoTotalLinea());
 
             Detalle det = detalleService.save(detalle);
-            
+
             // Guardar los impuestos
             if (linea.getImpuestos() != null) {
                 saveImpuestos(linea.getImpuestos(), det.getId());
             }
         }
     }
-    
-    
+
     private void saveNoteDetail(DetalleNotaCredito detalleNotaCredito, Encabezado saved) {
         List<LineaDetalle> lineas = detalleNotaCredito.getLinea();
         for (LineaDetalle linea : lineas) {
@@ -386,7 +388,7 @@ public class DocumentoController {
 
             detalle.setSubTotal(linea.getSubTotal());
             detalle.setBaseImponible(linea.getBaseImponible());
-            
+
             if (linea.getImpuestos() != null && linea.getImpuestoNeto() == 0) {
                 Double in = 0.0;
                 for (Impuesto iv : linea.getImpuestos()) {
@@ -394,35 +396,19 @@ public class DocumentoController {
                 }
                 linea.setImpuestoNeto(in);
             }
-            
-            detalle.setImpuestoNeto(linea.getImpuestoNeto());
-            /*
-            detalle.setCodigoImpuesto("");
-            detalle.setCodigoTarifa("");
-            detalle.setFactorIVA(0f);
-            detalle.setTarifa(0f);
-            detalle.setMontoIVA(0.0);
 
-            
-            if (linea.getImpuestos() != null) {
-                detalle.setCodigoImpuesto(linea.getImpuestos().getCodigo());
-                detalle.setCodigoTarifa(linea.getImpuestos().getCodigoTarifa());
-                detalle.setFactorIVA(linea.getImpuestos().getFactorIVA());
-                detalle.setTarifa(linea.getImpuestos().getTarifa());
-                detalle.setMontoIVA(linea.getImpuestos().getMonto());
-            }
-            */
+            detalle.setImpuestoNeto(linea.getImpuestoNeto());
             detalle.setMontoTotalLinea(linea.getMontoTotalLinea());
 
             Detalle det = detalleService.save(detalle);
-            
+
             // Guardar los impuestos
             if (linea.getImpuestos() != null) {
                 saveImpuestos(linea.getImpuestos(), det.getId());
             }
         }
     }
-    
+
     public Connection getConnection() throws SQLException {
         return datasource.getConnection();
     }

@@ -72,6 +72,19 @@
                     </select>
                 </div>
                 <div class="col">
+                    <label for="nombreCom" class="form-label">Nombre comercial</label>
+
+                    <select class="form-control form-select mb-4" 
+                            id="nombreCom" 
+                            aria-label="Select a business name" 
+                            >
+                        <option th:each="e : ${empresas}" 
+                                th:value="${e.nombreComercial}" 
+                                th:text="${e.nombreComercial}"
+                                ></option>
+                    </select>
+                </div>
+                <div class="col">
                     <label for="emisor" class="form-label">Emisor</label>
 
                     <select class="form-control form-select mb-4" 
@@ -98,7 +111,7 @@
                     </select>
                 </div>
             </div>  
-            <a href="/factura/reporte01/?year=2022&month=11&receptor=todos&tipoDoc=FAC" 
+            <a href="/factura/reporte01/?year=2022&month=11&receptor=todos&tipoDoc=FAC&nombreCom=Todos" 
                class="btn btn-primary"
                id="link"
                target="_blank">Generar reporte</a><br>

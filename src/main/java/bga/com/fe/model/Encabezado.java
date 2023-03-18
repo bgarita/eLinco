@@ -49,6 +49,8 @@ public class Encabezado implements Serializable {
     private String nombreReceptor;
     @Column(name = "numero_receptor")
     private String numeroReceptor;
+    @Column(name="nombre_comercial_receptor")
+    private String nombreComercialReceptor;
     
     @Column(name = "condicion_venta")
     private String condicionVenta;
@@ -342,6 +344,14 @@ public class Encabezado implements Serializable {
         this.nombreReceptor = nombreReceptor;
     }
 
+    public String getNombreComercialReceptor() {
+        return nombreComercialReceptor;
+    }
+
+    public void setNombreComercialReceptor(String nombreComercialReceptor) {
+        this.nombreComercialReceptor = nombreComercialReceptor;
+    }
+    
     public String getNumeroReceptor() {
         return numeroReceptor;
     }

@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -153,7 +154,7 @@ public class Convert {
         }
 
     }
-    
+
     private void removeNotaDbAttributes(String xml) throws FeException {
         Path path = Paths.get(xml);
         String xmlString = Util.fileToString(path);
@@ -277,7 +278,7 @@ public class Convert {
     public DetalleNotaCredito getDetalleNotaCredito() {
         return detalleNotaCredito;
     }
-    
+
     public DetalleNotaDebito getDetalleNotaDebito() {
         return detalleNotaDebito;
     }
@@ -352,6 +353,8 @@ public class Convert {
 
         encabezado.setNombreReceptor(fa.getReceptor().getNombre());
         encabezado.setTipoIdReceptor(fa.getReceptor().getIdentificacion().getTipo());
+        String nc = fa.getReceptor().getNombreComercial();
+        encabezado.setNombreComercialReceptor(nc == null ? "" : nc);
 
         encabezado.setMedioPago(fa.getMedioPago());
         encabezado.setCondicionVenta(fa.getCondicionVenta());
@@ -437,6 +440,8 @@ public class Convert {
         encabezado.setTipoIdEmisor(nc.getEmisor().getIdentificacion().getTipo());
 
         encabezado.setNombreReceptor(nc.getReceptor().getNombre());
+        String nco = nc.getReceptor().getNombreComercial();
+        encabezado.setNombreComercialReceptor(nco == null ? "" : nco);
         encabezado.setTipoIdReceptor(nc.getReceptor().getIdentificacion().getTipo());
 
         encabezado.setMedioPago(nc.getMedioPago());
@@ -448,23 +453,24 @@ public class Convert {
                 : nc.getResumen().getCodigoTipoMoneda().getTipoCambio()
         );
 
-        encabezado.setTotalComprobante(nc.getResumen().getTotalComprobante());
-        encabezado.setTotalDescuentos(nc.getResumen().getTotalDescuentos());
-        encabezado.setTotalExento(nc.getResumen().getTotalExento());
-        encabezado.setTotalExonerado(nc.getResumen().getTotalExonerado());
-        encabezado.setTotalGravado(nc.getResumen().getTotalGravado());
-        encabezado.setTotalIVADevuelto(nc.getResumen().getTotalIVADevuelto());
-        encabezado.setTotalImpuesto(nc.getResumen().getTotalImpuesto());
-        encabezado.setTotalMercExonerada(nc.getResumen().getTotalMercExonerada());
-        encabezado.setTotalMercanciasExentas(nc.getResumen().getTotalMercanciasExentas());
-        encabezado.setTotalMercanciasGravadas(nc.getResumen().getTotalMercanciasGravadas());
-        encabezado.setTotalOtrosCargos(nc.getResumen().getTotalOtrosCargos());
-        encabezado.setTotalServExentos(nc.getResumen().getTotalServExentos());
-        encabezado.setTotalServExonerado(nc.getResumen().getTotalServExonerado());
-        encabezado.setTotalServGravados(nc.getResumen().getTotalServGravados());
-        encabezado.setTotalVenta(nc.getResumen().getTotalVenta());
-        encabezado.setTotalVentaNeta(nc.getResumen().getTotalVentaNeta());
+        encabezado.setTotalComprobante(nc.getResumen().getTotalComprobante() * -1);
+        encabezado.setTotalDescuentos(nc.getResumen().getTotalDescuentos() * -1);
+        encabezado.setTotalExento(nc.getResumen().getTotalExento() * -1);
+        encabezado.setTotalExonerado(nc.getResumen().getTotalExonerado() * -1);
+        encabezado.setTotalGravado(nc.getResumen().getTotalGravado() * -1);
+        encabezado.setTotalIVADevuelto(nc.getResumen().getTotalIVADevuelto() * -1);
+        encabezado.setTotalImpuesto(nc.getResumen().getTotalImpuesto() * -1);
+        encabezado.setTotalMercExonerada(nc.getResumen().getTotalMercExonerada() * -1);
+        encabezado.setTotalMercanciasExentas(nc.getResumen().getTotalMercanciasExentas() * -1);
+        encabezado.setTotalMercanciasGravadas(nc.getResumen().getTotalMercanciasGravadas() * -1);
+        encabezado.setTotalOtrosCargos(nc.getResumen().getTotalOtrosCargos() * -1);
+        encabezado.setTotalServExentos(nc.getResumen().getTotalServExentos() * -1);
+        encabezado.setTotalServExonerado(nc.getResumen().getTotalServExonerado() * -1);
+        encabezado.setTotalServGravados(nc.getResumen().getTotalServGravados() * -1);
+        encabezado.setTotalVenta(nc.getResumen().getTotalVenta() * -1);
+        encabezado.setTotalVentaNeta(nc.getResumen().getTotalVentaNeta() * -1);
 
+        setNegative(nc.getDetalle());
         detalleNotaCredito = nc.getDetalle();
 
     }
@@ -551,5 +557,31 @@ public class Convert {
         encabezado.setTotalVentaNeta(nd.getResumen().getTotalVentaNeta());
 
         detalleFactura = nd.getDetalle();
+    }
+
+    private void setNegative(DetalleNotaCredito detalle) {
+        detalle.getLinea().forEach(linea -> {
+            linea.setBaseImponible(linea.getBaseImponible() * -1);
+            linea.setCantidad(linea.getCantidad() * -1);
+
+            Descuento descuento = linea.getDescuento();
+            if (descuento != null) {
+                descuento.setMontoDescuento(descuento.getMontoDescuento() * -1);
+                linea.setDescuento(descuento);
+            }
+
+            linea.setImpuestoNeto(linea.getImpuestoNeto() * -1);
+
+            List<Impuesto> impuestos = linea.getImpuestos();
+            if (impuestos != null) {
+                impuestos.forEach(impuesto -> impuesto.setMonto(impuesto.getMonto() * -1));
+                linea.setImpuestos(impuestos);
+            }
+
+            linea.setMontoTotal(linea.getMontoTotal() * -1);
+            linea.setMontoTotalLinea(linea.getMontoTotalLinea() * -1);
+            linea.setPrecioUnitario(linea.getPrecioUnitario() * -1);
+            linea.setSubTotal(linea.getSubTotal() * -1);
+        });
     }
 }

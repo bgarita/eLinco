@@ -17,15 +17,19 @@ public class Company implements Serializable {
     
     @Column(name="nombre_receptor")
     private String nombreReceptor;
+    @Column(name="nombre_comercial_receptor")
+    private String nombreComercial;
     
     public Company() {
         this.numeroReceptor = "";
         this.nombreReceptor = "";
+        this.nombreComercial = "";
     }
 
-    public Company(String numeroReceptor, String nombreReceptor) {
+    public Company(String numeroReceptor, String nombreReceptor, String nombreComercial) {
         this.numeroReceptor = numeroReceptor;
         this.nombreReceptor = nombreReceptor;
+        this.nombreComercial = nombreComercial;
     }
 
     public String getNumeroReceptor() {
@@ -44,10 +48,18 @@ public class Company implements Serializable {
         this.nombreReceptor = nombreReceptor;
     }
 
+    public String getNombreComercial() {
+        return nombreComercial;
+    }
+
+    public void setNombreComercial(String nombreComercial) {
+        this.nombreComercial = nombreComercial;
+    }
+
     @Override
     public String toString() {
-        return "Company{" + "numeroReceptor=" + numeroReceptor + ", nombreReceptor=" + nombreReceptor + '}';
+        return "Company{" + "numeroReceptor=" + numeroReceptor + ", nombreReceptor=" + nombreReceptor + ", nombreComercial=" + nombreComercial + '}';
     }
-    
+
     
 }
