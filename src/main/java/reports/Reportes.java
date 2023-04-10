@@ -84,9 +84,8 @@ public class Reportes {
         try {
             if (!f.exists() || f.isDirectory()) {
                 throw new FeException(this.getClass().getName(), "createDocument()",
-                        """
-                        No encuentro el archivo de impresi\u00f3n. 
-                        Deber\u00eda estar en: """ + f.getAbsolutePath());
+                        "No encuentro el archivo de impresión. \n" +
+                        "Debería estar en: " + f.getAbsolutePath());
             } // end if
 
             masterReport = (JasperReport) JRLoader.loadObject(f);

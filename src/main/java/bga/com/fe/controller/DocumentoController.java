@@ -32,6 +32,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -75,13 +76,14 @@ public class DocumentoController {
      * Convierte documentos electrónicos (xml) a objetos java y los guarda en la
      * base de datos.
      *
+     * @param nombreComercial
      * @param model
      * @return HTML con los resultados de la carga.
      * @throws FeException
      */
     @Transactional
     @RequestMapping("/save")
-    public String save(Model model) throws FeException {
+    public String save(@RequestParam("nombreComercial") String nombreComercial, Model model) throws FeException {
         checkDir();
 
         List<ResultadoCarga> resultados = new ArrayList<>();
@@ -112,10 +114,16 @@ public class DocumentoController {
                 encabezado = convert.getEncabezado();
                 detalleFactura = convert.getDetalleFactura();
                 detalleNotaCredito = convert.getDetalleNotaCredito();
-
+                
+                // Si el xml no trae nombre comercial o viene vacío, uso el que el usuario digitó.
+                if (encabezado.getNombreComercialReceptor() == null || encabezado.getNombreComercialReceptor().isBlank()) {
+                    encabezado.setNombreComercialReceptor(nombreComercial);
+                }
+                /*
                 if (encabezado.getNombreComercialReceptor() == null) {
                     encabezado.setNombreComercialReceptor(encabezado.getNombreReceptor());
                 }
+                */
 
                 // Si el receptor no existe lo agrego a la lista y a la base de datos.
                 saveReceptor(
@@ -410,7 +418,8 @@ public class DocumentoController {
     }
 
     public Connection getConnection() throws SQLException {
-        return datasource.getConnection();
+        //return datasource.getConnection();
+        return DataSourceUtils.getConnection(datasource);
     }
 
     private void saveImpuestos(List<Impuesto> impuestos, Integer detalleId) {
