@@ -55,19 +55,22 @@ public class Convert {
         validXML(wrkFile, xml, schema);
 
         switch (tipoDocumento) {
-            case "FAC" -> {
+            case "FAC" : {
                 removeInvoiceAttributes(wrkFile);
                 generarFactura(wrkFile, xml, tipoDocumento);
+                break;
             }
-            case "NCR" -> {
+            case "NCR" : {
                 removeNotaCrAttributes(wrkFile);
                 generarNotaCR(wrkFile, xml, tipoDocumento);
+                break;
             }
-            case "NDB" -> {
+            case "NDB" : {
                 removeNotaDbAttributes(wrkFile);
                 generarNotaDB(wrkFile, xml, tipoDocumento);
+                break;
             }
-            default -> {
+            default : {
                 throw new FeException(
                         this.getClass().getName(),
                         "class root",
@@ -207,16 +210,19 @@ public class Convert {
 
         if (msg.length() == 0) {
             switch (tipoDocumento) {
-                case ResultadoCarga.FACTURA -> {
+                case ResultadoCarga.FACTURA : {
                     textToFind = "<FacturaElectronica";
+                    break;
                 }
-                case ResultadoCarga.NOTA_CREDITO -> {
+                case ResultadoCarga.NOTA_CREDITO : {
                     textToFind = "<NotaCreditoElectronica";
+                    break;
                 }
-                case ResultadoCarga.NOTA_DEBITO -> {
+                case ResultadoCarga.NOTA_DEBITO : {
                     textToFind = "<NotaDebitoElectronica";
+                    break;
                 }
-                default -> {
+                default : {
                     textToFind = "N/A";
                 }
             }
@@ -301,6 +307,7 @@ public class Convert {
         return getTipo(xmlString);
     }
 
+    // Generar los objetos Java a partir de un archivo xml
     private void generarFactura(String wrkFile, String xml, String tipoDocumento) {
         JAXBContext context;
         Unmarshaller unmarshaller;
@@ -366,6 +373,12 @@ public class Convert {
                 fa.getResumen().getCodigoTipoMoneda().getTipoCambio() == 0.0 ? 1.0
                 : fa.getResumen().getCodigoTipoMoneda().getTipoCambio()
         );
+        
+        // Si el tipo de cambio de colones viene incorrecto se hace la corrección de una vez
+        if (fa.getResumen().getCodigoTipoMoneda().getCodigoTipoMoneda().equals("CRC") &&
+                fa.getResumen().getCodigoTipoMoneda().getTipoCambio() != 1.0) {
+            encabezado.setTipoCambio(1.0);
+        }
 
         encabezado.setTotalComprobante(fa.getResumen().getTotalComprobante());
         encabezado.setTotalDescuentos(fa.getResumen().getTotalDescuentos());
