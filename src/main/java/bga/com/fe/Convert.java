@@ -332,6 +332,17 @@ public class Convert {
                     "",
                     "Este xml [" + xml + "] carece de receptor.");
         }
+        
+        // Si el documento no trae moneda se asume que la moneda es CRC 
+        // y el tipo de cambio es 1.00
+        if (fa.getResumen().getCodigoTipoMoneda() == null) {
+            Resumen resumen = fa.getResumen();
+            CodigoTipoMoneda codigoTipoMoneda = new CodigoTipoMoneda();
+            codigoTipoMoneda.setCodigoTipoMoneda("CRC");
+            codigoTipoMoneda.setTipoCambio(1.00);
+            resumen.setCodigoTipoMoneda(codigoTipoMoneda);
+            fa.setResumen(resumen);
+        }
 
         encabezado.setClave(fa.getClave());
         encabezado.setTipoDocumento(tipoDocumento);
@@ -427,6 +438,17 @@ public class Convert {
                     "Este xml [" + xml + "] carece de receptor.");
         }
 
+        // Si el documento no trae moneda se asume que la moneda es CRC 
+        // y el tipo de cambio es 1.00
+        if (nc.getResumen().getCodigoTipoMoneda() == null) {
+            Resumen resumen = nc.getResumen();
+            CodigoTipoMoneda codigoTipoMoneda = new CodigoTipoMoneda();
+            codigoTipoMoneda.setCodigoTipoMoneda("CRC");
+            codigoTipoMoneda.setTipoCambio(1.00);
+            resumen.setCodigoTipoMoneda(codigoTipoMoneda);
+            nc.setResumen(resumen);
+        }
+        
         encabezado.setClave(nc.getClave());
         encabezado.setTipoDocumento(tipoDocumento);
         encabezado.setCodigoActividad(nc.getCodigoActividad());
@@ -513,6 +535,17 @@ public class Convert {
                     "Este xml [" + xml + "] carece de receptor.");
         }
 
+        // Si el documento no trae moneda se asume que la moneda es CRC 
+        // y el tipo de cambio es 1.00
+        if (nd.getResumen().getCodigoTipoMoneda() == null) {
+            Resumen resumen = nd.getResumen();
+            CodigoTipoMoneda codigoTipoMoneda = new CodigoTipoMoneda();
+            codigoTipoMoneda.setCodigoTipoMoneda("CRC");
+            codigoTipoMoneda.setTipoCambio(1.00);
+            resumen.setCodigoTipoMoneda(codigoTipoMoneda);
+            nd.setResumen(resumen);
+        }
+        
         encabezado.setClave(nd.getClave());
         encabezado.setTipoDocumento(tipoDocumento);
         encabezado.setCodigoActividad(nd.getCodigoActividad());
