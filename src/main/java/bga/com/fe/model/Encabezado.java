@@ -22,13 +22,20 @@ public class Encabezado implements Serializable {
     
     private String clave;
     
+    @Column(name="proveedor_sistemas")
+    private String proveedorSistemas;
+    
     @Column(name="tipo_documento")
     private String tipoDocumento;
     
-    @Column(name="codigoActividad")
-    private String codigoActividad;
+    @Column(name="codigo_actividad_emisor")
+    private String codigoActividadEmisor;
     
-    private String comprobante; // Número consecutivo
+    @Column(name="codigo_actividad_receptor")
+    private String codigoActividadReceptor;
+    
+    @Column(name="numero_consecutivo")
+    private String numeroConsecutivo; // Antes Comprobante
     
     @Column(name="fecha_emision")
     @Temporal(TemporalType.TIMESTAMP)
@@ -42,6 +49,10 @@ public class Encabezado implements Serializable {
     private String numeroEmisor;
     @Column(name = "correo_electronico_emisor")
     private String correoElectronicoEmisor;
+    @Column(name="nombre_comercial_emisor")
+    private String nombreComercialEmisor;
+    @Column(name = "registro_fiscal_8707")
+    private String registrofiscal8707;
     
     @Column(name="tipo_id_Receptor")
     private String tipoIdReceptor;
@@ -68,18 +79,24 @@ public class Encabezado implements Serializable {
     private Double totalServExentos;
     @Column(name = "total_serv_exonerado")
     private Double totalServExonerado;
+    @Column(name = "total_serv_no_sujeto")
+    private Double totalServNoSujeto;
     @Column(name = "total_mercancias_gravadas")
     private Double totalMercanciasGravadas;
     @Column(name = "total_mercancias_exentas")
     private Double totalMercanciasExentas;
     @Column(name = "total_merc_exonerada")
     private Double totalMercExonerada;
+    @Column(name = "total_merc_no_sujeta")
+    private Double totalMercNoSujeta;
     @Column(name = "total_gravado")
     private Double totalGravado;
     @Column(name = "total_exento")
     private Double totalExento;
     @Column(name = "total_exonerado")
     private Double totalExonerado;
+    @Column(name = "total_no_sujeto")
+    private Double totalNoSujeto;
     @Column(name = "total_venta")
     private Double totalVenta;
     @Column(name = "total_descuentos")
@@ -111,12 +128,20 @@ public class Encabezado implements Serializable {
         this.clave = clave;
     }
 
-    public String getComprobante() {
-        return comprobante;
+    public String getProveedorSistemas() {
+        return proveedorSistemas;
     }
 
-    public void setComprobante(String comprobante) {
-        this.comprobante = comprobante;
+    public void setProveedorSistemas(String proveedorSistemas) {
+        this.proveedorSistemas = proveedorSistemas;
+    }
+
+    public String getNumeroConsecutivo() {
+        return numeroConsecutivo;
+    }
+
+    public void setNumeroConsecutivo(String numeroConsecutivo) {
+        this.numeroConsecutivo = numeroConsecutivo;
     }
 
     public String getTipoDocumento() {
@@ -152,6 +177,14 @@ public class Encabezado implements Serializable {
         this.nombreEmisor = nombreEmisor;
     }
 
+    public String getNombreComercialEmisor() {
+        return nombreComercialEmisor;
+    }
+
+    public void setNombreComercialEmisor(String nombreComercialEmisor) {
+        this.nombreComercialEmisor = nombreComercialEmisor;
+    }
+    
     public String getNumeroEmisor() {
         return numeroEmisor;
     }
@@ -224,6 +257,22 @@ public class Encabezado implements Serializable {
         this.totalServExonerado = totalServExonerado;
     }
 
+    public Double getTotalServNoSujeto() {
+        return totalServNoSujeto;
+    }
+
+    public void setTotalServNoSujeto(Double totalServNoSujeto) {
+        this.totalServNoSujeto = totalServNoSujeto;
+    }
+
+    public Double getTotalNoSujeto() {
+        return totalNoSujeto;
+    }
+
+    public void setTotalNoSujeto(Double totalNoSujeto) {
+        this.totalNoSujeto = totalNoSujeto;
+    }
+    
     public Double getTotalMercanciasGravadas() {
         return totalMercanciasGravadas;
     }
@@ -360,14 +409,22 @@ public class Encabezado implements Serializable {
         this.numeroReceptor = numeroReceptor;
     }
 
-    public String getCodigoActividad() {
-        return codigoActividad;
+    public String getCodigoActividadEmisor() {
+        return codigoActividadEmisor;
     }
 
-    public void setCodigoActividad(String codigoActividad) {
-        this.codigoActividad = codigoActividad;
+    public void setCodigoActividadEmisor(String codigoActividadEmisor) {
+        this.codigoActividadEmisor = codigoActividadEmisor;
     }
 
+    public String getCodigoActividadReceptor() {
+        return codigoActividadReceptor;
+    }
+
+    public void setCodigoActividadReceptor(String CodigoActividadReceptor) {
+        this.codigoActividadReceptor = CodigoActividadReceptor;
+    }
+    
     public String getCorreoElectronicoEmisor() {
         return correoElectronicoEmisor;
     }
@@ -376,6 +433,20 @@ public class Encabezado implements Serializable {
         this.correoElectronicoEmisor = correoElectronicoEmisor;
     }
 
-    
+    public String getRegistrofiscal8707() {
+        return registrofiscal8707;
+    }
+
+    public void setRegistrofiscal8707(String registrofiscal8707) {
+        this.registrofiscal8707 = registrofiscal8707;
+    }
+
+    public Double getTotalMercNoSujeta() {
+        return totalMercNoSujeta;
+    }
+
+    public void setTotalMercNoSujeta(Double totalMercNoSujeta) {
+        this.totalMercNoSujeta = totalMercNoSujeta;
+    }
     
 }

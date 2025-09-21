@@ -1,38 +1,50 @@
 package bga.com.fe;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  *
  * @author bosco, 15/06/2019
  */
-@XmlType(propOrder = {"codigoTipoMoneda", "tipoCambio"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CodigoTipoMoneda {
 
-    private String codigoTipoMoneda; // Ver notas 13 y 13.1
-    private double tipoCambio;
+    // v4.3
+    @XmlElement(name = "CodigoTipoMoneda")
+    private String codigoTipoMoneda;
 
-    public CodigoTipoMoneda() {
-
-    } // end empty constructor
-
-    public String getCodigoTipoMoneda() {
-        return codigoTipoMoneda;
-    }
-
+    // v4.4 (alias)
     @XmlElement(name = "CodigoMoneda")
-    public void setCodigoTipoMoneda(String codigoTipoMoneda) {
-        this.codigoTipoMoneda = codigoTipoMoneda;
+    private String codigoMoneda;
+
+    @XmlElement(name = "TipoCambio")
+    private Double tipoCambio;
+
+    /** Devuelve el código de moneda (soporta v4.3 y v4.4). */
+    public String getCodigoTipoMoneda() {
+        return codigoTipoMoneda != null ? codigoTipoMoneda : codigoMoneda;
     }
 
-    public double getTipoCambio() {
+    /** Setea ambos campos para mantener consistencia. */
+    public void setCodigoTipoMoneda(String codigo) {
+        this.codigoTipoMoneda = codigo;
+        this.codigoMoneda = codigo;
+    }
+
+    public Double getTipoCambio() {
         return tipoCambio;
     }
 
-    @XmlElement(name = "TipoCambio")
-    public void setTipoCambio(double tipoCambio) {
+    public void setTipoCambio(Double tipoCambio) {
         this.tipoCambio = tipoCambio;
     }
 
-} // end class
+    // Opcional: acceso directo al alias
+    public String getCodigoMoneda() { return codigoMoneda; }
+    public void setCodigoMoneda(String codigo) {
+        this.codigoMoneda = codigo;
+        this.codigoTipoMoneda = codigo;
+    }
+}

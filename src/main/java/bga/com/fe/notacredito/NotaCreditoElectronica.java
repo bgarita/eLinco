@@ -1,5 +1,4 @@
-package bga.com.fe.notacredito; 
-
+package bga.com.fe.notacredito;
 
 import bga.com.fe.Emisor;
 import bga.com.fe.InformacionReferencia;
@@ -8,12 +7,12 @@ import bga.com.fe.Otros;
 import bga.com.fe.Receptor;
 import bga.com.fe.Resumen;
 import bga.com.fe.DetalleNotaCredito;
+import bga.com.fe.MedioPago;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  *
@@ -21,17 +20,16 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlRootElement(name = "NotaCreditoElectronica")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder
-        = {"clave", "codigoActividad", "numeroConsecutivo", "fechaEmision", 
-            "emisor", "receptor", "condicionVenta", "plazoCredito","medioPago","detalle", 
-            "resumen", "nota", "normativa", "otros"})
 public class NotaCreditoElectronica {
 
     @XmlElement(name = "Clave")
     private String clave;
-    
-    @XmlElement(name = "CodigoActividad")
-    private String codigoActividad;
+
+    @XmlElement(name = "ProveedorSistemas")
+    private String proveedorSistemas;
+
+    @XmlElement(name = "CodigoActividadEmisor")
+    private String codigoActividadEmisor;
 
     @XmlElement(name = "NumeroConsecutivo")
     private String numeroConsecutivo;
@@ -44,15 +42,15 @@ public class NotaCreditoElectronica {
 
     @XmlElement(name = "Receptor")
     private Receptor receptor;
-    
+
     @XmlElement(name = "CondicionVenta")
     private String condicionVenta;
 
     @XmlElement(name = "PlazoCredito")
-    private int plazoCredito;
-    
+    private Integer plazoCredito;
+
     @XmlElement(name = "MedioPago")
-    private String medioPago;
+    private MedioPago medioPago;
 
     @XmlElement(name = "DetalleServicio")
     private DetalleNotaCredito detalle;
@@ -70,23 +68,31 @@ public class NotaCreditoElectronica {
     private Otros otros;
 
     public NotaCreditoElectronica() {
-
-    } // empty constructor
-
-    public void setCodigoActividad(String codigoActividad){
-        this.codigoActividad = codigoActividad;
     }
-    
-    public String getCodigoActividad(){
-        return this.codigoActividad;
-    }
-    
+
+    // Getters/Setters
     public String getClave() {
         return clave;
     }
 
     public void setClave(String clave) {
         this.clave = clave;
+    }
+
+    public String getProveedorSistemas() {
+        return proveedorSistemas;
+    }
+
+    public void setProveedorSistemas(String proveedorSistemas) {
+        this.proveedorSistemas = proveedorSistemas;
+    }
+
+    public String getCodigoActividadEmisor() {
+        return codigoActividadEmisor;
+    }
+
+    public void setCodigoActividadEmisor(String codigoActividadEmisor) {
+        this.codigoActividadEmisor = codigoActividadEmisor;
     }
 
     public String getNumeroConsecutivo() {
@@ -113,14 +119,6 @@ public class NotaCreditoElectronica {
         this.emisor = emisor;
     }
 
-    public DetalleNotaCredito getDetalle() {
-        return detalle;
-    }
-
-    public void setDetalle(DetalleNotaCredito detalle) {
-        this.detalle = detalle;
-    }
-
     public Receptor getReceptor() {
         return receptor;
     }
@@ -128,7 +126,7 @@ public class NotaCreditoElectronica {
     public void setReceptor(Receptor receptor) {
         this.receptor = receptor;
     }
-    
+
     public String getCondicionVenta() {
         return condicionVenta;
     }
@@ -137,22 +135,30 @@ public class NotaCreditoElectronica {
         this.condicionVenta = condicionVenta;
     }
 
-    public int getPlazoCredito() {
+    public Integer getPlazoCredito() {
         return plazoCredito;
     }
 
-    public void setPlazoCredito(int plazoCredito) {
+    public void setPlazoCredito(Integer plazoCredito) {
         this.plazoCredito = plazoCredito;
     }
 
-    public String getMedioPago() {
+    public MedioPago getMedioPago() {
         return medioPago;
     }
 
-    public void setMedioPago(String medioPago) {
+    public void setMedioPago(MedioPago medioPago) {
         this.medioPago = medioPago;
     }
-    
+
+    public DetalleNotaCredito getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(DetalleNotaCredito detalle) {
+        this.detalle = detalle;
+    }
+
     public Resumen getResumen() {
         return resumen;
     }
@@ -184,5 +190,4 @@ public class NotaCreditoElectronica {
     public void setOtros(Otros otros) {
         this.otros = otros;
     }
-
-} // end class
+}

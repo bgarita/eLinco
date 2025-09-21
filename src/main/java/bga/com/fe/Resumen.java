@@ -12,25 +12,33 @@ import javax.xml.bind.annotation.XmlElement;
 public class Resumen {
 
     @XmlElement(name = "CodigoTipoMoneda")
-    private CodigoTipoMoneda codigoTipoMoneda;  // Ver documento Codigodemoneda_V4.2.pdf
+    private CodigoTipoMoneda codigoTipoMoneda;
+    @XmlElement(name = "MedioPago")
+    private MedioPago medioPago;
     @XmlElement(name = "TotalServGravados")
     private double totalServGravados;
     @XmlElement(name = "TotalServExentos")
     private double totalServExentos;
     @XmlElement(name = "TotalServExonerado")
     private double totalServExonerado;
+    @XmlElement(name = "TotalServNoSujeto")
+    private double totalServNoSujeto;
     @XmlElement(name = "TotalMercanciasGravadas")
     private double totalMercanciasGravadas;
     @XmlElement(name = "TotalMercanciasExentas")
     private double totalMercanciasExentas;
     @XmlElement(name = "TotalMercExonerada")
     private double totalMercExonerada;
+    @XmlElement(name = "TotalMercNoSujeta")
+    private double totalMercNoSujeta;
     @XmlElement(name = "TotalGravado")
     private double totalGravado;
     @XmlElement(name = "TotalExento")
     private double totalExento;
     @XmlElement(name = "TotalExonerado")
     private double totalExonerado;
+    @XmlElement(name = "TotalNoSujeto")
+    private double totalNoSujeto;
     @XmlElement(name = "TotalVenta")
     private double totalVenta;
     @XmlElement(name = "TotalDescuentos")
@@ -82,6 +90,14 @@ public class Resumen {
         this.totalServExonerado = totalServExonerado;
     }
 
+    public double getTotalServNoSujeto() {
+        return totalServNoSujeto;
+    }
+
+    public void setTotalServNoSujeto(double totalServNoSujeto) {
+        this.totalServNoSujeto = totalServNoSujeto;
+    }
+    
     public double getTotalMercanciasGravadas() {
         return totalMercanciasGravadas;
     }
@@ -106,6 +122,14 @@ public class Resumen {
         this.totalMercExonerada = totalMercExonerada;
     }
 
+    public double getTotalMercNoSujeta() {
+        return totalMercNoSujeta;
+    }
+
+    public void setTotalMercNoSujeta(double totalMercNoSujeta) {
+        this.totalMercNoSujeta = totalMercNoSujeta;
+    }
+    
     public double getTotalGravado() {
         return totalGravado;
     }
@@ -130,6 +154,14 @@ public class Resumen {
         this.totalExonerado = totalExonerado;
     }
 
+    public double getTotalNoSujeto() {
+        return totalNoSujeto;
+    }
+
+    public void setTotalNoSujeto(double totalNoSujeto) {
+        this.totalNoSujeto = totalNoSujeto;
+    }
+    
     public double getTotalVenta() {
         return totalVenta;
     }
@@ -186,4 +218,12 @@ public class Resumen {
         this.totalComprobante = totalComprobante;
     }
 
+    public MedioPago getMedioPago() {
+        return medioPago;
+    }
+
+    public void setMedioPago(MedioPago medioPago) {
+        this.medioPago = medioPago;
+    }
+    
 } // end class
