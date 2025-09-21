@@ -1,30 +1,48 @@
 package bga.com.fe;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  *
  * @author bosco
  */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = {
+    "nombre", "identificacion", "nombreComercial", "correoElectronico", "codigoActividadReceptor"
+})
 public class Receptor {
 
+    @XmlElement(name = "Nombre")
     private String nombre;
+
+    @XmlElement(name = "Identificacion")
     private Identificacion identificacion;
+
+    @XmlElement(name = "NombreComercial")
     private String nombreComercial;
+
+    @XmlElement(name = "CorreoElectronico")
     private String correoElectronico;
+
+    @XmlElement(name = "CodigoActividadReceptor")
+    private String codigoActividadReceptor;
 
     public Receptor() {
         this.nombre = "";
         this.identificacion = new Identificacion();
         this.nombreComercial = "";
         this.correoElectronico = "";
-    } // end empty constructor
+        this.codigoActividadReceptor = "";
+    }
 
+    // Getters/Setters (sin anotaciones JAXB)
     public String getNombre() {
         return nombre;
     }
 
-    @XmlElement(name = "Nombre")
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -33,16 +51,14 @@ public class Receptor {
         return identificacion;
     }
 
-    @XmlElement(name = "Identificacion")
     public void setIdentificacion(Identificacion identificacion) {
         this.identificacion = identificacion;
     }
-    
+
     public String getNombreComercial() {
         return nombreComercial;
     }
 
-    @XmlElement(name = "NombreComercial")
     public void setNombreComercial(String nombreComercial) {
         this.nombreComercial = nombreComercial;
     }
@@ -51,8 +67,15 @@ public class Receptor {
         return correoElectronico;
     }
 
-    @XmlElement(name = "CorreoElectronico")
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
     }
-} // end class
+
+    public String getCodigoActividadReceptor() {
+        return codigoActividadReceptor;
+    }
+
+    public void setCodigoActividadReceptor(String codigoActividadReceptor) {
+        this.codigoActividadReceptor = codigoActividadReceptor;
+    }
+}

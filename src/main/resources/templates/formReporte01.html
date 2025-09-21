@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- Copyright 2023 Infot SA -->
-<html lang="en"> 
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,8 +20,8 @@
     </head>
     <body>
         <nav class="navbar navbar-dark bg-secondary">
-            <a class="navbar-brand" th:href="@{/}">
-                <img th:src="@{/img/Logo2.png}" width="30" height="30" alt="InfoT, S.A.">
+            <a class="navbar-brand" href="/" data-th-href="@{/}">
+                <img src="/img/Logo2.png" data-th-src="@{/img/Logo2.png}" width="30" height="30" alt="InfoT, S.A.">
                 Inicio
             </a>            
         </nav>
@@ -61,40 +61,31 @@
                 <div class="col">
                     <label for="receptor" class="form-label">Receptor</label>
 
-                    <select class="form-control form-select mb-4" 
-                            id="receptor" 
-                            aria-label="Select a company" 
-                            >
-                        <option th:each="c : ${companies}" 
-                                th:value="${c.numeroReceptor}" 
-                                th:text="${c.nombreReceptor}"
-                                ></option>
+                    <select class="form-control form-select mb-4" id="receptor" aria-label="Select a company">
+                        <option data-th-each="c : ${companies}"
+                                data-th-value="${c.numeroReceptor}"
+                                data-th-text="${c.nombreReceptor}">
+                        </option>
                     </select>
                 </div>
                 <div class="col">
                     <label for="nombreCom" class="form-label">Nombre comercial</label>
 
-                    <select class="form-control form-select mb-4" 
-                            id="nombreCom" 
-                            aria-label="Select a business name" 
-                            >
-                        <option th:each="e : ${empresas}" 
-                                th:value="${e.nombreComercial}" 
-                                th:text="${e.nombreComercial}"
-                                ></option>
+                    <select class="form-control form-select mb-4" id="nombreCom" aria-label="Select a business name">
+                        <option data-th-each="e : ${empresas}"
+                                data-th-value="${e.nombreComercial}"
+                                data-th-text="${e.nombreComercial}">
+                        </option>
                     </select>
                 </div>
                 <div class="col">
                     <label for="emisor" class="form-label">Emisor</label>
 
-                    <select class="form-control form-select mb-4" 
-                            id="emisor" 
-                            aria-label="Select an emitter" 
-                            >
-                        <option th:each="e : ${emisores}" 
-                                th:value="${e.numeroEmisor}" 
-                                th:text="${e.nombreEmisor}"
-                                ></option>
+                    <select class="form-control form-select mb-4" id="emisor" aria-label="Select an emitter">
+                        <option data-th-each="e : ${emisores}"
+                                data-th-value="${e.numeroEmisor}"
+                                data-th-text="${e.nombreEmisor}">
+                        </option>
                     </select>
                 </div>
                 <div class="col">

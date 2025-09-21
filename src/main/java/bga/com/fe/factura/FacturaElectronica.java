@@ -4,6 +4,7 @@ import bga.com.fe.DetalleFactura;
 import bga.com.fe.Resumen;
 import bga.com.fe.Emisor;
 import bga.com.fe.InformacionReferencia;
+import bga.com.fe.MedioPago;
 import bga.com.fe.Normativa;
 import bga.com.fe.Otros;
 import bga.com.fe.Receptor;
@@ -24,8 +25,11 @@ public class FacturaElectronica {
     @XmlElement(name = "Clave")
     private String clave;
     
-    @XmlElement(name = "CodigoActividad")
-    private String codigoActividad;
+    @XmlElement(name = "ProveedorSistemas")
+    private String proveedorSistemas;
+    
+    @XmlElement(name = "CodigoActividadEmisor")
+    private String codigoActividadEmisor;
     
     @XmlElement(name = "NumeroConsecutivo")
     private String numeroConsecutivo;
@@ -43,10 +47,10 @@ public class FacturaElectronica {
     private String condicionVenta;
     
     @XmlElement(name = "PlazoCredito")
-    private int plazoCredito;
+    private Integer plazoCredito;
     
     @XmlElement(name = "MedioPago")
-    private String medioPago;
+    private MedioPago medioPago;
     
     @XmlElement(name = "DetalleServicio")
     private DetalleFactura detalle;
@@ -68,12 +72,12 @@ public class FacturaElectronica {
     } // empty constructor
     
     
-    public void setCodigoActividad(String codigoActividad){
-        this.codigoActividad = codigoActividad;
+    public void setCodigoActividadEmisor(String codigoActividadEmisor){
+        this.codigoActividadEmisor = codigoActividadEmisor;
     }
     
-    public String getCodigoActividad() {
-        return codigoActividad;
+    public String getCodigoActividadEmisor() {
+        return codigoActividadEmisor;
     }
     
     public String getClave() {
@@ -83,8 +87,15 @@ public class FacturaElectronica {
     public void setClave(String clave) {
         this.clave = clave;
     }
-    
 
+    public String getProveedorSistemas() {
+        return proveedorSistemas;
+    }
+
+    public void setProveedorSistemas(String proveedorSistemas) {
+        this.proveedorSistemas = proveedorSistemas;
+    }
+    
     public String getNumeroConsecutivo() {
         return numeroConsecutivo;
     }
@@ -133,19 +144,19 @@ public class FacturaElectronica {
         this.condicionVenta = condicionVenta;
     }
 
-    public int getPlazoCredito() {
+    public Integer getPlazoCredito() {
         return plazoCredito;
     }
     
-    public void setPlazoCredito(int plazoCredito) {
+    public void setPlazoCredito(Integer plazoCredito) {
         this.plazoCredito = plazoCredito;
     }
 
-    public String getMedioPago() {
+    public MedioPago getMedioPago() {
         return medioPago;
     }
 
-    public void setMedioPago(String medioPago) {
+    public void setMedioPago(MedioPago medioPago) {
         this.medioPago = medioPago;
     }
     

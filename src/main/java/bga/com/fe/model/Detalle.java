@@ -43,24 +43,17 @@ public class Detalle implements Serializable {
     private Double baseImponible;
     @Column(name="impuesto_neto")
     private Double impuestoNeto;
-    /*
-    @Column(name="codigo_impuesto")
-    private String codigoImpuesto;
-    @Column(name="codigo_tarifa")
-    private String codigoTarifa;
-    private Float tarifa;
-    private Float factorIVA;
-    private Double montoIVA;
-*/
     @Column(name="monto_total_linea")
-    private Double montoTotalLinea; 
+    private Double montoTotalLinea;
+    @Column(name = "codigo_CABYS", nullable = false, length = 32) // ajusta length al DDL
+    private String codigoCabys = ""; // evita null por defecto
     
 
     public Detalle() {
 
     }
 
-    public int getNumeroLinea() {
+    public Integer getNumeroLinea() {
         return numeroLinea;
     }
 
@@ -187,48 +180,6 @@ public class Detalle implements Serializable {
     public void setImpuestoNeto(Double impuestoNeto) {
         this.impuestoNeto = impuestoNeto;
     }
-    
-    
-
-//    public String getCodigoImpuesto() {
-//        return codigoImpuesto;
-//    }
-//
-//    public void setCodigoImpuesto(String codigoImpuesto) {
-//        this.codigoImpuesto = codigoImpuesto;
-//    }
-//
-//    public String getCodigoTarifa() {
-//        return codigoTarifa;
-//    }
-//
-//    public void setCodigoTarifa(String codigoTarifa) {
-//        this.codigoTarifa = codigoTarifa;
-//    }
-//
-//    public Float getTarifa() {
-//        return tarifa;
-//    }
-//
-//    public void setTarifa(Float tarifa) {
-//        this.tarifa = tarifa;
-//    }
-//
-//    public Float getFactorIVA() {
-//        return factorIVA;
-//    }
-//
-//    public void setFactorIVA(Float factorIVA) {
-//        this.factorIVA = factorIVA;
-//    }
-//
-//    public Double getMontoIVA() {
-//        return montoIVA;
-//    }
-//
-//    public void setMontoIVA(Double montoIVA) {
-//        this.montoIVA = montoIVA;
-//    }
 
     public String getClave() {
         return clave;
@@ -238,5 +189,12 @@ public class Detalle implements Serializable {
         this.clave = clave;
     }
 
+    public String getCodigoCabys() {
+        return codigoCabys;
+    }
+
+    public void setCodigoCabys(String codigoCabys) {
+        this.codigoCabys = codigoCabys;
+    }
     
 } // end class

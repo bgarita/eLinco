@@ -1,45 +1,84 @@
 package bga.com.fe;
 
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-
 import javax.xml.bind.annotation.XmlType;
 
-/**
- *
- * @author bosco, 17/12/2022
- */
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {
-    "numeroLinea", "codigo", "codigoComercial", "cantidad", "unidadMedida", 
-    "detalle", "precioUnitario", "montoTotal", "descuento", "subTotal", 
-    "baseImponible", "impuestos", "otrosC", "montoTotalLinea", "impuestoNeto"})
+    "numeroLinea", "codigo", "codigoComercial", "cantidad", "unidadMedida",
+    "detalle", "precioUnitario", "montoTotal", "descuento", "subTotal",
+    "baseImponible", "impuestos", "otrosC", "montoTotalLinea", "impuestoNeto",
+    "codigoCABYS"
+})
 public class LineaDetalle {
 
+    @XmlElement(name = "NumeroLinea")
     private int numeroLinea;
+
+    @XmlElement(name = "Codigo")
     private String codigo;
+
+    @XmlElement(name = "CodigoComercial")
     private Codigo codigoComercial;
+
+    @XmlElement(name = "Cantidad")
     private double cantidad;
+
+    @XmlElement(name = "UnidadMedida")
     private String unidadMedida;
+
+    @XmlElement(name = "Detalle")
     private String detalle;
+
+    @XmlElement(name = "PrecioUnitario")
     private double precioUnitario;
+
+    @XmlElement(name = "MontoTotal")
     private double montoTotal;
+
+    @XmlElement(name = "Descuento")
     private Descuento descuento;
+
+    @XmlElement(name = "SubTotal")
     private double subTotal;
+
+    @XmlElement(name = "BaseImponible")
     private double baseImponible;
+
+    // Repite <Impuesto> directamente bajo <LineaDetalle>
+    @XmlElement(name = "Impuesto")
     private List<Impuesto> impuestos;
+
+    @XmlElement(name = "OtrosCargos")
     private OtrosCargos otrosC;
+
+    @XmlElement(name = "MontoTotalLinea")
     private double montoTotalLinea;
+
+    @XmlElement(name = "ImpuestoNeto")
     private double impuestoNeto;
 
-    public LineaDetalle() {
+    @XmlElement(name = "CodigoCABYS")
+    private String codigoCABYS;
 
+    // Constructor con valores default por si no vienen en el XML
+    public LineaDetalle() {
+        this.codigo = "";
+        this.codigoCABYS = "";
+        Codigo cc = new Codigo();
+        cc.setCodigo("");
+        cc.setTipo("");
+        this.codigoComercial = cc;
     }
 
+    // ==== Getters/Setters SIN anotaciones JAXB ====
     public int getNumeroLinea() {
         return numeroLinea;
     }
 
-    @XmlElement(name = "NumeroLinea")
     public void setNumeroLinea(int numeroLinea) {
         this.numeroLinea = numeroLinea;
     }
@@ -48,7 +87,6 @@ public class LineaDetalle {
         return codigo;
     }
 
-    @XmlElement(name = "Codigo")
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -57,7 +95,6 @@ public class LineaDetalle {
         return codigoComercial;
     }
 
-    @XmlElement(name = "CodigoComercial")
     public void setCodigoComercial(Codigo codigoComercial) {
         this.codigoComercial = codigoComercial;
     }
@@ -66,7 +103,6 @@ public class LineaDetalle {
         return cantidad;
     }
 
-    @XmlElement(name = "Cantidad")
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
@@ -75,7 +111,6 @@ public class LineaDetalle {
         return unidadMedida;
     }
 
-    @XmlElement(name = "UnidadMedida")
     public void setUnidadMedida(String unidadMedida) {
         this.unidadMedida = unidadMedida;
     }
@@ -84,7 +119,6 @@ public class LineaDetalle {
         return detalle;
     }
 
-    @XmlElement(name = "Detalle")
     public void setDetalle(String detalle) {
         this.detalle = detalle;
     }
@@ -93,7 +127,6 @@ public class LineaDetalle {
         return precioUnitario;
     }
 
-    @XmlElement(name = "PrecioUnitario")
     public void setPrecioUnitario(double precioUnitario) {
         this.precioUnitario = precioUnitario;
     }
@@ -102,7 +135,6 @@ public class LineaDetalle {
         return montoTotal;
     }
 
-    @XmlElement(name = "MontoTotal")
     public void setMontoTotal(double montoTotal) {
         this.montoTotal = montoTotal;
     }
@@ -111,7 +143,6 @@ public class LineaDetalle {
         return descuento;
     }
 
-    @XmlElement(name = "Descuento")
     public void setDescuento(Descuento descuento) {
         this.descuento = descuento;
     }
@@ -120,7 +151,6 @@ public class LineaDetalle {
         return subTotal;
     }
 
-    @XmlElement(name = "SubTotal")
     public void setSubTotal(double subTotal) {
         this.subTotal = subTotal;
     }
@@ -129,7 +159,6 @@ public class LineaDetalle {
         return baseImponible;
     }
 
-    @XmlElement(name = "BaseImponible")
     public void setBaseImponible(double baseImponible) {
         this.baseImponible = baseImponible;
     }
@@ -138,7 +167,6 @@ public class LineaDetalle {
         return impuestos;
     }
 
-    @XmlElement(name = "Impuesto")
     public void setImpuestos(List<Impuesto> impuestos) {
         this.impuestos = impuestos;
     }
@@ -147,7 +175,6 @@ public class LineaDetalle {
         return otrosC;
     }
 
-    @XmlElement(name = "OtrosCargos")
     public void setOtrosC(OtrosCargos otrosC) {
         this.otrosC = otrosC;
     }
@@ -156,7 +183,6 @@ public class LineaDetalle {
         return montoTotalLinea;
     }
 
-    @XmlElement(name = "MontoTotalLinea")
     public void setMontoTotalLinea(double montoTotalLinea) {
         this.montoTotalLinea = montoTotalLinea;
     }
@@ -165,9 +191,15 @@ public class LineaDetalle {
         return impuestoNeto;
     }
 
-    @XmlElement(name = "ImpuestoNeto")
     public void setImpuestoNeto(double impuestoNeto) {
         this.impuestoNeto = impuestoNeto;
     }
 
-} // end class
+    public String getCodigoCABYS() {
+        return codigoCABYS;
+    }
+
+    public void setCodigoCABYS(String codigoCABYS) {
+        this.codigoCABYS = codigoCABYS;
+    }
+}

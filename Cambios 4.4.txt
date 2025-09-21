@@ -1,0 +1,23 @@
+Cambios (v4.3 vs v4.4) realizados para procesar los xmls con el esquema 4.4
+
+1. ProveedorSistemas
+	Campo nuevo para incluir la cédula del desarrollador.
+2. CodigoActividadEmisor
+	Este campo no es nuevo pero si cambió de nombre.  El nombre anterior era CodigoActividad
+3. CodigoActividadReceptor
+	Campo nuevo
+4. NumeroConsecutivo
+	Este campo ya existía en el sistema con el nombre de comprobante. Se cambió a numeroConsecutivo (numero_consecutivo)
+5. Registrofiscal8707
+	Campo nuevo. Número de Registro Fiscal de bebidas alcohólicas Ley 8707 (Emisor)
+6. TotalServNoSujeto
+	Campo nuevo para el total de servicios no sujetos de IVA (va en el resumen del comprobante)
+7. TotalMercNoSujeta
+	Campo nuevo para el total de mercancías no sujetas de IVA (va en el resumen del comprobante)
+8. TotalNoSujeto
+	Campo nuevo.
+9.  CodigoCABYS
+	Campo nuevo.  Poner en detalle de la factura (tabla detalle)
+
+
+Listo

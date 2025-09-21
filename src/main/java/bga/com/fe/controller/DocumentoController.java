@@ -114,7 +114,7 @@ public class DocumentoController {
                 encabezado = convert.getEncabezado();
                 detalleFactura = convert.getDetalleFactura();
                 detalleNotaCredito = convert.getDetalleNotaCredito();
-                
+
                 // Si el xml no trae nombre comercial o viene vacío, uso el que el usuario digitó.
                 if (encabezado.getNombreComercialReceptor() == null || encabezado.getNombreComercialReceptor().isBlank()) {
                     encabezado.setNombreComercialReceptor(nombreComercial);
@@ -123,7 +123,7 @@ public class DocumentoController {
                 if (encabezado.getNombreComercialReceptor() == null) {
                     encabezado.setNombreComercialReceptor(encabezado.getNombreReceptor());
                 }
-                */
+                 */
 
                 // Si el receptor no existe lo agrego a la lista y a la base de datos.
                 saveReceptor(
@@ -234,7 +234,7 @@ public class DocumentoController {
     public void showPDF(@RequestParam("q") String doc, HttpServletResponse response) throws FeException {
         try {
             response.setContentType("application/pdf");
-            try ( InputStream inputStream = new FileInputStream(new File(doc))) {
+            try (InputStream inputStream = new FileInputStream(new File(doc))) {
                 int nRead;
                 while ((nRead = inputStream.read()) != -1) {
                     response.getWriter().write(nRead);
@@ -354,6 +354,12 @@ public class DocumentoController {
             detalle.setImpuestoNeto(linea.getImpuestoNeto());
             detalle.setMontoTotalLinea(linea.getMontoTotalLinea());
 
+            String cabys = nz(linea.getCodigoCABYS());
+            if (cabys.length() > 32) {
+                cabys = cabys.substring(0, 32);
+            }
+            detalle.setCodigoCabys(cabys);
+
             Detalle det = detalleService.save(detalle);
 
             // Guardar los impuestos
@@ -361,6 +367,10 @@ public class DocumentoController {
                 saveImpuestos(linea.getImpuestos(), det.getId());
             }
         }
+    }
+
+    private static String nz(String s) {
+        return s == null ? "" : s.trim();
     }
 
     private void saveNoteDetail(DetalleNotaCredito detalleNotaCredito, Encabezado saved) {

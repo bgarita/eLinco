@@ -55,22 +55,19 @@ public class Convert {
         validXML(wrkFile, xml, schema);
 
         switch (tipoDocumento) {
-            case "FAC" : {
+            case "FAC" -> {
                 removeInvoiceAttributes(wrkFile);
                 generarFactura(wrkFile, xml, tipoDocumento);
-                break;
             }
-            case "NCR" : {
+            case "NCR" -> {
                 removeNotaCrAttributes(wrkFile);
                 generarNotaCR(wrkFile, xml, tipoDocumento);
-                break;
             }
-            case "NDB" : {
+            case "NDB" -> {
                 removeNotaDbAttributes(wrkFile);
                 generarNotaDB(wrkFile, xml, tipoDocumento);
-                break;
             }
-            default : {
+            default -> {
                 throw new FeException(
                         this.getClass().getName(),
                         "class root",
@@ -210,19 +207,16 @@ public class Convert {
 
         if (msg.length() == 0) {
             switch (tipoDocumento) {
-                case ResultadoCarga.FACTURA : {
+                case ResultadoCarga.FACTURA -> {
                     textToFind = "<FacturaElectronica";
-                    break;
                 }
-                case ResultadoCarga.NOTA_CREDITO : {
+                case ResultadoCarga.NOTA_CREDITO -> {
                     textToFind = "<NotaCreditoElectronica";
-                    break;
                 }
-                case ResultadoCarga.NOTA_DEBITO : {
+                case ResultadoCarga.NOTA_DEBITO -> {
                     textToFind = "<NotaDebitoElectronica";
-                    break;
                 }
-                default : {
+                default -> {
                     textToFind = "N/A";
                 }
             }
@@ -240,7 +234,7 @@ public class Convert {
             xmlString = xmlString.substring(pos);
             String ver = xmlString.substring(12, 16);
             if (!ver.equals(schema)) {
-                msg = "La versión " + ver + " del xml no es soportada actualmente.";
+                msg = "La versión " + ver + " del xml no es soportada actualmente. ";
             }
         }
         if (msg.length() > 0) {
@@ -332,7 +326,7 @@ public class Convert {
                     "",
                     "Este xml [" + xml + "] carece de receptor.");
         }
-        
+
         // Si el documento no trae moneda se asume que la moneda es CRC 
         // y el tipo de cambio es 1.00
         if (fa.getResumen().getCodigoTipoMoneda() == null) {
@@ -346,11 +340,13 @@ public class Convert {
 
         encabezado.setClave(fa.getClave());
         encabezado.setTipoDocumento(tipoDocumento);
-        encabezado.setCodigoActividad(fa.getCodigoActividad());
-        encabezado.setComprobante(fa.getNumeroConsecutivo());
+        encabezado.setCodigoActividadEmisor(fa.getCodigoActividadEmisor());
+        encabezado.setNumeroConsecutivo(fa.getNumeroConsecutivo());
 
         encabezado.setNumeroReceptor(idReceptor);
         encabezado.setNumeroEmisor(fa.getEmisor().getIdentificacion().getNumero());
+        String regFiscal = fa.getEmisor().getRegistroFiscal8707() == null ? "" : fa.getEmisor().getRegistroFiscal8707();
+        encabezado.setRegistrofiscal8707(regFiscal);
 
         Date fecha;
         try {
@@ -365,29 +361,53 @@ public class Convert {
         encabezado.setFechaEmision(fecha);
 
         encabezado.setNombreEmisor(fa.getEmisor().getNombre());
+        String nombreComEmisor = fa.getEmisor().getNombreComercial();
+        encabezado.setNombreComercialEmisor(nombreComEmisor);
         encabezado.setCorreoElectronicoEmisor(fa.getEmisor().getCorreoElectronico());
         encabezado.setNumeroEmisor(fa.getEmisor().getIdentificacion().getNumero());
         encabezado.setTipoIdEmisor(fa.getEmisor().getIdentificacion().getTipo());
+        encabezado.setProveedorSistemas(fa.getProveedorSistemas());
 
         encabezado.setNombreReceptor(fa.getReceptor().getNombre());
         encabezado.setTipoIdReceptor(fa.getReceptor().getIdentificacion().getTipo());
-        String nc = fa.getReceptor().getNombreComercial();
-        encabezado.setNombreComercialReceptor(nc == null ? "" : nc);
+        String nombreComReceptor = fa.getReceptor().getNombreComercial();
+        encabezado.setNombreComercialReceptor(nombreComReceptor == null ? "" : nombreComReceptor);
+        encabezado.setCodigoActividadReceptor(fa.getReceptor().getCodigoActividadReceptor());
 
-        encabezado.setMedioPago(fa.getMedioPago());
+        // Por ahora solo se guarda el código
+        //encabezado.setMedioPago(fa.getResumen().getMedioPago().getTipoMedioPago());
+        String medio = null;
+        if (fa.getResumen() != null && fa.getResumen().getMedioPago() != null) {
+            medio = fa.getResumen().getMedioPago().getTipoMedioPago();
+        }
+        if (medio == null && fa.getMedioPago() != null) {
+            medio = fa.getMedioPago().getTipoMedioPago();
+        }
+        encabezado.setMedioPago(medio);
         encabezado.setCondicionVenta(fa.getCondicionVenta());
-        encabezado.setPlazoCredito(fa.getPlazoCredito());
+        Integer plazo = 0;
+        if (fa.getPlazoCredito() != null) {
+            plazo = fa.getPlazoCredito();
+        }
+        encabezado.setPlazoCredito(plazo);
         encabezado.setCodigoMoneda(fa.getResumen().getCodigoTipoMoneda().getCodigoTipoMoneda());
 
         // Algunas facturas traen este campo en cero
-        encabezado.setTipoCambio(
-                fa.getResumen().getCodigoTipoMoneda().getTipoCambio() == 0.0 ? 1.0
-                : fa.getResumen().getCodigoTipoMoneda().getTipoCambio()
-        );
-        
+        // setear tipoCambio con default si viene null o 0.0
+        Double tcResumen = (fa.getResumen() != null && fa.getResumen().getCodigoTipoMoneda() != null)
+                ? fa.getResumen().getCodigoTipoMoneda().getTipoCambio()
+                : null;
+        double tcVal = (tcResumen == null || tcResumen == 0.0) ? 1.0 : tcResumen;
+        encabezado.setTipoCambio(tcVal);
+
         // Si el tipo de cambio de colones viene incorrecto se hace la corrección de una vez
-        if (fa.getResumen().getCodigoTipoMoneda().getCodigoTipoMoneda().equals("CRC") &&
-                fa.getResumen().getCodigoTipoMoneda().getTipoCambio() != 1.0) {
+        String codMon = null;
+        Double tc = null;
+        if (fa.getResumen() != null && fa.getResumen().getCodigoTipoMoneda() != null) {
+            codMon = fa.getResumen().getCodigoTipoMoneda().getCodigoTipoMoneda(); // ahora tolera 4.3/4.4
+            tc = fa.getResumen().getCodigoTipoMoneda().getTipoCambio();
+        }
+        if ("CRC".equals(codMon) && tc != null && tc != 1.0) {
             encabezado.setTipoCambio(1.0);
         }
 
@@ -404,10 +424,12 @@ public class Convert {
         encabezado.setTotalOtrosCargos(fa.getResumen().getTotalOtrosCargos());
         encabezado.setTotalServExentos(fa.getResumen().getTotalServExentos());
         encabezado.setTotalServExonerado(fa.getResumen().getTotalServExonerado());
+        encabezado.setTotalServNoSujeto(fa.getResumen().getTotalServNoSujeto());
+        encabezado.setTotalMercNoSujeta(fa.getResumen().getTotalMercNoSujeta());
+        encabezado.setTotalNoSujeto(fa.getResumen().getTotalNoSujeto());
         encabezado.setTotalServGravados(fa.getResumen().getTotalServGravados());
         encabezado.setTotalVenta(fa.getResumen().getTotalVenta());
         encabezado.setTotalVentaNeta(fa.getResumen().getTotalVentaNeta());
-
         detalleFactura = fa.getDetalle();
 
     }
@@ -438,8 +460,7 @@ public class Convert {
                     "Este xml [" + xml + "] carece de receptor.");
         }
 
-        // Si el documento no trae moneda se asume que la moneda es CRC 
-        // y el tipo de cambio es 1.00
+        // Si no trae moneda: asumir CRC y TC=1.00
         if (nc.getResumen().getCodigoTipoMoneda() == null) {
             Resumen resumen = nc.getResumen();
             CodigoTipoMoneda codigoTipoMoneda = new CodigoTipoMoneda();
@@ -448,46 +469,77 @@ public class Convert {
             resumen.setCodigoTipoMoneda(codigoTipoMoneda);
             nc.setResumen(resumen);
         }
-        
+
         encabezado.setClave(nc.getClave());
         encabezado.setTipoDocumento(tipoDocumento);
-        encabezado.setCodigoActividad(nc.getCodigoActividad());
-        encabezado.setComprobante(nc.getNumeroConsecutivo());
+        encabezado.setCodigoActividadEmisor(nc.getCodigoActividadEmisor());
+        encabezado.setNumeroConsecutivo(nc.getNumeroConsecutivo());
 
-        encabezado.setNumeroReceptor(idReceptor);
+        // Emisor
+        encabezado.setNombreEmisor(nc.getEmisor().getNombre());
+        String nombreComEmisor = nc.getEmisor().getNombreComercial();
+        encabezado.setNombreComercialEmisor(nombreComEmisor);
+        encabezado.setCorreoElectronicoEmisor(nc.getEmisor().getCorreoElectronico());
         encabezado.setNumeroEmisor(nc.getEmisor().getIdentificacion().getNumero());
+        encabezado.setTipoIdEmisor(nc.getEmisor().getIdentificacion().getTipo());
+        encabezado.setProveedorSistemas(nc.getProveedorSistemas());
 
+        // Registro fiscal 8707 (null-safe)
+        String regFiscal = nc.getEmisor().getRegistroFiscal8707() == null ? "" : nc.getEmisor().getRegistroFiscal8707();
+        encabezado.setRegistrofiscal8707(regFiscal);
+
+        // Receptor
+        encabezado.setNumeroReceptor(idReceptor);
+        encabezado.setNombreReceptor(nc.getReceptor().getNombre());
+        String nco = nc.getReceptor().getNombreComercial();
+        encabezado.setNombreComercialReceptor(nco == null ? "" : nco);
+        encabezado.setTipoIdReceptor(nc.getReceptor().getIdentificacion().getTipo());
+        // Código de actividad del receptor si viene
+        encabezado.setCodigoActividadReceptor(nc.getReceptor().getCodigoActividadReceptor());
+
+        // Fecha
         Date fecha;
         try {
             fecha = formatDateString(nc.getFechaEmision());
         } catch (ParseException ex) {
             throw new FeException(
                     this.getClass().getName(),
-                    "",
+                    "generarNotaCR()",
                     ex.getMessage());
         }
-
         encabezado.setFechaEmision(fecha);
 
-        encabezado.setNombreEmisor(nc.getEmisor().getNombre());
-        encabezado.setCorreoElectronicoEmisor(nc.getEmisor().getCorreoElectronico());
-        encabezado.setNumeroEmisor(nc.getEmisor().getIdentificacion().getNumero());
-        encabezado.setTipoIdEmisor(nc.getEmisor().getIdentificacion().getTipo());
+        // Medio de pago (igual que factura)
+        String medio = null;
+        if (nc.getResumen() != null && nc.getResumen().getMedioPago() != null) {
+            medio = nc.getResumen().getMedioPago().getTipoMedioPago();
+        }
+        if (medio == null && nc.getMedioPago() != null) {
+            medio = nc.getMedioPago().getTipoMedioPago();
+        }
+        encabezado.setMedioPago(medio);
 
-        encabezado.setNombreReceptor(nc.getReceptor().getNombre());
-        String nco = nc.getReceptor().getNombreComercial();
-        encabezado.setNombreComercialReceptor(nco == null ? "" : nco);
-        encabezado.setTipoIdReceptor(nc.getReceptor().getIdentificacion().getTipo());
-
-        encabezado.setMedioPago(nc.getMedioPago());
+        // Condición y plazo (Integer en el modelo NCR)
         encabezado.setCondicionVenta(nc.getCondicionVenta());
-        encabezado.setPlazoCredito(nc.getPlazoCredito());
+        Integer plazo = 0;
+        if (nc.getPlazoCredito() != null) {
+            plazo = nc.getPlazoCredito();
+        }
+        encabezado.setPlazoCredito(plazo);
+        
+        // Moneda y tipo de cambio
         encabezado.setCodigoMoneda(nc.getResumen().getCodigoTipoMoneda().getCodigoTipoMoneda());
         encabezado.setTipoCambio(
                 nc.getResumen().getCodigoTipoMoneda().getTipoCambio() == 0.0 ? 1.0
                 : nc.getResumen().getCodigoTipoMoneda().getTipoCambio()
         );
+        // Corrección CRC como en factura
+        if ("CRC".equals(nc.getResumen().getCodigoTipoMoneda().getCodigoTipoMoneda())
+                && nc.getResumen().getCodigoTipoMoneda().getTipoCambio() != 1.0) {
+            encabezado.setTipoCambio(1.0);
+        }
 
+        // Totales (todos con signo negativo para NCR)
         encabezado.setTotalComprobante(nc.getResumen().getTotalComprobante() * -1);
         encabezado.setTotalDescuentos(nc.getResumen().getTotalDescuentos() * -1);
         encabezado.setTotalExento(nc.getResumen().getTotalExento() * -1);
@@ -502,12 +554,16 @@ public class Convert {
         encabezado.setTotalServExentos(nc.getResumen().getTotalServExentos() * -1);
         encabezado.setTotalServExonerado(nc.getResumen().getTotalServExonerado() * -1);
         encabezado.setTotalServGravados(nc.getResumen().getTotalServGravados() * -1);
+
+        encabezado.setTotalServNoSujeto(nc.getResumen().getTotalServNoSujeto() * -1);
+        encabezado.setTotalMercNoSujeta(nc.getResumen().getTotalMercNoSujeta() * -1);
+        encabezado.setTotalNoSujeto(nc.getResumen().getTotalNoSujeto() * -1);
+
         encabezado.setTotalVenta(nc.getResumen().getTotalVenta() * -1);
         encabezado.setTotalVentaNeta(nc.getResumen().getTotalVentaNeta() * -1);
 
         setNegative(nc.getDetalle());
         detalleNotaCredito = nc.getDetalle();
-
     }
 
     private void generarNotaDB(String wrkFile, String xml, String tipoDocumento) {
@@ -535,8 +591,7 @@ public class Convert {
                     "Este xml [" + xml + "] carece de receptor.");
         }
 
-        // Si el documento no trae moneda se asume que la moneda es CRC 
-        // y el tipo de cambio es 1.00
+        // Si el documento no trae moneda se asume CRC y TC = 1.00
         if (nd.getResumen().getCodigoTipoMoneda() == null) {
             Resumen resumen = nd.getResumen();
             CodigoTipoMoneda codigoTipoMoneda = new CodigoTipoMoneda();
@@ -545,46 +600,72 @@ public class Convert {
             resumen.setCodigoTipoMoneda(codigoTipoMoneda);
             nd.setResumen(resumen);
         }
-        
+
         encabezado.setClave(nd.getClave());
         encabezado.setTipoDocumento(tipoDocumento);
-        encabezado.setCodigoActividad(nd.getCodigoActividad());
-        encabezado.setComprobante(nd.getNumeroConsecutivo());
+        encabezado.setCodigoActividadEmisor(nd.getCodigoActividadEmisor());
+        encabezado.setNumeroConsecutivo(nd.getNumeroConsecutivo());
 
-        encabezado.setNumeroReceptor(idReceptor);
+        // Datos emisor y proveedor de sistemas
         encabezado.setNumeroEmisor(nd.getEmisor().getIdentificacion().getNumero());
+        encabezado.setNombreEmisor(nd.getEmisor().getNombre());
+        encabezado.setCorreoElectronicoEmisor(nd.getEmisor().getCorreoElectronico());
+        encabezado.setTipoIdEmisor(nd.getEmisor().getIdentificacion().getTipo());
+        String nombreComEmisor = nd.getEmisor().getNombreComercial();
+        encabezado.setNombreComercialEmisor(nombreComEmisor);
+        String regFiscal = nd.getEmisor().getRegistroFiscal8707() == null ? "" : nd.getEmisor().getRegistroFiscal8707();
+        encabezado.setRegistrofiscal8707(regFiscal);
+        encabezado.setProveedorSistemas(nd.getProveedorSistemas());
 
+        // Receptor
+        encabezado.setNumeroReceptor(idReceptor);
+        encabezado.setNombreReceptor(nd.getReceptor().getNombre());
+        encabezado.setTipoIdReceptor(nd.getReceptor().getIdentificacion().getTipo());
+        String nombreComReceptor = nd.getReceptor().getNombreComercial();
+        encabezado.setNombreComercialReceptor(nombreComReceptor == null ? "" : nombreComReceptor);
+        encabezado.setCodigoActividadReceptor(nd.getReceptor().getCodigoActividadReceptor());
+
+        // Fecha
         Date fecha;
         try {
             fecha = formatDateString(nd.getFechaEmision());
         } catch (ParseException ex) {
             throw new FeException(
                     this.getClass().getName(),
-                    "",
+                    "generarNotaDB()",
                     ex.getMessage());
         }
-
         encabezado.setFechaEmision(fecha);
 
-        encabezado.setNombreEmisor(nd.getEmisor().getNombre());
-        encabezado.setCorreoElectronicoEmisor(nd.getEmisor().getCorreoElectronico());
-        encabezado.setNumeroEmisor(nd.getEmisor().getIdentificacion().getNumero());
-        encabezado.setTipoIdEmisor(nd.getEmisor().getIdentificacion().getTipo());
+        // Medio de pago: primero en Resumen, si no, en raíz
+        String medio = null;
+        if (nd.getResumen() != null && nd.getResumen().getMedioPago() != null) {
+            medio = nd.getResumen().getMedioPago().getTipoMedioPago();
+        }
+        if (medio == null && nd.getMedioPago() != null) {
+            medio = nd.getMedioPago().getTipoMedioPago();
+        }
+        encabezado.setMedioPago(medio);
 
-        encabezado.setNombreReceptor(nd.getReceptor().getNombre());
-        encabezado.setTipoIdReceptor(nd.getReceptor().getIdentificacion().getTipo());
-
-        encabezado.setMedioPago(nd.getMedioPago());
         encabezado.setCondicionVenta(nd.getCondicionVenta());
-        encabezado.setPlazoCredito(nd.getPlazoCredito());
+        Integer plazo = 0;
+        if (nd.getPlazoCredito() != null) {
+            plazo = nd.getPlazoCredito();
+        }
+        encabezado.setPlazoCredito(plazo);
         encabezado.setCodigoMoneda(nd.getResumen().getCodigoTipoMoneda().getCodigoTipoMoneda());
 
-        // Algunas facturas traen este campo en cero
+        // Tipo de cambio con corrección CRC = 1.0
         encabezado.setTipoCambio(
                 nd.getResumen().getCodigoTipoMoneda().getTipoCambio() == 0.0 ? 1.0
                 : nd.getResumen().getCodigoTipoMoneda().getTipoCambio()
         );
+        if (nd.getResumen().getCodigoTipoMoneda().getCodigoTipoMoneda().equals("CRC")
+                && nd.getResumen().getCodigoTipoMoneda().getTipoCambio() != 1.0) {
+            encabezado.setTipoCambio(1.0);
+        }
 
+        // Totales (alineado con Factura)
         encabezado.setTotalComprobante(nd.getResumen().getTotalComprobante());
         encabezado.setTotalDescuentos(nd.getResumen().getTotalDescuentos());
         encabezado.setTotalExento(nd.getResumen().getTotalExento());
@@ -599,9 +680,14 @@ public class Convert {
         encabezado.setTotalServExentos(nd.getResumen().getTotalServExentos());
         encabezado.setTotalServExonerado(nd.getResumen().getTotalServExonerado());
         encabezado.setTotalServGravados(nd.getResumen().getTotalServGravados());
+        encabezado.setTotalServNoSujeto(nd.getResumen().getTotalServNoSujeto());
+        encabezado.setTotalMercNoSujeta(nd.getResumen().getTotalMercNoSujeta());
+        encabezado.setTotalNoSujeto(nd.getResumen().getTotalNoSujeto());
+
         encabezado.setTotalVenta(nd.getResumen().getTotalVenta());
         encabezado.setTotalVentaNeta(nd.getResumen().getTotalVentaNeta());
 
+        // Detalle
         detalleFactura = nd.getDetalle();
     }
 
