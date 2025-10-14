@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,6 +18,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class ConvertTest {
 
     private Path tempFile;
+    private Locale oldLocale;
+
+    @org.junit.jupiter.api.BeforeEach
+    void setUpLocale() {
+        oldLocale = Locale.getDefault();
+        Locale.setDefault(Locale.US); // Forzar punto decimal en formateos internos
+    }
 
     @AfterEach
     void cleanup() throws Exception {
@@ -24,6 +32,9 @@ class ConvertTest {
             Files.deleteIfExists(tempFile);
         }
         Files.deleteIfExists(Path.of("workFile.xml"));
+        if (oldLocale != null) {
+            Locale.setDefault(oldLocale); // Restaurar
+        }
     }
 
     @Test
@@ -36,7 +47,29 @@ class ConvertTest {
         Convert conv = new Convert();
         conv.xml(tempFile.toAbsolutePath().toString(), "v4.4");
 
+        // Dump del workFile ANTES de tocar e
+        try {
+            if (Files.exists(Path.of("workFile.xml"))) {
+                String wf = Files.readString(Path.of("workFile.xml"));
+                System.out.println("=== DEBUG workFile.xml (FAC) ===\n" + wf);
+            } else {
+                System.out.println("=== DEBUG === workFile.xml NO existe");
+            }
+        } catch (Exception ignore) {
+        }
+
         Encabezado e = conv.getEncabezado();
+
+        if (e == null) {
+            fail("Encabezado es null tras Convert.xml(). Revisa arriba el dump de workFile.xml.");
+        }
+        System.out.println("=== DEBUG Encabezado (FAC) ==="
+                + " Moneda=" + e.getCodigoMoneda()
+                + " TC=" + e.getTipoCambio()
+                + " MedioPago=" + e.getMedioPago()
+                + " TotalVenta=" + e.getTotalVenta()
+                + " TotalComprobante=" + e.getTotalComprobante());
+
         assertNotNull(e);
         assertEquals("50623010100310123456700100001010000000001100000001", e.getClave());
         assertEquals("FAC", e.getTipoDocumento());
@@ -150,7 +183,7 @@ class ConvertTest {
 
     private String resumenBlock_v44(double total, double tcResumen, double tcEsperado) {
         // MedioPago anidado (Convert primero intenta en Resumen)
-        return """
+        return String.format(Locale.US,"""
                 <ResumenFactura>
                   <CodigoTipoMoneda>
                     <CodigoMoneda>CRC</CodigoMoneda>
@@ -179,11 +212,11 @@ class ConvertTest {
                   <TotalOtrosCargos>0</TotalOtrosCargos>
                   <TotalComprobante>%2$.2f</TotalComprobante>
                 </ResumenFactura>
-               """.formatted(tcResumen, total);
+               """.formatted(tcResumen, total));
     }
 
     private String detalleFacturaBlock(double cantidad, double montoTotal, String cabys) {
-        return """
+        return String.format(Locale.US,"""
                 <DetalleServicio>
                   <LineaDetalle>
                     <NumeroLinea>1</NumeroLinea>
@@ -199,7 +232,7 @@ class ConvertTest {
                     <CodigoCABYS>%3$s</CodigoCABYS>
                   </LineaDetalle>
                 </DetalleServicio>
-               """.formatted(cantidad, montoTotal, cabys);
+               """.formatted(cantidad, montoTotal, cabys));
     }
 
     private String dsSig() {
@@ -207,8 +240,11 @@ class ConvertTest {
     }
 
     private String buildFacturaXML_v44(double total, double tcResumen, double tcEsperado) {
-        return nsHeader() + """
-               <FacturaElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/facturaElectronica">
+        return nsHeader() + String.format(Locale.US,"""
+               <FacturaElectronica
+                 xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/facturaElectronica"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/facturaElectronica https://atv.hacienda.go.cr/ATV/ComprobanteElectronico/docs/esquemas/2024/v4.4/FacturaElectronica_V4.4.xsd">
                  <Clave>50623010100310123456700100001010000000001100000001</Clave>
                  <ProveedorSistemas>MiSistema</ProveedorSistemas>
                  <CodigoActividadEmisor>56101</CodigoActividadEmisor>
@@ -217,16 +253,16 @@ class ConvertTest {
                """ + emisorBlock() + receptorBlock() + """
                  <CondicionVenta>01</CondicionVenta>
                  <PlazoCredito>30</PlazoCredito>
-                 <MedioPago><TipoMedioPago>99</TipoMedioPago></MedioPago>
+                 <MedioPago><TipoMedioPago>01</TipoMedioPago></MedioPago>
                """ + detalleFacturaBlock(1.0, total, "2118403000107")
                 + resumenBlock_v44(total, tcResumen, tcEsperado)
                 + dsSig()
-                + "\n</FacturaElectronica>";
+                + "\n</FacturaElectronica>");
     }
 
     private String buildNCRXML_v44(double total, double tcResumen, double tcEsperado) {
-        return nsHeader() + """
-               <NotaCreditoElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/facturaElectronica">
+        return nsHeader() + String.format(Locale.US,"""
+               <NotaCreditoElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/notaCreditoElectronica">
                  <Clave>NCR-001</Clave>
                  <ProveedorSistemas>MiSistema</ProveedorSistemas>
                  <CodigoActividadEmisor>56101</CodigoActividadEmisor>
@@ -239,12 +275,12 @@ class ConvertTest {
                """ + detalleFacturaBlock(1.0, total, "2118403000107")
                 + resumenBlock_v44(total, tcResumen, tcEsperado)
                 + dsSig()
-                + "\n</NotaCreditoElectronica>";
+                + "\n</NotaCreditoElectronica>");
     }
 
     private String buildNDBXML_v44(double total, double tcResumen, double tcEsperado) {
-        return nsHeader() + """
-               <NotaDebitoElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/facturaElectronica">
+        return nsHeader() + String.format(Locale.US,"""
+               <NotaDebitoElectronica xmlns="https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/notaDebitoElectronica">
                  <Clave>NDB-001</Clave>
                  <ProveedorSistemas>MiSistema</ProveedorSistemas>
                  <CodigoActividadEmisor>56101</CodigoActividadEmisor>
@@ -257,7 +293,7 @@ class ConvertTest {
                """ + detalleFacturaBlock(2.0, total, "2118403000107")
                 + resumenBlock_v44(total, tcResumen, tcEsperado)
                 + dsSig()
-                + "\n</NotaDebitoElectronica>";
+                + "\n</NotaDebitoElectronica>");
 
     }
 }

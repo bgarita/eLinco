@@ -119,6 +119,13 @@ public class DocumentoController {
                 if (encabezado.getNombreComercialReceptor() == null || encabezado.getNombreComercialReceptor().isBlank()) {
                     encabezado.setNombreComercialReceptor(nombreComercial);
                 }
+                
+                // Bosco 11/10/2025
+                // El medio de pago cambió en la versión 4.4 del xml por lo que siempre quedará nulo
+                // ya que no este campo no parece ser importante para este sistema.
+                // Si en algún momento lo piden entonces se ajustará el campo ya que ahora es compuesto.
+                encabezado.setMedioPago(" ");
+                
                 /*
                 if (encabezado.getNombreComercialReceptor() == null) {
                     encabezado.setNombreComercialReceptor(encabezado.getNombreReceptor());
