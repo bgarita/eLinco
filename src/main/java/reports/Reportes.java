@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -70,23 +71,34 @@ public class Reportes {
     }
 
     public String createDocument(
-            String jasperForm, 
-            String format, 
-            int year, 
-            int month, 
-            String receptor, 
-            String emisor, 
-            String tipoDoc, String nombreCom) throws FeException{
+            String jasperForm,
+            String format,
+            int year,
+            int month,
+            String receptor,
+            String emisor,
+            String tipoDoc, String nombreCom) throws FeException {
         File f = new File(REPORTS_BASE_DIR + "/" + jasperForm);
         File pdf = new File(PDF_FILES);
         String archivo = pdf + "/Doc";
 
+        // DEBUG:
+        System.out.println("CWD = " + new File(".").getAbsolutePath());
+
         try {
+
+//            JasperReport masterReport
+//                    = JasperCompileManager.compileReport("reports/Xmls.jrxml");
             if (!f.exists() || f.isDirectory()) {
                 throw new FeException(this.getClass().getName(), "createDocument()",
-                        "No encuentro el archivo de impresión. \n" +
-                        "Debería estar en: " + f.getAbsolutePath());
+                        "No encuentro el archivo de impresión. \n"
+                        + "Debería estar en: " + f.getAbsolutePath());
             } // end if
+
+            // DEBUG:
+            System.out.println("DEBUG Report file: " + f.getAbsolutePath()
+                    + " exists=" + f.exists()
+                    + " len=" + f.length());
 
             masterReport = (JasperReport) JRLoader.loadObject(f);
 
@@ -97,7 +109,7 @@ public class Reportes {
             parameters.put("p_emisor", emisor);
             parameters.put("p_tipoDoc", tipoDoc);
             parameters.put("p_nombreCom", nombreCom);
-            
+
             JasperPrint jasperPrint
                     = JasperFillManager.fillReport(f.getAbsolutePath(), parameters, this.conn);
 
@@ -121,9 +133,15 @@ public class Reportes {
             }
 
         } catch (FeException | JRException ex) {
+            System.err.println("=== JRException en createDocument() ===");
+            ex.printStackTrace();
+            if (ex.getCause() != null) {
+                System.err.println("=== CAUSE ===");
+                ex.getCause().printStackTrace();
+            }
             throw new FeException(this.getClass().getName(), "createDocument()",
-                    ex.getMessage());
-        } // end try-catch
-        return archivo.replace("\\","/");
+                    ex.getMessage(), ex);
+        }
+        return archivo.replace("\\", "/");
     }
 }

@@ -312,6 +312,16 @@ public class Convert {
             unmarshaller = context.createUnmarshaller();
             fa = (FacturaElectronica) unmarshaller.unmarshal(new File(wrkFile));
         } catch (JAXBException ex) {
+            // DEBUG extra para ver los 4 IllegalAnnotationExceptions
+            System.err.println("=== JAXBException al crear JAXBContext/unmarshal ===");
+            ex.printStackTrace();
+            // Si es IllegalAnnotationsException, suele traer detalles en getLinkedException
+            Throwable linked = ex.getLinkedException();
+            if (linked != null) {
+                System.err.println("=== Linked exception ===");
+                linked.printStackTrace();
+            }
+
             throw new FeException(
                     this.getClass().getName(),
                     "",
@@ -526,7 +536,7 @@ public class Convert {
             plazo = nc.getPlazoCredito();
         }
         encabezado.setPlazoCredito(plazo);
-        
+
         // Moneda y tipo de cambio
         encabezado.setCodigoMoneda(nc.getResumen().getCodigoTipoMoneda().getCodigoTipoMoneda());
         encabezado.setTipoCambio(

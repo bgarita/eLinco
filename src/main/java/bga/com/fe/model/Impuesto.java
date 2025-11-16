@@ -22,7 +22,7 @@ public class Impuesto implements Serializable {
     @Column(name="codigo_impuesto")
     private String codigoImpuesto;
     @Column(name="codigo_tarifa")
-    private String codigoTarifa;
+    private String codigoTarifaIVA;
     private Float tarifa;
     private Double monto;
     
@@ -55,12 +55,12 @@ public class Impuesto implements Serializable {
         this.codigoImpuesto = codigoImpuesto;
     }
 
-    public String getCodigoTarifa() {
-        return codigoTarifa;
+    public String getCodigoTarifaIVA() {
+        return codigoTarifaIVA;
     }
 
-    public void setCodigoTarifa(String codigoTarifa) {
-        this.codigoTarifa = codigoTarifa;
+    public void setCodigoTarifaIVA(String codigoTarifaIVA) {
+        this.codigoTarifaIVA = codigoTarifaIVA;
     }
 
     public Float getTarifa() {
