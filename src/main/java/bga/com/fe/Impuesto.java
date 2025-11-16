@@ -1,5 +1,7 @@
 package bga.com.fe;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -7,19 +9,31 @@ import javax.xml.bind.annotation.XmlType;
  *
  * @author bosco
  */
-@XmlType(propOrder = {"codigo", "codigoTarifa", "tarifa", "factorIVA", "monto"})
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(
+    propOrder = {"codigo", "codigoTarifaIVA", "tarifa", "factorCalculoIVA", "monto"}
+)
 public class Impuesto {
+
+    @XmlElement(name = "Codigo")
     private String codigo;
-    private String codigoTarifa;    // Julio 2019
+
+    @XmlElement(name = "CodigoTarifa")
+    private String codigoTarifaIVA;
+
+    @XmlElement(name = "Tarifa")
     private float tarifa;
-    private float factorIVA;        // Julio 2019
+
+    private float factorCalculoIVA; // Este campo no parece estarse enviando a la base de datos 12/11/2026 (pendiente implementación)
+
+    @XmlElement(name = "Monto")
     private double monto;
     
     
     public Impuesto(){
         this.codigo = "";
-        this.codigoTarifa = "";
-        this.factorIVA = 0f;
+        this.codigoTarifaIVA = "";
+        this.factorCalculoIVA = 0f;
         this.monto = 0.0;
     } // end empty constructor
     
@@ -28,44 +42,38 @@ public class Impuesto {
         return codigo;
     }
 
-    @XmlElement(name = "Codigo")
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
-    @XmlElement(name = "CodigoTarifa")
-    public void setCodigoTarifa(String codigoTarifa) {
-        this.codigoTarifa = codigoTarifa;
+    public String getCodigoTarifaIVA() {
+        return codigoTarifaIVA;
     }
 
-    public String getCodigoTarifa() {
-        return codigoTarifa;
+    public void setCodigoTarifaIVA(String codigoTarifaIVA) {
+        this.codigoTarifaIVA = codigoTarifaIVA;
     }
     
     public float getTarifa() {
         return tarifa;
     }
 
-    @XmlElement(name = "Tarifa")
     public void setTarifa(float tarifa) {
         this.tarifa = tarifa;
     }
 
-    public float getFactorIVA() {
-        return factorIVA;
+    public float getFactorCalculoIVA() {
+        return factorCalculoIVA;
     }
 
-    @XmlElement(name = "FactorIVA")
-    public void setFactorIVA(float factorIVA) {
-        this.factorIVA = factorIVA;
+    public void setFactorCalculoIVA(float factorCalculoIVA) {
+        this.factorCalculoIVA = factorCalculoIVA;
     }
 
-    
     public double getMonto() {
         return monto;
     }
 
-    @XmlElement(name = "Monto")
     public void setMonto(double monto) {
         this.monto = monto;
     }

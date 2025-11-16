@@ -444,7 +444,7 @@ public class DocumentoController {
             bga.com.fe.model.Impuesto imp = new bga.com.fe.model.Impuesto();
             imp.setId(null);
             imp.setCodigoImpuesto(impuesto.getCodigo());
-            imp.setCodigoTarifa(impuesto.getCodigoTarifa());
+            imp.setCodigoTarifaIVA(impuesto.getCodigoTarifaIVA());
             imp.setDetalleId(detalleId);
             imp.setMonto(impuesto.getMonto());
             imp.setTarifa(impuesto.getTarifa());

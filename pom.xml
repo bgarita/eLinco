@@ -18,6 +18,7 @@
 
   <properties>
     <java.version>16</java.version>
+    <jasperreports.version>7.0.3</jasperreports.version>
   </properties>
 
   <dependencies>
@@ -59,7 +60,14 @@
     <dependency>
       <groupId>net.sf.jasperreports</groupId>
       <artifactId>jasperreports</artifactId>
-      <version>6.21.2</version>
+      <version>${jasperreports.version}</version>
+    </dependency>
+    
+    <!-- Exporter PDF para JasperExportManager.exportReportToPdf...) -->
+    <dependency>
+        <groupId>net.sf.jasperreports</groupId>
+        <artifactId>jasperreports-pdf</artifactId>
+        <version>${jasperreports.version}</version>
     </dependency>
 
     <!-- ===== JAXB (javax) para Spring Boot 2.7.x ===== -->
